@@ -800,7 +800,7 @@ $getScheduleById = getScheduleById($_GET['eid']);
 	<option value="">state</option>	
 		<?php
 		global $wpdb;
-		$sorting_query = "SELECT id,state_name,state_short from wp_state";
+		$sorting_query = "SELECT * from {$wpdb->prefix}state";
 		$sorting_states = $wpdb->get_results($sorting_query);
 		$sorting_selected="";
 		foreach($sorting_states as $sortingState){
