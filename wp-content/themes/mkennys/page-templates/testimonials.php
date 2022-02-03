@@ -57,12 +57,15 @@ get_header();
 								<div class="testimonalBox-card">
 									<div class="card-inner-box card-left">
 										<div class="card-box-image">
-										<?php 
+										    <?php 
 											if (has_post_thumbnail( $post_id ) ){
+                                                $thumbnail_id = get_post_meta($post->ID, '_thumbnail_id', true);
+                                                $image = get_post_meta($thumbnail_id, '_wp_attachment_metadata', true);
+                                                $image_url = get_site_url() . '/wp-content/uploads/' . $image['file'];
 
-												$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' ); 
+												// $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' ); 
 												?>
-												<img src="<?= $image[0] ?>" >
+												<img src="<?= $image_url ?>" >
 											<?php } else { ?>
 											<img src="<?= get_template_directory_uri();?>/images/default-picture-bigger.png" />
 											<?php } ?>
@@ -70,7 +73,7 @@ get_header();
 										<div class="card-box-body">
 											<div class="card-box-inner">
 												<div class="card-text">
-													<div class="client-name">Source: <?= $source[0] ?></div>
+													<div class="source-name">Source: <?= $source[0] ?></div>
 												</div>
 											</div>
 										</div>
@@ -101,21 +104,61 @@ get_header();
 								</div>
 							</div>
 						</div>
-			<?php } ?>
-			<div class="main_content">
-				<span>
-					
-				</span>
-				<div>				  	
-					<div>
-					<p><b></b></p>
-                    <p> <small><?= $designation[0]; ?></small> </p>
-                	</div>
-				</div>
-			</div>
+			<?php }else{ ?>
+				<div class="testimonalBox-inner">
+					<div class="container">
+						<div class="testimonalBox-card">									
+                            <div class="card-inner-box card-right">
+                                <div class="card-box-body">
+                                    <div class="card-box-inner">
+                                        <div class="card-text">
+                                            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+                                                <style type="text/css">
+                                                    .st0{fill:#FFFFFF;}
+                                                </style>
+                                                <g transform="matrix(1, 0, 0, 1, 0, 0)">
+                                                    <rect id="Rectangle-2" class="st0" width="160" height="160"></rect>
+                                                </g>
+                                                <g>
+                                                    <path d="M57.5,33.6h20.2L56.9,77.3c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6c-14.3,0-25.6-11.6-25.6-25.6
+                                                        c0-5.7,1.8-11.3,4.8-16.1L57.5,33.6z M119.1,33.6h20.2l-20.8,43.8c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6
+                                                        c-14.3,0-25.6-11.6-25.6-25.6c0-5.7,1.8-11.3,4.8-16.1L119.1,33.6z"></path>
+                                                </g>
+                                            </svg>
+                                            <p><?= $testimonial[0] ?></p>
+                                            <div class="client-name"><?= $given_by[0] ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-inner-box card-left">
+                                <div class="card-box-image">
+                                    <?php 
+                                    if (has_post_thumbnail( $post_id ) ){
+                                        $thumbnail_id = get_post_meta($post->ID, '_thumbnail_id', true);
+                                        $image = get_post_meta($thumbnail_id, '_wp_attachment_metadata', true);
+                                        $image_url = get_site_url() . '/wp-content/uploads/' . $image['file'];
 
+                                        // $image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thumbnail' ); 
+                                        ?>
+                                        <img src="<?= $image_url ?>" >
+                                    <?php } else { ?>
+                                    <img src="<?= get_template_directory_uri();?>/images/default-picture-bigger.png" />
+                                    <?php } ?>
+                                </div>
+                                <div class="card-box-body">
+                                    <div class="card-box-inner">
+                                        <div class="card-text">
+                                            <div class="source-name">Source: <?= $source[0] ?></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
 			<?php 
-				} 
+				} }
 				wp_reset_query();
 			?>
 
