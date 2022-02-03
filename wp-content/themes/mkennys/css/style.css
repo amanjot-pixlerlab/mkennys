@@ -1423,6 +1423,22 @@ div.wpcf7-response-output {
 	webkit-box-shadow: 0 8px 20px rgb(0 0 0 / 35%);
     box-shadow: 0 8px 20px rgb(0 0 0 / 35%);
 }
+.designShirt li::marker {
+    color:red;
+    z-index: 1;
+}
+.designShirt li:after {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    background-color: #425161;
+    content: " ";
+    border-radius: 100%;
+    z-index: -1;
+}
 .testimonalBox-inner .testimonalBox-card {
     display: flex;
 }
@@ -1476,7 +1492,7 @@ div.wpcf7-response-output {
 .card-inner-box.card-right .card-text svg .st0 {
     fill: #f9efdf;
 }
- .client-name {
+ .client-name , .source-name{
     font-size: 1.1rem;
     font-style: normal;
     margin-top: 1rem;
@@ -1484,6 +1500,9 @@ div.wpcf7-response-output {
 }
 .card-right .client-name {
     font-size: 1.125rem;
+}
+.designShirt li:nth-child(6) {
+    background-position: right -171px;
 }
 
 @media screen and (max-width:767px) {
@@ -2612,6 +2631,12 @@ div.wpcf7-response-output {
 	right: 20px;
 	cursor: pointer;
 }
+.card-inner-box.card-left  .card-box-inner {
+    border: none;
+}
+.card-inner-box.card-left  .card-box-inner .card-text {
+    padding: 30px 0px;
+}
 @media (max-width: 991px){
 	.home_begning{
 		filter: invert(1);
@@ -3300,6 +3325,10 @@ li:hover .unstyled-anchor {
 .designShirt li:nth-child(5) {
 	background-position: left -135px;
 }
+.designShirt li:nth-child(6) {
+	background-position: left -171px;
+}
+
 .ho_HIT_left {
 	margin: 0;
 	padding: 30px 20px;
