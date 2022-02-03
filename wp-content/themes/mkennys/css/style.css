@@ -1505,6 +1505,9 @@ div.wpcf7-response-output {
 .designShirt li:nth-child(6) {
     background-position: right -171px;
 }
+.direct-feedback {
+    margin-top: 50px;
+}
 
 @media screen and (max-width:767px) {
 	.PBContent{

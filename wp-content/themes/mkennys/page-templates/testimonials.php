@@ -162,7 +162,7 @@ get_header();
 				wp_reset_query();
 			?>
 
-			<h1>Direct feedback from our clients:</h1>
+			<h1 class="direct-feedback">Direct feedback from our clients:</h1>
 			<?php 	
 				$regular_args = array( 
 					'post_type' => 'testimonials', 
