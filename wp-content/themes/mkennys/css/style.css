@@ -1403,7 +1403,14 @@ div.wpcf7-response-output {
 	object-position: center;
 }
 #collars ul li a span {
-    color: #656565;
+    color: #fff;
+    background-color: #000;
+    padding: 6px 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+	width:190px;
 }
 .testimonalBox-card .card-inner-box {
     position: relative;
@@ -1843,7 +1850,8 @@ div.wpcf7-response-output {
 .all_content li .common_image{
 	line-height: 1.3;
 	text-align: center;
-	padding: 10px 10px 8px;
+	padding: 10px 10px 16px;
+	position: relative;
 }
 /* .all_content #collars li .common_image img{ */
 .all_content li .common_image img{
