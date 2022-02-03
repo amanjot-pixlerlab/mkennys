@@ -11,6 +11,7 @@ get_header();
 ?>
 <div class="testimonialPage">
 	<div class="">
+		
 		<div class="testimonialMain">			
 			<!-- <h1><?php the_title(); ?></h1> -->
 
@@ -20,6 +21,70 @@ get_header();
 					<li><h5>Hi Kenny, <br>Thanks again for helping to make our day a little more special and working closely with all of the groomsmen and my Dad!<br>-Tim Dlugos</h5></li>
 					<li><figure><img src="<?php echo get_template_directory_uri();?>/images/wedding-1-2.jpg" alt=""></figure></li>
 				</ul>
+			</div>
+			<div class="testimonalBox-inner">
+				<div class="container">
+					<div class="testimonalBox-card">
+						<div class="card-inner-box card-left">
+							<div class="card-box-image">
+								<img src="<?php echo get_template_directory_uri();?>/images/customer-image.jpg" alt="">
+								
+							</div>
+							<div class="card-box-body">
+								<div class="card-box-inner">
+									<div class="card-text">
+										<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+												<style type="text/css">
+													.st0{fill:#FFFFFF;}
+												</style>
+												<g transform="matrix(1, 0, 0, 1, 0, 0)">
+													<rect id="Rectangle-2" class="st0" width="160" height="160"></rect>
+												</g>
+												<g>
+													<path d="M57.5,33.6h20.2L56.9,77.3c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6c-14.3,0-25.6-11.6-25.6-25.6
+														c0-5.7,1.8-11.3,4.8-16.1L57.5,33.6z M119.1,33.6h20.2l-20.8,43.8c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6
+														c-14.3,0-25.6-11.6-25.6-25.6c0-5.7,1.8-11.3,4.8-16.1L119.1,33.6z"></path>
+												</g>
+												</svg>
+												<p>M Kenny has been my custom clothing maker for years. If you have never tried fitted clothing, you are in for a treat. As a former 
+													financial, advisor, it was important for me to wear suits and ties. M Kenny made all of my suits, sport coats and shirts. One of the real
+													traits is to walk into a place with clothes that cannot be bought off the rack like my custom tux or pink linen sport coat. Heartily 
+													recommend you spend the time to talk to them about your casual and dress clothes.</p>
+												<div class="client-name">Scott Balsam</div>
+											<div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>		
+					<div class="card-inner-box card-right">
+						<div class="card-box-body">
+							<div class="card-box-inner">
+								<div class="card-text">
+									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 160 160" style="enable-background:new 0 0 160 160;" xml:space="preserve">
+										<style type="text/css">
+											.st0{fill:#FFFFFF;}
+										</style>
+											<g transform="matrix(1, 0, 0, 1, 0, 0)">
+												<rect id="Rectangle-2" class="st0" width="160" height="160"></rect>
+											</g>
+											<g>
+												<path d="M57.5,33.6h20.2L56.9,77.3c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6c-14.3,0-25.6-11.6-25.6-25.6
+													c0-5.7,1.8-11.3,4.8-16.1L57.5,33.6z M119.1,33.6h20.2l-20.8,43.8c8,3.9,14.9,12.5,14.9,23.5c0,14-11.3,25.6-25.6,25.6
+													c-14.3,0-25.6-11.6-25.6-25.6c0-5.7,1.8-11.3,4.8-16.1L119.1,33.6z"></path>
+											</g>
+										</svg>
+											<p>M Kenny has been my custom clothing maker for years. If you have never tried fitted clothing, you are in for a treat. As a former financial, 
+												advisor, it was important for me to wear suits and ties. M Kenny made all of my suits, sport coats and shirts. One of the real traits is to
+												 walk into a place with clothes that cannot be bought off the rack like my custom tux or pink linen sport coat. Heartily recommend you spend 
+												 the time to talk to them about your casual and dress clothes.</p>
+											<div class="client-name">Scott Balsam</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<?php 	
@@ -127,7 +192,9 @@ get_header();
 					<li><figure><img src="<?php echo get_template_directory_uri();?>/images/wedding-2-2.jpg" alt=""></figure></li>
 				</ul>
 			</div>
+
 		</div>
+		
 	</div>
 </div>
 <?php get_footer();  ?>
