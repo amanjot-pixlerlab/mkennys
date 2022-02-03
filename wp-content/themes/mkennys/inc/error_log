@@ -1,0 +1,1 @@
+[04-Dec-2018 23:28:22 UTC] PHP Fatal error:  Call to undefined function add_action() in /home/mkennys/public_html/wp-content/themes/mkennys/inc/customizer.php on line 83

@@ -1,0 +1,160 @@
+[06-Apr-2019 10:08:23 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[08-May-2019 21:24:38 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[16-Jun-2019 21:57:38 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[17-Jul-2019 00:40:51 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[18-Aug-2019 15:16:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[21-Sep-2019 22:18:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[23-Oct-2019 02:07:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[28-Nov-2019 10:15:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[30-Dec-2019 09:43:34 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[14-Feb-2020 23:04:44 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[17-Mar-2020 08:42:43 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[18-Mar-2020 11:50:30 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[21-Apr-2020 12:38:37 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[24-May-2020 17:23:11 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[28-Jul-2020 17:44:19 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[05-Aug-2020 01:11:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[06-Aug-2020 15:31:28 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[06-Aug-2020 15:35:30 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[07-Sep-2020 13:48:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[15-Sep-2020 01:11:49 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[15-Sep-2020 13:17:35 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[23-Sep-2020 14:18:28 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[14-Oct-2020 10:53:33 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[17-Oct-2020 19:46:01 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[19-Nov-2020 11:19:50 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[24-Nov-2020 15:58:41 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[29-Nov-2020 07:43:40 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[20-Dec-2020 11:23:29 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[26-Dec-2020 22:33:25 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-content/themes/mkennys/index.php on line 17
+[31-Jan-2021 16:20:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[03-Mar-2021 16:27:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[03-Apr-2021 16:32:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[04-May-2021 16:39:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[27-May-2021 14:52:03 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[28-Jun-2021 03:21:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[31-Oct-2021 07:34:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function language_attributes() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/header.php:41
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/header.php on line 41
+[31-Oct-2021 07:34:55 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/archive.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/archive.php on line 19
+[31-Oct-2021 07:34:56 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[01-Nov-2021 15:52:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17
+[05-Nov-2021 11:33:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/customer/www/mkennys.com/public_html/wp-content/themes/mkennys/index.php on line 17

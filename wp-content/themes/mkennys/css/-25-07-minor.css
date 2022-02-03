@@ -1,0 +1,247 @@
+.contactCustomPopOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0,0,0,.5);
+	z-index: 1000;
+	display: none;
+}
+.page-template-contact .wpcf7-response-output {
+	display: none !important;
+}
+.getFittedBtn a {
+	color: #fff;
+}
+.headerRight {
+	padding-right: 40px;
+}
+.getFittedBtn {
+	height: auto;
+	position: static;
+	padding: 0;
+	background: #556e88;
+	border-radius: 3px;
+}
+.getFittedBtn a {
+	color: #fff !important;
+	font-size: 15px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 5px 15px !important;
+	display: block;
+}
+.PBContent h2 {
+	font-size: 24px;
+}
+.womenDecsInner strong {
+	font-weight: 400;
+}
+.homeTagLine {
+	padding: 50px;
+	text-align: center;
+	line-height: 2;
+	color: #383838;
+	font-size: 17px;
+	max-width: 100%;
+	width: 840px;
+	margin: 0px auto;
+	max-width: 100%;
+}
+.homeTagLine h3 {
+	font-size: 22px;
+}
+.headerRight {
+	padding-top: 8px;
+}
+.widget_wysija {
+	display: block !important;
+}
+.getFitted {
+	width: 130px;
+	text-align: center;
+}
+.captchaClick {
+	text-transform: uppercase;
+}
+.captchaHere {
+	color: #13446C;
+	text-decoration: underline;
+}
+.office_details_icon {
+	background: url(../images/location-icon.png) no-repeat;
+	padding-left: 28px;
+	background-position: 0px 2px;
+}
+.trueFitted {
+	margin-top: 50px;
+}
+.findTaylor .office_details_icon {
+	padding-bottom: 5px;
+}
+.trueFitted ul {
+	padding-left: 30px;
+}
+#indicator {
+	margin-left: 30px;
+	margin-top: 10px;
+}
+.PSList li figure img {
+    cursor: pointer;
+}
+.partnerSection li img {
+  width: 70%;
+  display: inline-block;
+}
+
+.gallery-caption {
+  border-bottom: 1px solid #eee;
+  color: #666;
+  padding: 10px 0 20px;
+  text-align: center;
+}
+
+.partnerSection li {
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.partnerSection b {
+  font-size: 20px;
+}
+
+.faq_content h2 {
+  font-size: 23px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.search-header {
+  
+  
+}
+.contentPage h1 {
+  color: #323232;
+  float: left;
+  font-family: "brandon_grotesquebold";
+  font-size: 35px;
+  width: 190px;
+}
+.header-search {
+  font-size: 35px;
+  margin-left: 250px;
+  overflow: visible;
+  position: relative;
+}
+.header-search > input {
+  background-color: #fff;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+display: inline-block;
+font-size: 21px;
+outline: medium none;
+padding: 10px 15px;
+position: relative;
+top: -4px;
+width: 100%;
+}
+.header-search > ul {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  font-size: 19px;
+  left: 0;
+  list-style: outside none none;
+  position: absolute;
+  width: 100%;
+  
+}
+.header-search > ul > li:first-child {
+  border-radius: 5px 5px 0 0;
+  border-top: 1px solid #ccc;
+}
+.header-search > ul > li {
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  border-color: currentcolor #ccc;
+  border-image: none;
+  border-style: none solid;
+  border-width: medium 1px;
+  padding: 0 15px;
+
+  -webkit-transition:all 0.1s;
+  -moz-transition:all 0.1s;
+  transition:all 0.1s;
+}
+.header-search > ul > li:last-child {
+  border-bottom: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;  
+}
+
+.header-search > ul > li:hover {
+  background-color: rgba(66, 92, 119, 0.1);
+  cursor: pointer;
+}
+
+.header-search > ul > li:active {
+  background-color: rgba(66, 92, 119, 0.2);
+}
+
+.testimonialPage {
+  border-top: 1px solid #eaebed;
+  color: #323232;
+  font-size: 18px;
+  padding: 50px 0;
+}
+
+.testimonialMain {
+   margin: 0 auto;
+   max-width: 100%;
+   padding: 40px 0;
+   width: 900px;
+}
+.testimonialMain h1 {
+   font-family: "brandon_grotesquebold";
+   font-size: 30px;
+   padding: 0 0 30px;
+   text-align: center;
+}
+.testimonialMain .main_content {
+   color: #555555 ;
+   font-size: 16px;
+   line-height: 1.7;
+   margin-bottom: 40px;
+   padding-bottom: 40px;
+   background: rgba(0, 0, 0, 0) url("../images/sperator.png") no-repeat scroll center bottom;
+   background-size: 100% auto;
+}
+.testimonialMain .main_content span {
+   display: block;
+   padding-bottom: 10px;
+}
+.testimonialMain .main_content div > img {
+   border-radius: 50%;
+   display: inline-block;
+   margin-right: 10px;
+   vertical-align: middle;
+   width: 60px;
+}
+.testimonialMain .main_content div > div {
+   display: inline-block;
+   vertical-align: middle;
+}
+.testimonials_home { 
+  text-align: center;
+}
+.testimonials_home .fitted_btn {
+    font-family: "Roboto Condensed",sans-serif;
+    font-size: 13px;
+    margin-top: 25px;
+    padding: 6px 15px;
+}

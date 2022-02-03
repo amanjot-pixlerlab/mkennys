@@ -1,0 +1,18 @@
+[29-Jun-2017 05:56:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/trsoftwaregroup/public_html/dev/mkennys/wp-content/themes/twentyfifteen/form.php:55) in /home/trsoftwaregroup/public_html/dev/mkennys/wp-includes/pluggable.php on line 1195
+[28-Nov-2017 23:13:18 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/twentyfifteen/index.php on line 17
+[24-Mar-2018 18:11:15 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[24-Mar-2018 18:11:16 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[25-Mar-2018 16:26:08 UTC] PHP Fatal error:  Call to undefined function language_attributes() in /home/mkennys/public_html/wp-content/themes/mkennys/header.php on line 21
+[26-Mar-2018 09:34:52 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
+[26-Mar-2018 09:34:53 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
+[03-Jul-2018 15:15:10 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[03-Jul-2018 15:15:10 UTC] PHP Fatal error:  Call to undefined function language_attributes() in /home/mkennys/public_html/wp-content/themes/mkennys/header.php on line 41
+[03-Jul-2018 15:15:10 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
+[03-Jul-2018 15:15:10 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[03-Jul-2018 15:15:11 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
+[04-Dec-2018 23:28:23 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[15-Dec-2018 18:56:52 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[15-Dec-2018 18:56:52 UTC] PHP Fatal error:  Call to undefined function language_attributes() in /home/mkennys/public_html/wp-content/themes/mkennys/header.php on line 41
+[15-Dec-2018 18:56:53 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
+[15-Dec-2018 18:56:54 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/archive.php on line 19
+[15-Dec-2018 18:56:54 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/mkennys/public_html/wp-content/themes/mkennys/index.php on line 17
