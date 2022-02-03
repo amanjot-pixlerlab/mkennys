@@ -1,0 +1,13 @@
+[11-Feb-2020 20:43:35 CST6CDT] PHP Fatal error:  Class 'getid3_handler' not found in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php on line 18
+[14-Mar-2020 06:04:45 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'getid3_handler' not found in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php on line 18
+[03-Apr-2020 00:49:59 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'getid3_handler' not found in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php on line 18
+[20-Jun-2020 04:48:29 CST6CDT] PHP Fatal error:  Uncaught Error: Class 'getid3_handler' not found in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/ID3/module.audio.ac3.php on line 18

@@ -1,0 +1,7 @@
+[28-Nov-2017 23:04:34 UTC] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/mkennys/public_html/wp-includes/rss-functions.php on line 8
+[17-Apr-2018 01:00:44 UTC] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/mkennys/public_html/wp-includes/locale.php on line 10
+[17-Apr-2018 01:48:01 UTC] PHP Fatal error:  Call to undefined function _deprecated_file() in /home/mkennys/public_html/wp-includes/locale.php on line 10
+[07-Jun-2018 22:29:06 UTC] PHP Fatal error:  Class 'Walker' not found in /home/mkennys/public_html/wp-includes/class-walker-nav-menu.php on line 17
+[20-Nov-2018 05:16:06 UTC] PHP Fatal error:  Call to undefined function is_robots() in /home/mkennys/public_html/wp-includes/template-loader.php on line 28
+[09-Feb-2019 11:23:56 UTC] PHP Warning:  require(ABSPATHWPINC/Text/Diff.php): failed to open stream: No such file or directory in /home/mkennys/public_html/wp-includes/wp-diff.php on line 13
+[09-Feb-2019 11:23:56 UTC] PHP Fatal error:  require(): Failed opening required 'ABSPATHWPINC/Text/Diff.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/mkennys/public_html/wp-includes/wp-diff.php on line 13

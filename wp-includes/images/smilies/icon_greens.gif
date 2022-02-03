@@ -1,0 +1,1870 @@
+﻿
+
+<!DOCTYPE html>
+
+<html lang="nl-NL" class="no-js">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<link rel="pingback" href="https://mkennys.com/xmlrpc.php">
+
+<link rel="icon" type="image/png" href="https://mkennys.com/wp-content/themes/mkennys/images/favicon.png" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet"
+ href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />  
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700" rel="stylesheet">
+
+<link href="https://mkennys.com/wp-content/themes/mkennys/fonts/stylesheet.css" rel="stylesheet" type="text/css">
+
+<link href="https://mkennys.com/wp-content/themes/mkennys/css/owl.carousel.css" rel="stylesheet" type="text/css">
+<link href="https://mkennys.com/wp-content/themes/mkennys/css/owl.theme.css" rel="stylesheet" type="text/css">
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>draft_or_post_title</title>
+<meta name="keywords"  content="#bbbkeybbb#" />
+<meta name="description"  content="#bbbdesbbb#" />
+<link rel='dns-prefetch' href='http://mkennys.com//www.google.com' />
+<link rel='dns-prefetch' href='http://mkennys.com//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='http://mkennys.com//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+
+
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/mkennys.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.6.1"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='validate-engine-css-css'  href='https://mkennys.com/wp-content/plugins/wysija-newsletters/css/validationEngine.jquery.css?ver=2.14' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://mkennys.com/wp-includes/css/dist/block-library/style.min.css?ver=5.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://mkennys.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.3.1' type='text/css' media='all' />
+<link rel='stylesheet' id='math-captcha-frontend-css'  href='https://mkennys.com/wp-content/plugins/wp-math-captcha/css/frontend.css?ver=5.6.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Noto+Sans%3A400italic%2C700italic%2C400%2C700%7CNoto+Serif%3A400italic%2C700italic%2C400%2C700%7CInconsolata%3A400%2C700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='https://mkennys.com/wp-content/themes/mkennys/genericons/genericons.css?ver=3.2' type='text/css' media='all' />
+<link rel='stylesheet' id='twentyfifteen-style-css'  href='https://mkennys.com/wp-content/themes/mkennys/style.css?ver=5.6.1' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentyfifteen-ie-css'  href='https://mkennys.com/wp-content/themes/mkennys/css/ie.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentyfifteen-ie7-css'  href='https://mkennys.com/wp-content/themes/mkennys/css/ie7.css?ver=20141010' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='vc_lte_ie9-css'  href='https://mkennys.com/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.5' type='text/css' media='screen' />
+<![endif]-->
+<script type='text/javascript' src='https://mkennys.com/wp-includes/js/jquery/jquery.min.js?ver=3.5.1' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://mkennys.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<link rel="https://api.w.org/" href="https://mkennys.com/wp-json/" /><link rel="alternate" type="application/json" href="https://mkennys.com/wp-json/wp/v2/pages/4" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mkennys.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://mkennys.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.6.1" />
+
+
+<link rel="alternate" type="application/json+oembed" href="https://mkennys.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmkennys.com%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://mkennys.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmkennys.com%2F&#038;format=xml" />
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		if (window.wfLogHumanRan) { return; }
+		window.wfLogHumanRan = true;
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//mkennys.com/?wordfence_lh=1&hid=F97DC08E88EB01D9568A4F44613C91F0');
+</script><meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>
+<link href="https://mkennys.com/wp-content/themes/mkennys/css/style.css?5srdfdgd45ffgdfgfv223ff3342" rel="stylesheet" type="text/css">
+
+<link href="https://mkennys.com/wp-content/themes/mkennys/css/minor.css" rel="stylesheet" type="text/css">
+
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '447629459300829');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" src="https://www.facebook.com/tr?id=447629459300829&ev=PageView&noscript=1" />
+</noscript>
+<!-- End Facebook Pixel Code -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-45658158-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-45658158-1');
+</script>
+
+
+
+</head>
+
+
+
+<body class="home page-template page-template-page-templates page-template-home page-template-page-templateshome-php page page-id-4 wpb-js-composer js-comp-ver-6.0.5 vc_responsive">
+#bbb1content1bbb#
+
+
+<div class="wrapper">
+<header class="header clearfix">
+            <div class="top_part">
+                <div class="row">
+                    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 ">
+                        <ul class="head_topbar">
+                            <li class="active"><a href="https://mkennys.com/"> Men </a></li>
+                            <li><a href="https://mkennys.com/women"> Women </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+    <div class="logo"> <a href="https://mkennys.com/" rel="home"> <img src="https://mkennys.com/wp-content/themes/mkennys/images/mkennys-logo.svg" class="responsive" alt="Mkennys"> </a> </div>
+
+    <nav class="mainMenu">
+
+        <!-- <ul id="menu-main-menu" class="clearfix"><li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-130"><a href="http://mkennys.com/#">Bespoke Style</a>
+<ul class="sub-menu">
+	<li id="menu-item-55" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-55"><a href="https://mkennys.com/suits/">Suits</a></li>
+	<li id="menu-item-64" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-64"><a href="https://mkennys.com/shirts/">Shirts</a></li>
+	<li id="menu-item-63" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-63"><a href="https://mkennys.com/women/">Women</a></li>
+	<li id="menu-item-62" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-62"><a href="https://mkennys.com/outerwear/">Outerwear</a></li>
+</ul>
+</li>
+<li id="menu-item-19" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-19"><a href="https://mkennys.com/custom-experience/">Custom Experience</a></li>
+<li id="menu-item-17" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-17"><a href="https://mkennys.com/tour-schedules/">Tour Schedule</a></li>
+<li id="menu-item-18" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-18"><a href="https://mkennys.com/about/">About</a>
+<ul class="sub-menu">
+	<li id="menu-item-224" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-224"><a href="https://mkennys.com/testimonial/">Reviews</a></li>
+</ul>
+</li>
+</ul> -->
+
+         <ul class="clearfix" id="menu-main-menu">
+
+            <li>
+<a href="https://mkennys.com/suits/">Custom Style</a>
+
+                <ul class="sub-menu">
+
+                    <li>
+
+                        <div class="menuContainer bespokeMenu">
+
+                            <div class="bespokeMenuLeft">
+
+                                <p><b>Custom Style</b></p>
+
+                                <ul>
+
+                                    <li><a href="https://mkennys.com/suits/">Suits</a></li>
+
+                                    <li><a href="https://mkennys.com/shirts/">Shirts</a></li>
+
+                                    <li><a href="https://mkennys.com/women/">Women's Wear</a></li>
+
+                                    <li><a href="https://mkennys.com/outerwear/">Outerwear</a></li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="bespokeMenuRight">
+<p>#link1#</p>
+
+
+                       
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <!-- <li><a href="http://mkennys.com/tour-schedule/">Tour Schedule</a>
+
+                <ul class="sub-menu">
+
+                    <li>
+
+                        <div class="menuContainer tourMenu">
+
+                            <div class="tourMenuLeft">
+
+                                <p><b>Tour Schedule</b></p>
+
+                                <p>Our traveling tailors set up “trunk shows” in various cities throughout the United States quarterly. This gives our clients a window to personalize their garments and feel fabrics first hand.</p>
+
+                                <p><a href="http://mkennys.com/tour-schedule/" class="menuBtn">View Tour Schedule <i class="fa fa-chevron-right"></i></a></p>
+
+                            </div>
+
+                            <div class="tourMenuRight">
+
+                                <ul>
+
+                                    <li> 
+
+                                        <figure><img src="http://mkennys.com/images/mega-menu/map.jpg"></figure>
+
+                                    </li>
+
+                                    <li>
+
+                                        <div class="HB_visit">
+
+                                            <p><b>UPCOMING CITIES</b></p>
+
+                                            
+                                        </div>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </li> -->
+
+            <li>
+<a href="https://mkennys.com/about/">About</a>
+
+                <ul class="sub-menu">
+
+                    <li>
+
+                        <div class="menuContainer aboutMenu">
+
+                            <div class="aboutMenuLeft">
+
+                                <p><b>About</b></p>
+
+                                <p>We are custom tailors that pride ourselves on getting to know our clients and their personal style preferences. We strive to meet expectations and provide a personalized service to each of our valued clients.</p>
+
+                                <p><a href="https://mkennys.com/about/" class="menuBtn">Learn More <i class="fa fa-chevron-right"></i></a></p>
+
+                            </div>
+
+                            <div class="aboutMenuRight">
+<p>#bbb2content2bbb#</p>
+
+
+                                <ul>
+
+                                    
+                                    <li>
+
+                                        <div class="menuReviews">
+
+                                            <p><b>Reviews</b></p>
+
+                                            I received my shirts today, the fit is perfect and again your service was swift and satisfying. Thank you for the attention. Keep these shirts on file as will be buying more in the future.
+ 
+Again Thank You
+                                            <div class="postedBy">
+
+                                                <p>Christopher Fortune <small></small></p>
+
+                                                <p><a href="https://mkennys.com/testimonial/" class="menuBtn">Read More <i class="fa fa-chevron-right"></i></a></p>
+
+                                            </div>
+
+                                        </div>
+
+                                    </li>
+
+                                    
+                                    <li>
+
+                                        <div class="footerBox">
+
+                                            <p><b>Contact Us</b></p>
+
+                                            <div class="addressBlock">
+
+                                                <div class="phone">
+
+                                                    <p><b>Phone</b></p>
+
+                                                    <p>+ 1 714 573 2199</p>
+
+                                                </div>
+
+                                                <div class="email">
+<p>#link2#</p>
+
+
+                             
+
+</header>
+
+
+
+
+<script>
+
+	$(document).ready(function(e) {
+
+        $('.mobileMenuBtn').click(function() { 
+
+			$('.mobileMenuOverlay').toggleClass('active');
+
+		})
+
+		$('.mobileMenuOverlay').click(function() { 
+
+			$(this).removeClass('active');
+
+		})
+
+
+
+
+
+        /* This code is prevent the user to go to Tour Schedule page */
+
+
+
+        $(document).find('a').each(function(){
+
+            if($(this).attr('href').indexOf('tour-schedules') > 0 && this.id != 'outlook-event' && this.id !='create-event')
+
+            {
+
+                var setHref = 'https://mkennys.com/contact';
+
+                $(this).attr('href',setHref);
+
+            }
+
+        });
+
+                 
+
+        
+
+        /*$('a').click(function(e){ 
+
+            var get_fitted_href = $(this).attr('href'); 
+
+            if(get_fitted_href.indexOf('tour-schedule') >= 0 ) {
+
+                e.preventDefault();
+
+                window.location =  '/contact';
+
+            }
+
+        })*/
+
+    });
+
+
+
+    $(window).load(function(){
+
+        var setHref = 'https://mkennys.com/contact';
+
+        $('.footerPrefix .fitted_btn').attr('href',setHref); 
+
+    });
+
+    jQuery('.getFittedBtn a').click(function(){
+        window.location = 'http://mkennys.com/tour-schedules/'
+    })
+
+</script>
+
+<div class="position-relative commonSection">
+    <div class="home-carousel owl-carousel owl-theme">
+                <div class="item">
+           <div class="container">#descontent#</div>
+            </div>
+        </div>
+        
+<p>#link3#</p>
+</div>
+                <div>
+            <div>
+                     
+                                <p>Hello Kenny,
+
+I trust all is well. I wanted to thank you for the most recent order. After making the necessary adjustments to my sample shirt, the rest of my suits and shirts fit perfectly! At a price similar to off the rack suits, I can't see myself ever wearing anything but an M. Kenny's custom suit. Thanks again for your help and please be sure to send me the catalog you have for men's accessories. Best regards,</p>
+                <div class="TPosted">
+                    <p><b>Chris Fieber</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Mr. Kenny,
+
+The remade blue silk shirt fit great.  I would like to order a less formal, white, cotton, button cuff shirt, with similiar material to my last button cuff white shirt.  I would like it the same size as the blue silk short.  Thanks.</p>
+                <div class="TPosted">
+                    <p><b>David C. Steigmann</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Hey Ken, 
+I just received the last 3 suits from my order. They are beautiful. I had them pressed so I could wear one of them to a friend's wedding last weekend. I couldn't be happier with the style and fit. You truly are a master of your craft. Hope to see you soon!</p>
+                <div class="TPosted">
+                    <p><b>Dave Young</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Kenny:
+Just received my order. I am surprised at how well everything fits! I should have gotten your help a while ago...I love the monogramming on my shirts, definitely eye-catching. Please let me know when you plan on returning to Milwaukee so I can bring a few of my co-workers to you. See you then.</p>
+                <div class="TPosted">
+                    <p><b>John Betts</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Kenny, 
+
+Just got my shirts and matching ties. My girl friend and I love everything! Thank you so much!</p>
+                <div class="TPosted">
+                    <p><b>Arjun Bakshi</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Dear Mr. Kenny:  I received the four blouses and one suit already.  I love the navy suit and it fits perfectly.  It is being pressed now and I will be wearing it to my installation banquet.  Thank you ever so much.</p>
+                <div class="TPosted">
+                    <p><b>Sherry Marshall</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>M. Kenny - The sample shirt has just arrived and is absolutely wonderful. I am just disappointed that I did not order more when I last saw you! Please send the rest of my clothing and let me know when you're in town next.</p>
+                <div class="TPosted">
+                    <p><b>Patrick Samson</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Hi Kenny: The suit coat and blouses that you altered arrived today and they are now perfect! And the pink blouse you made for me is just BEAUTIFUL!! Thank you so much for helping me to look good. We'll see you soon!</p>
+                <div class="TPosted">
+                    <p><b>Laura Pyle</b></p>
+                    <p> <small>Chief of Staff</small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Mr. Kenny, My husband's suits and shirts have just arrived and they look and feel great! Thank you for helping my husband to transform his wardrobe into a work of art. Never before has he received so many compliments on his clothing!</p>
+                <div class="TPosted">
+                    <p><b>Ms. Sandra Lyn</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Kenny, I wanted to thank you for the clothing. Great shirts at a great price - I must say that "affordable elegance" is your specialty. To top it off, your expert tailors and employees should be rated as #1 in customer service.</p>
+                <div class="TPosted">
+                    <p><b>Deron Fields</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Kenny, I just wanted to take a minute to write an e-mail to say 'thanks'. I have just tried on the blazer, shirt, and tuxedo and I can honestly say that they are the most comfortable and perfectly fitted pieces of clothing I now own. Furthermore, the clothing has reaffirmed the fact that I will probably never shop at a department store again.</p>
+                <div class="TPosted">
+                    <p><b>Jason Reynolds</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>To whom it may concern: It is with a great deal of pleasure I write this unsolicited testimonial regarding my experiences with M. Kenny Tailors. Mr. Kenny made my first custom made suit for my Chiropractic College Graduation in 1976. And, for the past 31 years he has been making virtually all my clothes...I would like to say that I can without reservation say that I would highly recommend Mr. Kenny's services to anyone. Sincerely,</p>
+                <div class="TPosted">
+                    <p><b>Dr. William M. Pollack, Jr.</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>Kenny, As a customer for several years I have seen many tailors come across my way. I can honestly say, however, that I will and always will be a loyal customer of yours. I can't wait to order my next set of shirts!</p>
+                <div class="TPosted">
+                    <p><b>Moses P. Hunt</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>"Kenny, As a customer for several years, I have seen many tailors come across my way. I can honestly say, however, that I will and always will be a loyal customer of yours. I can't wait to order my next set of shirts!"</p>
+                <div class="TPosted">
+                    <p><b>  - Moses P. Hunt</b></p>
+                    <p> <small></small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+                <div>
+            <div>
+                                <div class="SStep">
+                    <figure>
+                        <img src="https://mkennys.com/wp-content/themes/mkennys/images/default-picture-bigger.png">
+                    </figure>
+                </div>
+                                <p>"Dear Mr. Kenny, Mrs. Dreyfus will not permit me to wear any suit other than those made by you these past ten years. The suits look and feel great!"</p>
+                <div class="TPosted">
+                    <p><b> Lee Sherman Dreyfus</b></p>
+                    <p> <small>(Former Governor of Wisconsin)</small> </p>
+                    <p>
+                                            </p>
+                </div>
+            </div>
+        </div>
+            </div>
+    <a href="https://mkennys.com/testimonial/" class="fitted_btn">Read More</a>
+
+    
+</div>
+
+<div class="styleSection">
+    <div class="container">
+        <div class="SSContent">
+            <p><b>Suiting America</b></p>
+            <h5>for over 20 years</h5>
+        </div>
+    </div>
+</div>
+
+<script src="https://mkennys.com/wp-content/themes/mkennys/js/owl.carousel.js"></script> 
+<script>
+jQuery('#testimonials').owlCarousel({ 
+	singleItem: true,
+	autoPlay : true,
+	pagination: false
+});
+
+// slider
+jQuery('.home-carousel').owlCarousel({
+        loop: true,
+		singleItem: true,
+		autoPlay: 8000,
+        pagination: true,
+        navigation : true,
+        navigationText:['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>']
+    });
+    
+jQuery('.fittedBtn').click(function(){
+    window.location = 'http://mkennys.com/tour-schedules/'
+})
+
+jQuery(document).ready(function(){ 
+
+	// Feedback Form hide/show
+	
+		jQuery('.feedBackBtn').click(function() { 
+			jQuery('.feedBackform').toggleClass('active')
+		})	
+	
+	
+	
+	
+
+	var fctime = '5';
+	fctime = fctime*1000;
+	setTimeout(function() { 
+		jQuery('.firstComePopup').fadeIn();
+	},fctime)
+	
+	jQuery('.FCclosePopup').click(function() {  
+		jQuery('.firstComePopup').fadeOut();
+	});
+
+    jQuery('.footerPrefix .wysija-submit').click(function() { 
+        jQuery('.customPopOverlay').html('');
+        jQuery('.customPopOverlay').css('position','relative');
+    })
+
+
+});	
+
+
+jQuery('.popupOptions .home_pop').click(function(){  
+  
+  var myVal = jQuery(this).attr('value');
+  
+  
+  if(myVal === 'ok'){  
+	jQuery(this).parents('.popupOptions').hide();
+	jQuery('.FCpopup_message').show();
+  }
+  else { 
+	//console.log(myVal);
+	jQuery('.firstComePopup').hide();
+  }
+})	
+
+
+	
+</script>
+<style>
+	.FCpopup_message{  
+		display: none;
+	}
+</style>
+
+
+
+<link rel="stylesheet" href="https://mkennys.com/wp-content/themes/mkennys/css/validationEngine.jquery.css">
+
+<script src="https://mkennys.com/wp-content/themes/mkennys/js/jquery.validationEngine-en.js"></script>
+
+<script src="https://mkennys.com/wp-content/themes/mkennys/js/jquery.validationEngine.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script type="text/javascript">
+
+	jQuery(document).ready(function(){
+
+			jQuery("#refer_form").validationEngine();
+
+	});
+
+</script>
+
+<div class="footerPrefix">
+
+	<div class="container">
+
+    	<div class="FP_left">
+
+        	<p><b>READY TO START?</b></p>
+
+            <p>Get Fitted in your city</p>
+
+            <p><a href="https://mkennys.com/tour-schedule/" class="fitted_btn">Get Fitted <i class="fa fa-chevron-right"></i></a></p>
+
+        </div>
+
+        <div class="FP_right">
+
+        	<div class="FPR_box">
+
+            	<p><b>Stay informed</b></p>
+
+                <p>Sign up for our newsletter to find out when will be in your city next.</p>
+
+
+
+                <div class="widget_wysija_cont shortcode_wysija">
+<div id="msg-form-wysija-shortcode603c9d6447bcc-2" class="wysija-msg ajax"></div>
+<form id="form-wysija-shortcode603c9d6447bcc-2" method="post" action="#wysija" class="widget_wysija shortcode_wysija">
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][firstname]" class="wysija-input " title="First Name" placeholder="First Name" value="">
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][firstname]" class="wysija-input validated[abs][firstname]" value="">
+    </span>
+    
+</p>
+<p class="wysija-paragraph">
+    
+    
+    	<input type="text" name="wysija[user][email]" class="wysija-input validate[required,custom[email]]" title="Email Address*" placeholder="Email Address*" value="">
+    
+    
+    
+    <span class="abs-req">
+        <input type="text" name="wysija[user][abs][email]" class="wysija-input validated[abs][email]" value="">
+    </span>
+    
+</p>
+<p class="wysija-paragraph">
+	
+    <select class="wysija-select " name="wysija[field][cf_2]">
+        <option value="">State</option>
+        
+            <option value="Alabama">Alabama</option>
+        
+            <option value="Alaska">Alaska</option>
+        
+            <option value="Arizona">Arizona</option>
+        
+            <option value="Arkansas">Arkansas</option>
+        
+            <option value="California">California</option>
+        
+            <option value="Colorado">Colorado</option>
+        
+            <option value="Connecticut">Connecticut</option>
+        
+            <option value="Delaware">Delaware</option>
+        
+            <option value="District Of Columbia">District Of Columbia</option>
+        
+            <option value="Florida">Florida</option>
+        
+            <option value="Georgia">Georgia</option>
+        
+            <option value="Hawaii">Hawaii</option>
+        
+            <option value="Idaho">Idaho</option>
+        
+            <option value="Illinois">Illinois</option>
+        
+            <option value="Indiana">Indiana</option>
+        
+            <option value="Iowa">Iowa</option>
+        
+            <option value="Kansas">Kansas</option>
+        
+            <option value="Kentucky">Kentucky</option>
+        
+            <option value="Louisiana">Louisiana</option>
+        
+            <option value="Maine">Maine</option>
+        
+            <option value="Maryland">Maryland</option>
+        
+            <option value="Massachusetts">Massachusetts</option>
+        
+            <option value="Michigan">Michigan</option>
+        
+            <option value="Minnesota">Minnesota</option>
+        
+            <option value="Mississippi">Mississippi</option>
+        
+            <option value="Missouri">Missouri</option>
+        
+            <option value="Montana">Montana</option>
+        
+            <option value="Nebraska">Nebraska</option>
+        
+            <option value="Nevada">Nevada</option>
+        
+            <option value="New Hampshire">New Hampshire</option>
+        
+            <option value="New Jersey	">New Jersey	</option>
+        
+            <option value="New Mexico">New Mexico</option>
+        
+            <option value="New York">New York</option>
+        
+            <option value="North Carolina">North Carolina</option>
+        
+            <option value="North Dakota">North Dakota</option>
+        
+            <option value="Ohio">Ohio</option>
+        
+            <option value="Oklahoma">Oklahoma</option>
+        
+            <option value="Oregon">Oregon</option>
+        
+            <option value="Pennsylvania">Pennsylvania</option>
+        
+            <option value="Rhode Island">Rhode Island</option>
+        
+            <option value="South Carolina">South Carolina</option>
+        
+            <option value="South Dakota">South Dakota</option>
+        
+            <option value="Tennessee">Tennessee</option>
+        
+            <option value="Texas">Texas</option>
+        
+            <option value="Utah">Utah</option>
+        
+            <option value="Vermont">Vermont</option>
+        
+            <option value="Virginia">Virginia</option>
+        
+            <option value="Washington">Washington</option>
+        
+            <option value="West Virginia">West Virginia</option>
+        
+            <option value="Wisconsin">Wisconsin</option>
+        
+            <option value="Wyoming">Wyoming</option>
+        
+    </select>
+</p>
+
+<input class="wysija-submit wysija-submit-field" type="submit" value="Join">
+
+    <input type="hidden" name="form_id" value="2">
+    <input type="hidden" name="action" value="save">
+    <input type="hidden" name="controller" value="subscribers">
+    <input type="hidden" value="1" name="wysija-page">
+
+    
+        <input type="hidden" name="wysija[user_list][list_ids]" value="3">
+    
+ </form>
+
+<p>#link4#</p>
+</div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+
+    <div class="container">
+
+        <div class="footerBox">
+
+            <p><b>Styles</b></p>
+
+            <ul class="list-unstyled">
+
+                <li><a href="https://mkennys.com/suits/">Suits</a></li>
+
+                <li><a href="https://mkennys.com/shirts/">Shirts</a></li>
+
+                <!--<li><a href="http://mkennys.com/shirts/">Formal Wear</a></li>-->
+
+                <li><a href="https://mkennys.com/women/">Women's Wear</a></li>
+
+                <li><a href="https://mkennys.com/outerwear/">Outerwear</a></li>
+
+
+
+            </ul>
+
+        </div>
+
+        <div class="footerBox">
+
+            <p><b>Help</b></p>
+
+            <ul class="list-unstyled">
+
+                <li><a href="https://mkennys.com/faqs/#faq_118" class="">Shipping &amp; Delivery</a></li>
+
+                <li><a href="https://mkennys.com/faqs/#faq_117" class="">Alterations</a></li>
+
+                <li><a href="https://mkennys.com/faqs/#faq_120" class="">Payments and Inquiries</a></li>
+
+                <li><a href="https://mkennys.com/faqs">FAQ’s</a></li>
+
+			 </ul>
+
+		</div>
+
+        <div class="footerBox">
+
+            <p><b>SUPPORT</b></p>
+
+            <ul class="list-unstyled">
+
+                <!-- <li><a href="http://mkennys.com/tour-schedule/">Tour Schedule</a></li> -->
+
+                <li><a href="http://mkennys.com/javascript:;" class="viewDetail">Refer A Friend</a></li>
+
+                <li><a href="https://mkennys.com/faq/#faq_141" class="">Gift Certificates</a></li>
+
+                <li><a href="https://mkennys.com/corporate-service" class="">Corporate Service</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="footerBox">
+
+            <p><b>Contact Us</b></p>
+
+            <div class="addressBlock">
+
+                <div class="phone">
+
+                    <p><b>Phone</b></p>
+
+                    <p>+ 1 714 573 2199</p>
+
+                </div>
+
+                <div class="email">
+
+                    <p><b>Email</b></p>
+
+                    <p><a href="http://mkennys.com/mailto:info@mkennys.com">info@mkennys.com</a></p>
+
+                </div>
+
+                <div class="address">
+
+                    <p><b>US Office</b></p>
+
+                    <p>1350 Reynolds Avenue, Suite 103<br>
+
+                       Irvine, CA. 92614</p>
+
+                </div>
+
+                <div class="address">
+
+                    <p><b>Asia: Hong Kong</b></p>
+
+                    <p>1203 Oriental Center<br>
+
+                        67-70 Chatham Road<br>
+
+                        Kowloon TST, Hong Kong</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer_bottom">
+
+    	<div class="container">
+
+            <ul class="copy_right unstyled-list">
+
+                <!-- <li>&copy;  M. Kenny’s Fashions. All rights reserved</li> -->
+                <li>© 2021 True Fitted by M. Kenny's. All rights reserved</li>
+
+                <li><a href="https://mkennys.com//privacy">Privacy Policy</a></li>
+
+            </ul>
+
+            <div class="social_footer">
+
+                <p>FOLLOW US</p>
+
+                <ul class="social unstyled-list">
+
+                    <li class="fb"> <a target="_blank" href="https://www.facebook.com/pages/M-Kennys-Fashions-Inc/154636154604317"></a>
+</li>
+
+                    <li class="ln"><a target="_blank" href="http://www.linkedin.com/in/mkenny"></a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</div>
+
+
+
+
+
+<div id="referFriend" style="display:none;" class="ReferFriend">
+
+    <div class="FCpopup_inner">
+
+    <div class="FCpopup_element">
+
+            <div class="FCpopup_content FPR_box2">
+
+                <button class="FCclosePopup">+</button>
+
+
+
+
+
+                <div class="FCpopup_description">
+
+                    Love Your Suit/Shirt? Refer-A-Friend and receive a complimentary custom shirt on us.
+
+                </div>
+
+
+
+                <div class="FCpopup_message ">
+
+                    <form method="POST" id="refer_form" action="">
+
+
+
+                            <div class="input_content">
+
+                                <input type="text" class="validate[required]" placeholder="Your Name" name="from_name">
+
+                            </div>
+
+                            <div class="input_content">
+
+                                <input type="text" placeholder="Your Email" class="validate[required,custom[email]]" name="from_email">
+
+                            </div>
+
+                            <div class="input_content select">
+
+                                 <select class="validate[required]" name="from_state">
+
+                                    <option value="" disabled selected>State</option>
+
+                                    
+                                            <option value="Alabama">Alabama</option>
+
+                                        
+                                            <option value="Alaska">Alaska</option>
+
+                                        
+                                            <option value="Arizona">Arizona</option>
+
+                                        
+                                            <option value="Arkansas">Arkansas</option>
+
+                                        
+                                            <option value="California">California</option>
+
+                                        
+                                            <option value="Colorado">Colorado</option>
+
+                                        
+                                            <option value="Connecticut">Connecticut</option>
+
+                                        
+                                            <option value="Delaware">Delaware</option>
+
+                                        
+                                            <option value="District Of Columbia">District Of Columbia</option>
+
+                                        
+                                            <option value="Florida">Florida</option>
+
+                                        
+                                            <option value="Georgia">Georgia</option>
+
+                                        
+                                            <option value="Hawaii">Hawaii</option>
+
+                                        
+                                            <option value="Idaho">Idaho</option>
+
+                                        
+                                            <option value="Illinois">Illinois</option>
+
+                                        
+                                            <option value="Indiana">Indiana</option>
+
+                                        
+                                            <option value="Iowa">Iowa</option>
+
+                                        
+                                            <option value="Kansas">Kansas</option>
+
+                                        
+                                            <option value="Kentucky">Kentucky</option>
+
+                                        
+                                            <option value="Louisiana">Louisiana</option>
+
+                                        
+                                            <option value="Maine">Maine</option>
+
+                                        
+                                            <option value="Maryland">Maryland</option>
+
+                                        
+                                            <option value="Massachusetts">Massachusetts</option>
+
+                                        
+                                            <option value="Michigan">Michigan</option>
+
+                                        
+                                            <option value="Minnesota">Minnesota</option>
+
+                                        
+                                            <option value="Mississippi">Mississippi</option>
+
+                                        
+                                            <option value="Missouri">Missouri</option>
+
+                                        
+                                            <option value="Montana">Montana</option>
+
+                                        
+                                            <option value="Nebraska">Nebraska</option>
+
+                                        
+                                            <option value="Nevada">Nevada</option>
+
+                                        
+                                            <option value="New Hampshire">New Hampshire</option>
+
+                                        
+                                            <option value="New Jersey">New Jersey</option>
+
+                                        
+                                            <option value="New Mexico">New Mexico</option>
+
+                                        
+                                            <option value="New York">New York</option>
+
+                                        
+                                            <option value="North Carolina">North Carolina</option>
+
+                                        
+                                            <option value="North Dakota">North Dakota</option>
+
+                                        
+                                            <option value="Ohio">Ohio</option>
+
+                                        
+                                            <option value="Oklahoma">Oklahoma</option>
+
+                                        
+                                            <option value="Oregon">Oregon</option>
+
+                                        
+                                            <option value="Pennsylvania">Pennsylvania</option>
+
+                                        
+                                            <option value="Rhode Island">Rhode Island</option>
+
+                                        
+                                            <option value="South Carolina">South Carolina</option>
+
+                                        
+                                            <option value="South Dakota">South Dakota</option>
+
+                                        
+                                            <option value="Tennessee">Tennessee</option>
+
+                                        
+                                            <option value="Texas">Texas</option>
+
+                                        
+                                            <option value="Utah">Utah</option>
+
+                                        
+                                            <option value="Vermont">Vermont</option>
+
+                                        
+                                            <option value="Virginia">Virginia</option>
+
+                                        
+                                            <option value="Washington">Washington</option>
+
+                                        
+                                            <option value="West Virginia">West Virginia</option>
+
+                                        
+                                            <option value="Wisconsin">Wisconsin</option>
+
+                                        
+                                            <option value="Wyoming">Wyoming</option>
+
+                                        
+
+
+                                </select>
+
+                            </div>
+
+                            <div class="input_content">
+
+                                <input type="text" class="validate[required]" placeholder="Friend's Name" name="to_name">
+
+                            </div>
+
+                            <div class="input_content">
+
+                                <input type="text" placeholder="Friend's Email" class="validate[required,custom[email]]" name="to_email">
+
+                            </div>
+
+                            <div class="input_content select">
+
+                                <select class="validate[required]" name="to_state">
+
+                                    <option value="" disabled selected>State</option>
+
+                                    
+                                            <option value="Alabama">Alabama</option>
+
+                                        
+                                            <option value="Alaska">Alaska</option>
+
+                                        
+                                            <option value="Arizona">Arizona</option>
+
+                                        
+                                            <option value="Arkansas">Arkansas</option>
+
+                                        
+                                            <option value="California">California</option>
+
+                                        
+                                            <option value="Colorado">Colorado</option>
+
+                                        
+                                            <option value="Connecticut">Connecticut</option>
+
+                                        
+                                            <option value="Delaware">Delaware</option>
+
+                                        
+                                            <option value="District Of Columbia">District Of Columbia</option>
+
+                                        
+                                            <option value="Florida">Florida</option>
+
+                                        
+                                            <option value="Georgia">Georgia</option>
+
+                                        
+                                            <option value="Hawaii">Hawaii</option>
+
+                                        
+                                            <option value="Idaho">Idaho</option>
+
+                                        
+                                            <option value="Illinois">Illinois</option>
+
+                                        
+                                            <option value="Indiana">Indiana</option>
+
+                                        
+                                            <option value="Iowa">Iowa</option>
+
+                                        
+                                            <option value="Kansas">Kansas</option>
+
+                                        
+                                            <option value="Kentucky">Kentucky</option>
+
+                                        
+                                            <option value="Louisiana">Louisiana</option>
+
+                                        
+                                            <option value="Maine">Maine</option>
+
+                                        
+                                            <option value="Maryland">Maryland</option>
+
+                                        
+                                            <option value="Massachusetts">Massachusetts</option>
+
+                                        
+                                            <option value="Michigan">Michigan</option>
+
+                                        
+                                            <option value="Minnesota">Minnesota</option>
+
+                                        
+                                            <option value="Mississippi">Mississippi</option>
+
+                                        
+                                            <option value="Missouri">Missouri</option>
+
+                                        
+                                            <option value="Montana">Montana</option>
+
+                                        
+                                            <option value="Nebraska">Nebraska</option>
+
+                                        
+                                            <option value="Nevada">Nevada</option>
+
+                                        
+                                            <option value="New Hampshire">New Hampshire</option>
+
+                                        
+                                            <option value="New Jersey">New Jersey</option>
+
+                                        
+                                            <option value="New Mexico">New Mexico</option>
+
+                                        
+                                            <option value="New York">New York</option>
+
+                                        
+                                            <option value="North Carolina">North Carolina</option>
+
+                                        
+                                            <option value="North Dakota">North Dakota</option>
+
+                                        
+                                            <option value="Ohio">Ohio</option>
+
+                                        
+                                            <option value="Oklahoma">Oklahoma</option>
+
+                                        
+                                            <option value="Oregon">Oregon</option>
+
+                                        
+                                            <option value="Pennsylvania">Pennsylvania</option>
+
+                                        
+                                            <option value="Rhode Island">Rhode Island</option>
+
+                                        
+                                            <option value="South Carolina">South Carolina</option>
+
+                                        
+                                            <option value="South Dakota">South Dakota</option>
+
+                                        
+                                            <option value="Tennessee">Tennessee</option>
+
+                                        
+                                            <option value="Texas">Texas</option>
+
+                                        
+                                            <option value="Utah">Utah</option>
+
+                                        
+                                            <option value="Vermont">Vermont</option>
+
+                                        
+                                            <option value="Virginia">Virginia</option>
+
+                                        
+                                            <option value="Washington">Washington</option>
+
+                                        
+                                            <option value="West Virginia">West Virginia</option>
+
+                                        
+                                            <option value="Wisconsin">Wisconsin</option>
+
+                                        
+                                            <option value="Wyoming">Wyoming</option>
+
+                                        
+
+
+                                </select>
+
+                            </div>
+
+														<div class="input_content">
+															<div class="gglcptch gglcptch_v2">
+<div id="gglcptch_recaptcha_279948573" class="gglcptch_recaptcha"></div>
+				<noscript>
+					<div style="width: 302px;">
+						<div style="width: 302px; height: 422px; position: relative;">
+							<div style="width: 302px; height: 422px; position: absolute;">
+								<iframe src="https://www.google.com/recaptcha/api/fallback?k=6LdQatoZAAAAAFW4yjiHvHAIURKwmOgpsrxXmyc0" frameborder="0" scrolling="no" style="width: 302px; height:422px; border-style: none;"></iframe>
+							</div>
+						</div>
+						<div style="border-style: none; bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px; background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px; height: 60px; width: 300px;">
+							<textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px !important; height: 40px !important; border: 1px solid #c1c1c1 !important; margin: 10px 25px !important; padding: 0px !important; resize: none !important;"></textarea>
+						</div>
+					</div>
+				</noscript></div>														</div>
+                        <div class="input_content submit">
+
+                        <input type="submit" value="Submit" name="footersubmit">
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="FCpopup_description_end">
+
+                    *Once your referral has placed an order you will automatically receive credit for a complimentary custom shirt.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div id="foo" class="calenderOverlay foo" style="display:none;">
+
+    <div class="calenderInner">
+
+        <p>Thanks for your continued support, you’re on your way towards receiving a complimentary custom shirt on us.</p>
+
+        <a href="http://mkennys.com/javascript:;" class="fooClose">Close</a>
+
+    </div>
+
+</div>
+
+
+
+<div id="foo_error" class="calenderOverlay foo_error" style="display:none;">
+
+    <div class="calenderInner">
+
+        <p id="foo_error_text"></p>
+
+        <a href="http://mkennys.com/javascript:;" class="foo_ErrorClose">Close</a>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+
+ jQuery(document).ready(function() {
+
+        jQuery(".viewDetail").click(function () {
+
+             jQuery('#referFriend').css('display','block');
+
+             jQuery('body').addClass('bodyFixed');
+
+        });
+
+        jQuery(".FCclosePopup").click(function () {
+
+            jQuery('#referFriend').css('display','none');
+
+            jQuery('body').removeClass('bodyFixed');
+
+        });
+
+    });
+
+
+
+
+
+
+
+jQuery(document).ready(function() {
+
+	jQuery( document ).on( "click",  ".close_wysija", function() {
+
+		jQuery('.allmsgs').hide();
+
+	});
+
+	jQuery( document ).on( "click",  ".CPO_close", function() {
+
+		jQuery('.customPopOverlay').hide();
+
+
+
+        jQuery('.contactCustomPopOverlay').hide();
+
+	});
+
+
+
+	jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
+
+
+
+		//console.log(settings.data);
+
+
+
+
+
+		var ajaxCallData = settings.data;
+
+
+
+
+
+
+
+		if(ajaxCallData.indexOf('wysija_ajax') != -1){
+
+
+
+				//console.log(ajaxCallData);
+
+			function URLToArray(url) {
+
+    			var request = {};
+
+    			var pairs = url.substring(url.indexOf('?') + 1).split('&');
+
+    			for (var i = 0; i < pairs.length; i++) {
+
+    				if(!pairs[i])
+
+    					continue;
+
+    				var pair = pairs[i].split('=');
+
+    				request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+
+    			 }
+
+    			 return request;
+
+		    }
+
+
+
+			ajaxCallData = URLToArray( ajaxCallData );
+
+			//console.log(ajaxCallData);
+
+			var stay_form_name = ajaxCallData['data[0][value]'];
+
+			var stay_form_email = ajaxCallData['data[2][value]'];
+
+			var stay_form_state = ajaxCallData['data[4][value]'];
+
+
+
+		    stayAdminEmail(stay_form_name,stay_form_email,stay_form_state);
+
+			jQuery('.firstComePopup').hide();
+
+			jQuery('.customPopOverlay').show();
+
+		}
+
+        else if(ajaxCallData.indexOf('_wpcf7') != -1)
+
+        {
+
+
+
+            var message = JSON.parse(xhr.responseText);
+
+             message = message.message;
+
+
+
+            jQuery('.contactCustomPopOverlay').show();
+
+            jQuery('.contactCustomPopOverlay').find('p').html(message);
+
+        }
+
+
+
+
+
+	});
+
+
+
+    jQuery(document).on('click','.close_wysija',function(){
+
+        jQuery('.wysija-input,.wysija-select').val('');
+
+    });
+
+
+
+	jQuery(".home_begning").click(function(e){
+
+		 jQuery('.commonSection').removeClass('selected');
+
+		 jQuery(nextSection).addClass('selected');
+
+		 var nextSection = $(this).parents('.commonSection:first').next('.commonSection');
+
+		 var top  = jQuery(nextSection).offset().top
+
+
+
+		jQuery('body,html').animate({ scrollTop:  top});
+
+
+
+	});
+
+
+
+	function stayAdminEmail(stay_form_name,stay_form_email,stay_form_state){
+
+		var getUrl = window.location;
+
+		var path = getUrl .protocol + "http://mkennys.com//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"http://mkennys.com/mkennys/";
+
+		jQuery.ajax({
+
+				type:'POST',
+
+				url:path+'stayform_admin.php',
+
+				data:'name='+stay_form_name+'&email='+stay_form_email+'&state='+stay_form_state,
+
+			    success:function(html){
+
+				}
+
+		});
+
+
+
+		return;
+
+	}
+
+
+
+
+
+
+
+})
+
+</script>
+
+
+
+
+
+<div class="contactCustomPopOverlay">
+
+    <div class="CPO_inner">
+
+        <p></p>
+
+        <button class="CPO_close">Close</button>
+
+    </div>
+
+</div>
+
+
+
+<link rel="stylesheet" id="gglcptch-css" href="https://mkennys.com/wp-content/plugins/google-captcha/css/gglcptch.css?ver=1.59" type="text/css" media="all">
+<script type='text/javascript' id='contact-form-7-js-extra'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/mkennys.com\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.3.1' id='contact-form-7-js'></script>
+<script type='text/javascript' src='https://www.google.com/recaptcha/api.js?render=6Lf_2joUAAAAAI4efkDd3KvNye33Koha9HdCpyUE&#038;ver=3.0' id='google-recaptcha-js'></script>
+<script type='text/javascript' id='wpcf7-recaptcha-js-extra'>
+/* <![CDATA[ */
+var wpcf7_recaptcha = {"sitekey":"6Lf_2joUAAAAAI4efkDd3KvNye33Koha9HdCpyUE","actions":{"homepage":"homepage","contactform":"contactform"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/contact-form-7/modules/recaptcha/script.js?ver=5.3.1' id='wpcf7-recaptcha-js'></script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/themes/mkennys/js/skip-link-focus-fix.js?ver=20141010' id='twentyfifteen-skip-link-focus-fix-js'></script>
+<script type='text/javascript' id='twentyfifteen-script-js-extra'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"<span class=\"screen-reader-text\">expand child menu<\/span>","collapse":"<span class=\"screen-reader-text\">collapse child menu<\/span>"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/themes/mkennys/js/functions.js?ver=20150330' id='twentyfifteen-script-js'></script>
+<script type='text/javascript' src='https://mkennys.com/wp-includes/js/wp-embed.min.js?ver=5.6.1' id='wp-embed-js'></script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/wysija-newsletters/js/validate/languages/jquery.validationEngine-en.js?ver=2.14' id='wysija-validator-lang-js'></script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/wysija-newsletters/js/validate/jquery.validationEngine.js?ver=2.14' id='wysija-validator-js'></script>
+<script type='text/javascript' id='wysija-front-subscribers-js-extra'>
+/* <![CDATA[ */
+var wysijaAJAX = {"action":"wysija_ajax","controller":"subscribers","ajaxurl":"https:\/\/mkennys.com\/wp-admin\/admin-ajax.php","loadingTrans":"Loading...","is_rtl":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/wysija-newsletters/js/front-subscribers.js?ver=2.14' id='wysija-front-subscribers-js'></script>
+<script type='text/javascript' data-cfasync="false" async="async" defer="defer" src='https://www.google.com/recaptcha/api.js?render=explicit&#038;ver=1.59' id='gglcptch_api-js'></script>
+<script type='text/javascript' id='gglcptch_script-js-extra'>
+/* <![CDATA[ */
+var gglcptch = {"options":{"version":"v2","sitekey":"6LdQatoZAAAAAFW4yjiHvHAIURKwmOgpsrxXmyc0","error":"<strong>Warning<\/strong>:&nbsp;More than one reCAPTCHA has been found in the current form. Please remove all unnecessary reCAPTCHA fields to make it work properly.","disable":0,"theme":"light"},"vars":{"visibility":false}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://mkennys.com/wp-content/plugins/google-captcha/js/script.js?ver=1.59' id='gglcptch_script-js'></script>
+
+<p>#flink#</p>
+</body>
+</html>

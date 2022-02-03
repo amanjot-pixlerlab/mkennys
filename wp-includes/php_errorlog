@@ -1,0 +1,24 @@
+[03-Nov-2019 05:52:24 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
+[03-Nov-2019 05:52:36 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
+[03-Nov-2019 06:07:15 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
+[03-Nov-2019 06:07:16 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
+[03-Nov-2019 06:25:44 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
+[03-Nov-2019 06:25:46 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function _deprecated_file() in /home/mkennys5/public_html/wp-includes/rss-functions.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/mkennys5/public_html/wp-includes/rss-functions.php on line 8
