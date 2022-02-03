@@ -26,7 +26,7 @@ get_header();
     </div>
 </div>
 <div class="customerService clearfix">
-    <div class="CS_img"> <img src="<?php echo get_template_directory_uri();?>/images/about-img-1.jpg"> </div>
+    <div class="CS_img"> <img src="<?php echo get_template_directory_uri();?>/images/true_fitted_illustration.jpg"> </div>
     <div class="CS_text">
         <h2>Our Philosophy</h2>
         <p><?php the_cfc_field('about', 'customer-service'); ?></p>

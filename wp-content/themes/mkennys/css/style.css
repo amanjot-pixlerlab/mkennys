@@ -1395,6 +1395,90 @@ div.wpcf7-response-output {
 .PBContent .listStyle4 li:nth-child(4) {
 	background-position: 0 -137px;
 }
+/*****03/02/2022******/
+.customerService .CS_img img {
+    height: 534px;
+    width: 667px;
+    object-fit: cover;
+	object-position: center;
+}
+#collars ul li a span {
+    color: #656565;
+}
+.testimonalBox-card .card-inner-box {
+    position: relative;
+    display: flex;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    margin-bottom: 25px;
+    flex-direction: column;
+    margin: 0 15px;
+	webkit-box-shadow: 0 8px 20px rgb(0 0 0 / 35%);
+    box-shadow: 0 8px 20px rgb(0 0 0 / 35%);
+}
+.testimonalBox-inner .testimonalBox-card {
+    display: flex;
+}
+.card-inner-box.card-left {
+    width: 350px;
+}
+.card-inner-box.card-right {
+    flex: 1;
+	background-color: #F9EFDF;
+}
+.card-left .card-box-image img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0.25rem  0.25rem 0 0;
+}
+
+.card-text {
+    font-style: italic;
+    font-size: 1.5rem;
+    padding: 30px 0 30px 45px;
+	color: #000;
+}
+.card-text svg {
+    position: absolute;
+    top: -webkit-calc(50% - 50px);
+    top: -moz-calc(50% - 50px);
+    top: calc(50% - 50px);
+    left: -25px;
+    width: 50px;
+    height: 100px;
+}
+.card-box-inner {
+    border-left: 4px solid #000;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.card-box-body {
+    padding: 45px;
+	height: 100%;
+}
+.card-right .card-text {
+    font-size: 2.375rem;
+    line-height: 3rem;
+    padding-top: 50px;
+    font-weight: 500;
+}
+.card-inner-box.card-right .card-text svg .st0 {
+    fill: #f9efdf;
+}
+ .client-name {
+    font-size: 1.1rem;
+    font-style: normal;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+.card-right .client-name {
+    font-size: 1.125rem;
+}
+
 @media screen and (max-width:767px) {
 	.PBContent{
 		padding: 30px 20px !important;
