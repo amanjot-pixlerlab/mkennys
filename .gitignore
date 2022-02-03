@@ -21,3 +21,6 @@ node_modules/
 *.log
 *.sql
 *.sqlite
+
+#ignore wp_config file
+wp-config.php
