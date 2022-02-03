@@ -2631,6 +2631,12 @@ div.wpcf7-response-output {
 	right: 20px;
 	cursor: pointer;
 }
+.card-inner-box.card-left  .card-box-inner {
+    border: none;
+}
+.card-inner-box.card-left  .card-box-inner .card-text {
+    padding: 30px 0px;
+}
 @media (max-width: 991px){
 	.home_begning{
 		filter: invert(1);
