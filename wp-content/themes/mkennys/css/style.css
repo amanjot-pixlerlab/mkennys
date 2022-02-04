@@ -837,6 +837,9 @@ ul.social li {
 ul.social li.ln {
 	background-position: -35px 0;
 }
+.social li.ig {
+    background-position: -68px 0;
+}
 ul.social li a {
 	display: block;
 	height: 30px;
@@ -1508,7 +1511,23 @@ div.wpcf7-response-output {
 .direct-feedback {
     margin-top: 50px;
 }
-
+/**04/02/2022****/
+.specialists-clothing h3 {
+    text-transform: uppercase;
+}
+.specialists-clothing h3 {
+    text-transform: uppercase;
+}
+.suit_price {
+    font-weight: 700;
+    margin-top: 20px;
+}
+.use_tapered {
+    margin-top: 60px;
+}
+.site-footer .women a {
+    color: #E3C4C2;
+}
 @media screen and (max-width:767px) {
 	.PBContent{
 		padding: 30px 20px !important;

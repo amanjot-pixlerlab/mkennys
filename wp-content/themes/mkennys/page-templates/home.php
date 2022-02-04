@@ -43,13 +43,12 @@ get_header();
 </div>
 
 <div class="homeTagLine commonSection">
-    <h3>Specialists in handcrafted custom clothing</h3>
     <!-- <p>A fully handmade custom garment designed and commissioned by you, and created specifically just for you. 
     </p> -->
 </div>
-<div class="ho_pe_ex">
+<div class="ho_pe_ex specialists-clothing">
     <div class="container">
-        <!-- <h3>DESIGN YOUR OWN</h3> -->
+        <h3>Specialists in handcrafted custom clothing</h3>
         <p>Select fabrics from the world’s finest mills and design all the little subtleties’ for a refined look</p>
         <div class="ho_cu_de">
             <div class="designSuit designBox">
@@ -62,7 +61,12 @@ get_header();
                     <!-- <li>Multiple Jacket Styles</li>
                     <li>8+ Pant Styles</li> -->
                 </ul>
-                <p>Suits from $689</p>
+                <p class="suit_price">Suits from $689</p>
+                <p class="use_tapered">
+                Use a tapered suit from online and make
+                <br>
+                it half grayed just like how you have it here
+                </p>
             </div>
             <div class="suitIllustration"> <img src="<?php echo get_template_directory_uri();?>/images/illustration.png"> </div>
             <div class="designShirt designBox">
@@ -75,12 +79,8 @@ get_header();
                     <li>10 Monogram Styles</li>
                     <li>The Right Fit</li>
                 </ul>
-                <p>Shirts from $95</p>
-                <p>
-                Use a tapered suit from online and make
-                <br>
-                it half grayed just like how you have it here
-                </p>
+                <p class="suit_price">Shirts from $95</p>
+               
                 <p><a href="<?php echo esc_url(home_url());?>/tour-schedules/" class="startBtn">Start Now <i class="fa fa-chevron-right"></i></a></p>
             </div>
         </div>
