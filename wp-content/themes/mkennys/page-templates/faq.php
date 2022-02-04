@@ -41,8 +41,9 @@ if(isset($_POST['faq_submit'])){
     $table_name = $wpdb->prefix .'giftcard';
 	$wpdb->insert($table_name, $value, '%s');
  	faqMail($value);
+	 /*
  	?><script> 
- 	/*alert('Gift Certificate Generated Successfully') */
+ 	// alert('Gift Certificate Generated Successfully')
 	jQuery(document).ready(function(){
 
 		jQuery("#gift_alert").css('display','inline-block');
@@ -54,11 +55,14 @@ if(isset($_POST['faq_submit'])){
 	 });
  	</script>  
 	<?php 
+	*/
 }
 
 function faqMail($value){
 		
 
+		mail('kamal@pixlerlab.com', 'My Subject', "This is a testing mail");
+		exit;
 		$to = $value['from_email'];
 		$subject = "Gift Certificate Request for ".$value['to_name'];
 		
@@ -193,13 +197,14 @@ function faqMail($value){
 					        </div>
 					    </div>
 					</div>";
-
 		$admin_subject = "Gift Certificate Request"	;				
-		$from = 'info@mkennys.com';
+		// $from = 'info@mkennys.com';
+		$from = 'kamal@pixlerlab.com';
 		 //$from = "karanjeettr@gmail.com";
 			
 		$headers = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Bcc:info@mkennys.com' . "\r\n";
+		$headers .= 'Bcc:kamal@pixlerlab.com' . "\r\n";
+		// $headers .= 'Bcc:info@mkennys.com' . "\r\n";
 		//$headers .= 'Bcc:singhkaranjeet92@gmail.com,karanjeettr@gmail.com' . "\r\n";
 		//$headers .= 'Bcc:krish@trsoftwaregroup.com' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -216,7 +221,7 @@ function faqMail($value){
 
 		$mail_admin=mail($from,$admin_subject,$gift_admin_message,$admin_headers);		
 
-
+		exit;
 		return;
 				
 	}
