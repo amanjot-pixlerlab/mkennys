@@ -41,39 +41,22 @@
 
 <?php if(!is_page('323') && !is_page('325')){ ?>
 <div class="footerPrefix">
-
 	<div class="container">
-
     	<div class="FP_left">
-
         	<p><b>READY TO START?</b></p>
-
             <p>Get Fitted in your city</p>
-
             <p><a href="<?php echo home_url(); ?>/tour-schedule/" class="fitted_btn">Get Fitted <i class="fa fa-chevron-right"></i></a></p>
-
         </div>
-
         <div class="FP_right">
-
         	<div class="FPR_box">
-
             	<p><b>Stay informed</b></p>
-
                 <p>Sign up for our newsletter to find out when will be in your city next.</p>
-
-
-
+                
                 <?php echo do_shortcode('[wysija_form id="2"]')?>
 
-
-
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <?php }?>
@@ -972,98 +955,48 @@ jQuery(document).ready(function() {
 
 
 	jQuery( document ).ajaxComplete(function( event, xhr, settings ) {
-
-
-
-		//console.log(settings.data);
-
-
-
-
-
 		var ajaxCallData = settings.data;
-
-
-
-
-
-
-
-		if(ajaxCallData.indexOf('wysija_ajax') != -1){
-
-
-
-				//console.log(ajaxCallData);
-
-			function URLToArray(url) {
-
-    			var request = {};
-
-    			var pairs = url.substring(url.indexOf('?') + 1).split('&');
-
-    			for (var i = 0; i < pairs.length; i++) {
-
-    				if(!pairs[i])
-
-    					continue;
-
-    				var pair = pairs[i].split('=');
-
-    				request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
-
-    			 }
-
-    			 return request;
-
-		    }
-
-
-
-			ajaxCallData = URLToArray( ajaxCallData );
-
-			//console.log(ajaxCallData);
-
-			var stay_form_name = ajaxCallData['data[0][value]'];
-
-			var stay_form_email = ajaxCallData['data[2][value]'];
-
-			var stay_form_state = ajaxCallData['data[4][value]'];
-
-
-
-		    stayAdminEmail(stay_form_name,stay_form_email,stay_form_state);
-
-			jQuery('.firstComePopup').hide();
-
-			jQuery('.customPopOverlay').show();
-
-		}
-
-        else if(ajaxCallData.indexOf('_wpcf7') != -1)
-
-        {
-
-
-
-            var message = JSON.parse(xhr.responseText);
-
-             message = message.message;
-
-
-
-            jQuery('.contactCustomPopOverlay').show();
-
-            jQuery('.contactCustomPopOverlay').find('p').html(message);
-
+        if(ajaxCallData.indexOf){
+            if(ajaxCallData.indexOf('wysija_ajax') != -1){
+    
+                function URLToArray(url) {
+                    var request = {};
+                    var pairs = url.substring(url.indexOf('?') + 1).split('&');
+                    for (var i = 0; i < pairs.length; i++) {
+                        if(!pairs[i]){
+                            continue;
+                        }
+                        var pair = pairs[i].split('=');
+                        request[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+                    }
+                    return request;
+                }
+    
+                ajaxCallData = URLToArray( ajaxCallData );
+                var stay_form_name = ajaxCallData['data[0][value]'];
+                var stay_form_email = ajaxCallData['data[2][value]'];
+                var stay_form_state = ajaxCallData['data[4][value]'];
+                stayAdminEmail(stay_form_name,stay_form_email,stay_form_state);
+                jQuery('.firstComePopup').hide();
+                jQuery('.customPopOverlay').show();
+    
+                jQuery('.wysija-msg .allmsgs .updated').append('<div class="stay_informed_close_btn" style="font-size:15px;position:absolute;top:5px;right:12px;cursor:pointer;">X</div>');
+            }else if(ajaxCallData.indexOf('_wpcf7') != -1){
+                var message = JSON.parse(xhr.responseText);
+                message = message.message;
+                jQuery('.contactCustomPopOverlay').show();
+                jQuery('.contactCustomPopOverlay').find('p').html(message);
+            }
         }
-
-
-
-
-
 	});
 
+    jQuery(document).on('click','.wysija-submit',function(){
+        jQuery(".wysija-msg").show();
+    });
 
+    jQuery(document).on('click','.stay_informed_close_btn',function(){
+        jQuery(".wysija-msg").fadeOut();
+    });
 
     jQuery(document).on('click','.close_wysija',function(){
 

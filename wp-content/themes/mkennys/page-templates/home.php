@@ -139,7 +139,8 @@ get_header();
             <a class="RF_btn viewDetail">REFER A FRIEND</a> </div>
     </div>
 </div>
-<div class="testimonials_home">
+
+<!-- <div class="testimonials_home">
     <div class="testimonial" id="testimonials">
         <?php 
 
@@ -210,7 +211,7 @@ get_header();
     <a href="<?php echo site_url();?>/clientreviews/" class="fitted_btn">View more review</a>
 
     
-</div>
+</div> -->
 
 <!-- <div class="styleSection">
     <div class="container">
