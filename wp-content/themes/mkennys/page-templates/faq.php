@@ -25,10 +25,10 @@ if(isset($_POST['faq_submit'])){
 	$gift_date =  date("Y-m-d");
 
     $value = array(
-      'to_name' => $_POST['to_name'],
+      'to_name' => stripslashes($_POST['to_name']),
       'to_email' => $_POST['to_email'],
       'to_phone' => $_POST['to_phone'],
-      'from_name' => $_POST['from_name'],
+      'from_name' => stripslashes($_POST['from_name']),
       'from_email' => $_POST['from_email'],
       'amount' => $_POST['amount'],
       'message' => $_POST['message'],
@@ -41,8 +41,7 @@ if(isset($_POST['faq_submit'])){
     $table_name = $wpdb->prefix .'giftcard';
 	$wpdb->insert($table_name, $value, '%s');
  	faqMail($value);
-	 /*
- 	?><script> 
+	?><script> 
  	// alert('Gift Certificate Generated Successfully')
 	jQuery(document).ready(function(){
 
@@ -53,16 +52,12 @@ if(isset($_POST['faq_submit'])){
 		});
 
 	 });
- 	</script>  
+ 	</script>
 	<?php 
-	*/
 }
 
 function faqMail($value){
 		
-
-		mail('kamal@pixlerlab.com', 'My Subject', "This is a testing mail");
-		exit;
 		$to = $value['from_email'];
 		$subject = "Gift Certificate Request for ".$value['to_name'];
 		
@@ -197,14 +192,12 @@ function faqMail($value){
 					        </div>
 					    </div>
 					</div>";
-		$admin_subject = "Gift Certificate Request"	;				
-		// $from = 'info@mkennys.com';
-		$from = 'kamal@pixlerlab.com';
-		 //$from = "karanjeettr@gmail.com";
+		$admin_subject = "Gift Certificate Request";				
+		$from = 'info@mkennys.com';
+		//$from = "karanjeettr@gmail.com";
 			
 		$headers = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Bcc:kamal@pixlerlab.com' . "\r\n";
-		// $headers .= 'Bcc:info@mkennys.com' . "\r\n";
+		$headers .= 'Bcc:info@mkennys.com' . "\r\n";
 		//$headers .= 'Bcc:singhkaranjeet92@gmail.com,karanjeettr@gmail.com' . "\r\n";
 		//$headers .= 'Bcc:krish@trsoftwaregroup.com' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
@@ -218,10 +211,8 @@ function faqMail($value){
         $admin_headers .= "From: True Fitted by M Kennys " .$from. "\r\n" .
         "X-Mailer: PHP/" . phpversion();
 
-
 		$mail_admin=mail($from,$admin_subject,$gift_admin_message,$admin_headers);		
 
-		exit;
 		return;
 				
 	}
@@ -355,20 +346,19 @@ function faqMail($value){
 <script type="text/javascript">
 
 	jQuery('#giftAmount').change(function(){
- 	
- 	if(jQuery(this).val()==1)
- 	{
- 		jQuery('#giftCustomAmount').show();
- 		jQuery('#giftCustomAmount input').show().removeProp('disabled').addClass('validate[number]');
- 	}
- 	else
- 	{
- 		jQuery('#giftCustomAmount').hide();
- 		jQuery('#giftCustomAmount input').hide().prop('disabled',true).removeClass('validate[number]');
- 	}
- });
-/*	
-	  function edValueKeyPress2()
+		if(jQuery(this).val()==1)
+		{
+			jQuery('#giftCustomAmount').show();
+			jQuery('#giftCustomAmount input').show().removeProp('disabled').addClass('validate[number]');
+		}
+		else
+		{
+			jQuery('#giftCustomAmount').hide();
+			jQuery('#giftCustomAmount input').hide().prop('disabled',true).removeClass('validate[number]');
+		}
+ 	});
+		/*	
+	  	function edValueKeyPress2()
 	    {
 	        var edValue = document.getElementById("edValue");
 	        var s = (edValue.value+"").toLowerCase();
@@ -388,131 +378,122 @@ function faqMail($value){
 
 			$("#lblValue").html(n.join(""));
 
-	    }*/
-
-	   	function edValueKeyPress()
-	    {
-	        var edValue = document.getElementById("edValue");
-	        var s = (edValue.value+"").toLowerCase();
-
-	        if( s.length < 2 ){
-	        	$("#lblValue").empty();
-	        	return;
-	        }
-	        var n=[];
-
-
-			var newHTML = [];						
-
-			$(".faq_content_main h3").each(function(index){
-				if( $(this).text().toLowerCase().includes(s) ){
-					newHTML = 	$(this).parent('.faq_content_main').attr('id');
-					n.push('<li class="search_id" data-content="'+newHTML+'" >' + $(this).html() + '</li>');
-				}
-			});
-
-			$("#lblValue").html(n.join(""));
-
 	    }
+		*/
+
+	function edValueKeyPress()
+	{
+		var edValue = document.getElementById("edValue");
+		var s = (edValue.value+"").toLowerCase();
+
+		if( s.length < 2 ){
+			$("#lblValue").empty();
+			return;
+		}
+		var n=[];
 
 
-		$(document).on('click', ".search_id", function() { 
-			var myAttr = $(this).attr('data-content');
+		var newHTML = [];						
 
-			var myVal = $(this).text();
-		  
-		  $('.faq_sidebar a').removeClass('active');
-		  $('.faq_content .faq_content_main').removeClass('active')
-		  $("#lblValue").html('');
-		  $("#edValue").val('');
-		  $('#'+myAttr).addClass('active');
-		  $('.'+myAttr).addClass('active');
-		  
+		$(".faq_content_main h3").each(function(index){
+			if( $(this).text().toLowerCase().includes(s) ){
+				newHTML = 	$(this).parent('.faq_content_main').attr('id');
+				n.push('<li class="search_id" data-content="'+newHTML+'" >' + $(this).html() + '</li>');
+			}
+		});
 
-		  $(window).scrollTop($("#"+myAttr+" h3:contains('"+myVal+"')").offset().top - 50);
-		  
-		})
+		$("#lblValue").html(n.join(""));
+
+	}
+
+	$(document).on('click', ".search_id", function() { 
+		var myAttr = $(this).attr('data-content');
+		var myVal = $(this).text();
 		
+		$('.faq_sidebar a').removeClass('active');
+		$('.faq_content .faq_content_main').removeClass('active')
+		$("#lblValue").html('');
+		$("#edValue").val('');
+		$('#'+myAttr).addClass('active');
+		$('.'+myAttr).addClass('active');
 
-	
-
+		$(window).scrollTop($("#"+myAttr+" h3:contains('"+myVal+"')").offset().top - 50);
+	});
 </script>
 
 <script>
-
 	jQuery(document).ready(function(){ 
-			var value = window.location.hash;
-			if(value == '#faq_118'){
-				jQuery('.faq_sidebar a').removeClass('active');
-				jQuery('.faq_content .faq_content_main').removeClass('active')
-				jQuery('.faq_sidebar a').each(function(){
-					
-					if( jQuery(this).html() == 'Shipping &amp; Delivery')
-					{
-						jQuery('#faq_118').addClass('active');
-						jQuery(this).addClass('active');
-					}
-					
-				});
-			}
-			else if(value == '#faq_141'){
-				jQuery('.faq_sidebar a').removeClass('active');
-				jQuery('.faq_content .faq_content_main').removeClass('active')
-				jQuery('.faq_sidebar a').each(function(){
-					
-					if( jQuery(this).html() == 'Gift Certificates')
-					{
-						jQuery('#faq_141').addClass('active');
-						jQuery(this).addClass('active');
-					}
-					
-				});
+		var value = window.location.hash;
+		if(value == '#faq_118'){
+			jQuery('.faq_sidebar a').removeClass('active');
+			jQuery('.faq_content .faq_content_main').removeClass('active')
+			jQuery('.faq_sidebar a').each(function(){
+				
+				if( jQuery(this).html() == 'Shipping &amp; Delivery')
+				{
+					jQuery('#faq_118').addClass('active');
+					jQuery(this).addClass('active');
+				}
+				
+			});
+		}
+		else if(value == '#faq_141'){
+			jQuery('.faq_sidebar a').removeClass('active');
+			jQuery('.faq_content .faq_content_main').removeClass('active')
+			jQuery('.faq_sidebar a').each(function(){
+				
+				if( jQuery(this).html() == 'Gift Certificates')
+				{
+					jQuery('#faq_141').addClass('active');
+					jQuery(this).addClass('active');
+				}
+				
+			});
 
-			}
+		}
 
-			else if(value == '#faq_118'){
-				jQuery('.faq_sidebar a').removeClass('active');
-				jQuery('.faq_content .faq_content_main').removeClass('active')
-				jQuery('.faq_sidebar a').each(function(){
-					
-					if( jQuery(this).html() == 'Shipping & Delivery')
-					{
-						jQuery('#faq_118').addClass('active');
-						jQuery(this).addClass('active');
-					}
-					
-				});
+		else if(value == '#faq_118'){
+			jQuery('.faq_sidebar a').removeClass('active');
+			jQuery('.faq_content .faq_content_main').removeClass('active')
+			jQuery('.faq_sidebar a').each(function(){
+				
+				if( jQuery(this).html() == 'Shipping & Delivery')
+				{
+					jQuery('#faq_118').addClass('active');
+					jQuery(this).addClass('active');
+				}
+				
+			});
 
-			}
-			else if(value == '#faq_117'){
-				jQuery('.faq_sidebar a').removeClass('active');
-				jQuery('.faq_content .faq_content_main').removeClass('active')
-				jQuery('.faq_sidebar a').each(function(){
-					
-					if( jQuery(this).html() == 'Alterations')
-					{
-						jQuery('#faq_117').addClass('active');
-						jQuery(this).addClass('active');
-					}
-					
-				});
+		}
+		else if(value == '#faq_117'){
+			jQuery('.faq_sidebar a').removeClass('active');
+			jQuery('.faq_content .faq_content_main').removeClass('active')
+			jQuery('.faq_sidebar a').each(function(){
+				
+				if( jQuery(this).html() == 'Alterations')
+				{
+					jQuery('#faq_117').addClass('active');
+					jQuery(this).addClass('active');
+				}
+				
+			});
 
-			}
-			else if(value == '#faq_120'){
-				jQuery('.faq_sidebar a').removeClass('active');
-				jQuery('.faq_content .faq_content_main').removeClass('active')
-				jQuery('.faq_sidebar a').each(function(){
-					
-					if( jQuery(this).html() == 'Pricing')
-					{
-						jQuery('#faq_120').addClass('active');
-						jQuery(this).addClass('active');
-					}
-					
-				});
+		}
+		else if(value == '#faq_120'){
+			jQuery('.faq_sidebar a').removeClass('active');
+			jQuery('.faq_content .faq_content_main').removeClass('active')
+			jQuery('.faq_sidebar a').each(function(){
+				
+				if( jQuery(this).html() == 'Pricing')
+				{
+					jQuery('#faq_120').addClass('active');
+					jQuery(this).addClass('active');
+				}
+				
+			});
 
-			}
-			
+		}
 	});
 
 	jQuery('.faq_sidebar a').click(function(e){ 
@@ -523,10 +504,8 @@ function faqMail($value){
 		var myAttr = jQuery(this).attr('href');
 		console.log(myAttr);
 		jQuery('.faq_content .faq_content_main').removeClass('active')
-	jQuery(myAttr).addClass('active');	
-	})
-		
-	
+		jQuery(myAttr).addClass('active');	
+	});
 </script>
 <?php
 	get_footer(); 
