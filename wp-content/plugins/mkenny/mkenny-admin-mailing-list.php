@@ -211,7 +211,7 @@ $retrievedata=$wpdb->get_results($sql);
 					&nbsp;&nbsp;
 					<a href="<?= get_option('siteurl') ?>/wp-admin/admin.php?page=mkenny-admin-mailing-list.php&did=<?= $retrieved_data->id ?>"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/Delete.png" title="Delete"/></a>
 					&nbsp;&nbsp;
-					<a href="javascript::void();"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/email.png" title="Email"/></a>
+					<a href="javascript:void(0);" data-email="<?= $retrieved_data->mailing_email ?>" class="send-mail"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/email.png" title="Email"/></a>
 				</td>
 			</tr>
 	<?php 
@@ -276,11 +276,15 @@ echo "</td></tr></table>";
 </div>
 
 <!-- Popup modal -->
-<div class="modal-wrapper">    
+<div class="modal-wrapper">
     <div class="modal-content">        
         <div class="modal-body">
 			<h3 classs="modal-title">Send Mail</h6>            
 			<form method="POST">
+				<div class="form-type">
+					<label for="email_to">To</label>
+					<input type="text" name="email_to" disabled>
+				</div>
 				<div class="form-type">
 					<label for="message">Message</label>
 					<textarea class="modal-mail-message" name="message"></textarea>
@@ -317,5 +321,11 @@ echo "</td></tr></table>";
 </style>
 
 <script>
-
+	jQuery(document).ready(function(){
+		jQuery('.send-mail').on('click',function(){
+			var email = jQuery(this).data('email');
+			jQuery()
+			jQuery('.modal-wrapper').fadeIn();
+		});
+	});
 </script>
