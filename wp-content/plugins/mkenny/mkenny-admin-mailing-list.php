@@ -302,49 +302,40 @@ echo "</td></tr></table>";
 </div>
 
 <!-- Popup modal -->
-<div class="modal-wrapper">
-    <div class="modal-content">        
-        <div class="modal-body">
-			<h3 classs="modal-title">Send Mail</h6>            
-			<form method="POST">
-				<div class="form-type">
-					<label for="email_to">To</label>
-					<input type="text" name="email_to" readonly="readonly">
-				</div>
-				<div class="form-type">
-					<label for="message">Message</label>
-					<textarea class="modal-mail-message" name="message"></textarea>
-				</div>
-				<div class="form-type">
-					<button class="cancel-btn hide-modal" type="button">Cancel</button>
-					<button class="primary-btn hide-modal" name="send_mail">Send Mail</button>
-				</div>
-			</form>
-            <div class="modal-action">
-            </div>            
-        </div>        
-    </div>
+<div class="modal-wrapper send-email-modal">
+	<div class="overlay"></div>
+	<div class="modal-dialog">
+		<div class="modal-content">  
+			<div class="modal-header">
+				<h5 class="modal-title">Send Mail</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>    
+			</div>  
+			<div class="modal-body">     
+				<form method="POST">
+					<div class="form-type">
+						<label for="email_to">To</label>
+						<input type="text" name="email_to" readonly="readonly">
+					</div>
+					<div class="form-type">
+						<label for="message">Message</label>
+						<textarea class="modal-mail-message" name="message"></textarea>
+					</div>
+					
+				</form>
+				<div class="modal-action">
+				</div>            
+			</div>  
+			<div class="modal-footer form-type">
+				<button class="cancel-btn hide-modal " type="button">Cancel</button>
+				<button class="primary-btn hide-modal " name="send_mail">Send Mail</button>
+			</div>  	    
+		</div>
+	</div>
 </div>
 <!-- #Show State Name --->
 
-<style>
-.tableContainer { 
-	overflow-x: auto;
-}
-.modal-wrapper{
-	position: fixed;
-    top: 45%;
-    left: 45%;
-    background: #f0f0f1;
-    border: 2px solid #aaa;
-    border-radius: 10px;
-    height: 220px;
-    width: 360px;
-    transition: 0.5s;
-    z-index: 999;
-	display: none;
-}
-</style>
 
 <script>
 	jQuery(document).ready(function(){
