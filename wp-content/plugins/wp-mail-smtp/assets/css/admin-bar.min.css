@@ -47,6 +47,7 @@
 }
 .send-email-modal .modal-header .modal-title {
     margin: 0;
+    font-weight: 700;
 }
 .send-email-modal .modal-header .close {
     background-color: transparent;
