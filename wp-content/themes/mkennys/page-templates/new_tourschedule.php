@@ -5181,6 +5181,15 @@ return $timeHtml;
 
 	                        </div>
 
+							<div class="form-control fc-half">
+
+								<select id="time_slot" name="time_slot" class="cv_required">
+									<option value="1 hour" selected>1 Hour Appointment </option>
+									<option value="30 minute">30 Minutes Appointment </option>
+								</select>
+
+							</div>
+
 
 
 	                    </div>

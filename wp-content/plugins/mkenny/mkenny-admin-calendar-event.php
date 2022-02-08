@@ -598,8 +598,8 @@ jQuery(document).ready(function(){
                         </div>
 						<div class="form-control">
                         	<select id="time_slot" name="time_slot">
+							<option value="1 hour" selected>1 Hour Appointment </option>
 							<option value="30 minute">30 Minutes Appointment </option>
-							<option value="1 hour">1 Hour Appointment </option>
 							</select>
                         </div>
                         
