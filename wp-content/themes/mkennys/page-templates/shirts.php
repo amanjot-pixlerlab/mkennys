@@ -149,7 +149,7 @@ get_header();
                                             <li> <a class="common_image" data-name="Pocket Style - PS4" href="javascript:;">
                                                 <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/04.png"><span>Rounded Pocket</span></a> </li>
                                                 <li> <a class="common_image" data-name="Pocket Style - PS2" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/02.png"><span>No Pocket INSERT BIG X</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/no_pocket.png"><span>No Pocket</span></a> </li>
                                             <li> <a class="common_image" data-name="Pocket Style - PS2" href="javascript:;">
                                                 <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/02.png"><span>Rounded Flap Pocket</span></a> </li>
                                         </ul>
