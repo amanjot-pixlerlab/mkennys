@@ -63,7 +63,7 @@ $getMailingById=getMailingId($_GET['eid']);
 	
 	<?php if(isset($_SESSION['mailingUpdate'])){ ?>
 	<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
-		<p><strong><?php echo $_SESSION['mailingUpdate'];  ?>.</strong></p>
+		<p><strong><?= $_SESSION['mailingUpdate'] ?>.</strong></p>
 		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 	</div>
 
@@ -83,7 +83,7 @@ unset($_SESSION['mailingUpdate']);
 	
 	<?php if(isset($_SESSION['mailinglist_delete'])){ ?>
 	<div id="setting-error-settings_updated" class="updated settings-error notice is-dismissible"> 
-		<p><strong><?php echo $_SESSION['mailinglist_delete'];  ?>.</strong></p>
+		<p><strong><?= $_SESSION['mailinglist_delete'] ?>.</strong></p>
 		<button type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></button>
 	</div>
 
@@ -103,21 +103,21 @@ unset($_SESSION['mailinglist_delete']);
 	<table class="form-table">
 		<tbody>
 			<tr>			
-				<th scope="row"><label for="mailing_name">Mailing Name</label></th>
+				<th scope="row"><label for="mailing_name">Name</label></th>
 				<td>
-					<input type="text"  name="mailing_name" id="mailing_name" class="regular-text" value="<?php echo $getMailingById[0]->mailing_name ?>">				
+					<input type="text"  name="mailing_name" id="mailing_name" class="regular-text" value="<?= $getMailingById[0]->mailing_name ?>">				
 				</td>
 			</tr>
 			
 			<tr>			
-				<th scope="row"><label for="mailing_email">Mailing Email</label></th>
+				<th scope="row"><label for="mailing_email">Email Address</label></th>
 				<td>
-					<input type="text" name="mailing_email" id="mailing_email" class="regular-text" value="<?php echo $getMailingById[0]->mailing_email ?>">				
+					<input type="text" name="mailing_email" id="mailing_email" class="regular-text" value="<?= $getMailingById[0]->mailing_email ?>">				
 				</td>
 			</tr>
 			
 			<tr>			
-				<th scope="row"><label for="mailing_state">Mailing State</label></th>
+				<th scope="row"><label for="mailing_state">State</label></th>
 				<td>
 					<select name="mailing_state" id="mailing_state"  class="regular-text">
 				<?php
@@ -131,48 +131,13 @@ unset($_SESSION['mailinglist_delete']);
 							$selected="selected='selected'";
 						}
 					?>
-					<option value="<?php echo $result->state_name;?>" <?php echo $selected; ?>><?php echo $result->state_name;?></option>
+					<option value="<?= $result->state_name ?>" <?= $selected ?>><?= $result->state_name ?></option>
 					<?php		
 					}
 				?>				
 				</select>						
 				</td>
 			</tr>
-			
-			<?php
-			/*
-			?>
-			
-			
-			
-			<tr>
-				<th scope="row"><label for="shortname">Status</label></th>
-				<?php if(count($getMailingById)>0){
-				?>
-				<td>
-					<select name="status" id="status"  class="regular-text">
-						<?php 
-						$selected='';					 
-						?>
-						<option value="">Please Select Status</option>
-						<option value="1" <?php  if($getMailingById[0]->status == 1 ){ ?> selected="selected" <?php } ?>>Enable</option>
-						<option value="0" <?php  if($getMailingById[0]->status == 0 ){ ?> selected="selected" <?php } ?>>disable</option>
-					</select>
-				</td>
-					
-				<?php
-				}
-				?>
-				
-			
-				
-				
-			</tr>	
-			<?php
-			*/
-			
-			?>
-			
 		</tbody>
 	</table>
 	
@@ -200,9 +165,10 @@ unset($_SESSION['mailinglist_delete']);
 		<table class="form-table" border="1">
 		<tbody>
 			<tr>
-				<th>Mailing Name</th>						
-				<th>Mailing Email</th>
-				<th>Mailing State</th>
+				<th>Name</th>						
+				<th>Email Address</th>
+				<th>State</th>
+				<th>Date Added</th>
 				<th>Status</th>
 				
 				
@@ -230,18 +196,23 @@ $page_name=get_option('siteurl')."/wp-admin/admin.php?page=mkenny-admin-mailing-
 
  $nume=count($retrieve_data); 
  
-$sql="SELECT * FROM $mailinglist  limit $eu, $limit";
+$sql="SELECT * FROM $mailinglist ORDER BY created_at DESC LIMIT $eu, $limit";
 $retrievedata=$wpdb->get_results($sql);	
 	foreach ($retrievedata as $retrieved_data){ 
 	
 	?>	
 			<tr>
-				<td><?php echo $retrieved_data->mailing_name;?></td>
-				<td><?php echo $retrieved_data->mailing_email;?></td>
-				<td><?php echo $retrieved_data->mailing_state;?></td>				
+				<td><?= $retrieved_data->mailing_name ?></td>
+				<td><?= $retrieved_data->mailing_email ?></td>
+				<td><?= $retrieved_data->mailing_state ?></td>				
+				<td><?= $retrieved_data->created_at ?></td>				
 				<td>
-				<a href="<?php echo get_option('siteurl') ?>/wp-admin/admin.php?page=mkenny-admin-mailing-list.php&eid=<?php echo $retrieved_data->id  ?>"><img src="<?php echo get_option('siteurl') ?>/wp-content/plugins/mkenny/images/Pencil.png" title="delete state"/></a>&nbsp;&nbsp;
-				<a href="<?php echo get_option('siteurl') ?>/wp-admin/admin.php?page=mkenny-admin-mailing-list.php&did=<?php echo $retrieved_data->id  ?>"><img src="<?php echo get_option('siteurl') ?>/wp-content/plugins/mkenny/images/Delete.png" title="delete state"/></a></td>
+					<a href="<?= get_option('siteurl') ?>/wp-admin/admin.php?page=mkenny-admin-mailing-list.php&eid=<?= $retrieved_data->id ?>"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/Pencil.png" title="Edit"/></a>
+					&nbsp;&nbsp;
+					<a href="<?= get_option('siteurl') ?>/wp-admin/admin.php?page=mkenny-admin-mailing-list.php&did=<?= $retrieved_data->id ?>"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/Delete.png" title="Delete"/></a>
+					&nbsp;&nbsp;
+					<a href="javascript::void();"><img src="<?= get_option('siteurl') ?>/wp-content/plugins/mkenny/images/email.png" title="Email"/></a>
+				</td>
 			</tr>
 	<?php 
 	
@@ -253,7 +224,7 @@ $retrievedata=$wpdb->get_results($sql);
 
 
 	<tr>
-		<td colspan="5"><?php echo "There is no record available;"?></td>
+		<td colspan="5"><?= "There is no record available"?></td>
 				
 	</tr>
 
@@ -303,10 +274,48 @@ echo "</td></tr></table>";
 	
 
 </div>
+
+<!-- Popup modal -->
+<div class="modal-wrapper">    
+    <div class="modal-content">        
+        <div class="modal-body">
+			<h3 classs="modal-title">Send Mail</h6>            
+			<form method="POST">
+				<div class="form-type">
+					<label for="message">Message</label>
+					<textarea class="modal-mail-message" name="message"></textarea>
+				</div>
+				<div class="form-type">
+					<button class="cancel-btn" name="cancel_button">Cancel</button>
+					<button class="primary-btn" name="send_mail">Send Mail</button>
+				</div>
+			</form>
+            <div class="modal-action">
+            </div>            
+        </div>        
+    </div>
+</div>
 <!-- #Show State Name --->
 
 <style>
 .tableContainer { 
 	overflow-x: auto;
 }
+.modal-wrapper{
+	position: fixed;
+    top: 45%;
+    left: 45%;
+    background: #f0f0f1;
+    border: 2px solid #aaa;
+    border-radius: 10px;
+    height: 220px;
+    width: 360px;
+    transition: 0.5s;
+    z-index: 999;
+	display: none;
+}
 </style>
+
+<script>
+
+</script>

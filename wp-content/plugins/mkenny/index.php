@@ -16,25 +16,14 @@ function my_plugin_menu()
 
 	add_menu_page('Mkennys Dashboard', 'Mkennys Dashboard', 'manage_options', 'mkenny-admin-page.php', 'mkenny_admin_page', 'dashicons-tickets', 6);
 	// add_submenu_page( 'mkenny-admin-page.php', 'Mkenny State', 'Add State', 'manage_options', 'mkenny-admin-state-page.php', 'mkenny_admin_sub_page'); 
-
-	/*
-add_submenu_page( 'mkenny-admin-page.php', 'Upcoming Events', 'Upcoming Events', 'manage_options', 'mkenny-admin-upevent.php', 'mkenny_admin_upcevent_page');
-*/
-
-
+	// add_submenu_page( 'mkenny-admin-page.php', 'Upcoming Events', 'Upcoming Events', 'manage_options', 'mkenny-admin-upevent.php', 'mkenny_admin_upcevent_page');
 	// add_submenu_page( 'mkenny-admin-page.php', 'Add Statezone', 'Add Statezone', 'manage_options', 'mkenny-admin-statezone.php', 'mkenny_admin_statezone_page'); 
 	add_submenu_page('mkenny-admin-page.php', 'Upcoming Schedules', 'Upcoming Schedules', 'manage_options', 'mkenny-admin-schedule.php', 'mkenny_admin_schedule_page');
-
 	add_submenu_page('mkenny-admin-page.php', 'Calendar Appointments', 'Calendar Appointments', 'manage_options', 'mkenny-admin-calendar-event.php', 'mkenny_admin_calendar_event_page');
-
 	add_submenu_page('mkenny-admin-page.php', 'Email List', 'Email List', 'manage_options', 'mkenny-admin-mailing-list.php', 'mkenny_admin_mailing_list_page');
-
+	add_submenu_page('mkenny-admin-page.php', 'Referral List', 'Referral List', 'manage_options', 'mkenny-admin-refer-list.php', 'mkenny_admin_refer_list_page');
+	// add_submenu_page('mkenny-admin-page.php', 'Email List', 'Email List', 'manage_options', 'mkenny-admin-mailing-list.php', 'mkenny_admin_mailing_list_page');
 	add_submenu_page('mkenny-admin-page.php', 'Upcoming Cities', 'Upcoming Cities', 'manage_options', 'mkenny-admin-upcoming-cities.php', 'mkenny_admin_upcoming_cities_page');
-
-
-
-
-
 
 	remove_submenu_page('mkenny-admin-page.php', 'mkenny-admin-page.php');
 }
@@ -115,6 +104,15 @@ function mkenny_admin_mailing_list_page()
 	include('mkenny-admin-mailing-list.php');
 }
 
+function mkenny_admin_refer_list_page()
+{
+
+	if (!current_user_can('manage_options')) {
+		wp_die(__('You do not have sufficient permissions to access this page.'));
+	}
+
+	include('mkenny-admin-refer-list.php');
+}
 
 /*Upcoming cities*/
 

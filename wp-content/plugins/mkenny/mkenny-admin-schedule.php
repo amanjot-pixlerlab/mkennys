@@ -882,6 +882,48 @@ $page_name=get_option('siteurl')."/wp-admin/admin.php?page=mkenny-admin-schedule
 			$next = $eu + $limit; 
 
 $nume=count($retrieve_data);
+
+$sql="select wp_schedule_events.id,wp_schedule_event_state.event_id,
+COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
+wp_appointment_date_time.end_time from wp_schedule_event_state
+LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id
+LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id
+LEFT JOIN wp_state ON wp_state.id = wp_schedule_event_state.state_id
+LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
+where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
+and wp_appointment_date_time.is_delete='1' 
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2)) desc limit $eu, $limit";
+
+if($_REQUEST['sorting'] != '' && isset($_REQUEST['sorting'])){
+	
+$sql="select wp_schedule_events.id,wp_schedule_event_state.event_id,
+COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
+wp_appointment_date_time.end_time from wp_schedule_event_state
+LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id
+LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id
+LEFT JOIN wp_state ON ".$_REQUEST['sorting']." = wp_schedule_event_state.state_id
+LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
+where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
+and wp_appointment_date_time.is_delete='1' 
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2)) desc limit $eu, $limit";	
+	
+}
+
+if( $_GET['order'] != '' && isset($_GET['order']) ){
+	
+$sql="select wp_schedule_events.id,wp_schedule_event_state.event_id,
+COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
+wp_appointment_date_time.end_time from wp_schedule_event_state
+LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id
+LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id
+LEFT JOIN wp_state ON wp_state.id = wp_schedule_event_state.state_id
+LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
+where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
+and wp_appointment_date_time.is_delete='1' 
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_events.id,wp_state.state_name ".$_GET['order']." limit $eu, $limit";
+}
+
+/*
 $sql="select wp_schedule_events.id,wp_schedule_event_state.event_id,
 COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
 wp_appointment_date_time.end_time from wp_schedule_event_state
@@ -920,8 +962,8 @@ LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_sch
 where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
 and wp_appointment_date_time.is_delete='1' 
 GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_events.id,wp_state.state_name ".$_GET['order']." limit $eu, $limit";
-
 }
+*/
 	$tour_schedulings = $wpdb->get_results($sql);
 
 	if($_REQUEST['sorting'] != '' && isset($_REQUEST['sorting'])){
