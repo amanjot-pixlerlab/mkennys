@@ -23,7 +23,7 @@ function my_plugin_menu()
 	add_submenu_page('mkenny-admin-page.php', 'Email List', 'Email List', 'manage_options', 'mkenny-admin-mailing-list.php', 'mkenny_admin_mailing_list_page');
 	add_submenu_page('mkenny-admin-page.php', 'Referral List', 'Referral List', 'manage_options', 'mkenny-admin-refer-list.php', 'mkenny_admin_refer_list_page');
 	// add_submenu_page('mkenny-admin-page.php', 'Email List', 'Email List', 'manage_options', 'mkenny-admin-mailing-list.php', 'mkenny_admin_mailing_list_page');
-	add_submenu_page('mkenny-admin-page.php', 'Upcoming Cities', 'Upcoming Cities', 'manage_options', 'mkenny-admin-upcoming-cities.php', 'mkenny_admin_upcoming_cities_page');
+	// add_submenu_page('mkenny-admin-page.php', 'Upcoming Cities', 'Upcoming Cities', 'manage_options', 'mkenny-admin-upcoming-cities.php', 'mkenny_admin_upcoming_cities_page');
 
 	remove_submenu_page('mkenny-admin-page.php', 'mkenny-admin-page.php');
 }

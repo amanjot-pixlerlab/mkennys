@@ -5,6 +5,7 @@ if (getUrl.pathname.split('/')[1] == 'dev') {
 else {
 	var path = getUrl.protocol + "//" + getUrl.host + "/";
 }
+var path='http://localhost/mkennys/';	
 //var path = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/";
 //alert(path);
 //jQuery.noConflict();
@@ -733,7 +734,11 @@ jQuery(document).ready(function () {
 							jQuery('#state_zone').attr('disabled', false);
 							jQuery("#state_zone").html(html.stateZone);
 							var stateZone = html.stateZone;
-							if (stateZone[0] == "" || stateZone[0] == "0" || stateZone[0] == '<option value="">Not Available</option>') {
+							if(stateZone){
+								if (stateZone[0] == "" || stateZone[0] == "0" || stateZone[0] == '<option value="">Not Available</option>') {
+									jQuery('#state_zone').hide();
+								}
+							}else{
 								jQuery('#state_zone').hide();
 							}
 							jQuery('#city_name').html(html.city);
@@ -1351,9 +1356,10 @@ jQuery(document).ready(function () {
 
 
 jQuery(document).ready(function () {
+	var path='http://localhost/mkennys/';	
 	var hash = location.hash;
 	hash = hash.replace('#', '');
-	jQuery.post("before_appointment_process.php", {
+	jQuery.post(path+"before_appointment_process.php", {
 		stateVal: hash
 	}, function (e) {
 		if (e !== "false") {

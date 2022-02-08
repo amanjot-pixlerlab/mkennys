@@ -5352,6 +5352,8 @@ global $wpdb;
 
 $sql="select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and STR_TO_DATE(adt.start_date,'%m/%d/%Y') >= CURRENT_DATE group by adt.event_id order by adt.start_date";
 
+// $sql="select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) >= DATE_FORMAT(CURRENT_DATE,'%Y%m%d') group by adt.event_id order by CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) desc";
+
 
 
 $retrievedatas=$wpdb->get_results($sql);

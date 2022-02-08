@@ -55,6 +55,7 @@ $formData=$_POST;
 	$email       = trim(esc_attr($_POST['saemail']));	
 	$dates       = trim(esc_attr($_POST['datess']));
 	$times       = trim(esc_attr($_POST['times']));
+	$time_slot       = trim(esc_attr($_POST['time_slot']));
     
     $source = '';
     if( isset($_POST['source']) ){
@@ -192,6 +193,7 @@ else
 						'state' => $eventIds['0']->event_id,
 						'appointment_date' => $dates,
 						'appointment_time' => $times,
+						'time_slot' => $time_slot,
 						'interested_in' => $interested,
 						'message' => $message,	
 						'created_at' => current_time('mysql')

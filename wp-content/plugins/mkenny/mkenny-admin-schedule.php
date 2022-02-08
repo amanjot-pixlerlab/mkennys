@@ -1111,6 +1111,10 @@ th.header {
 <script type="text/javascript">
 jQuery(document).ready(function () {
 
+	jQuery('.notice-dismiss').on('click',function(){
+		window.location ="<?= home_url() ?>/wp-admin/admin.php?page=mkenny-admin-schedule.php";
+	});
+
     jQuery('#schedule').validate({ // initialize the plugin
 	ignore: [],
         rules: {
