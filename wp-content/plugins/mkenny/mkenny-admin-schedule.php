@@ -418,7 +418,7 @@ unset($_SESSION['scheduleAdd']);
 
 ?>
 
-<form method="post" action=" " novalidate="novalidate" id="schedule">
+<form method="post" action=" " novalidate="novalidate" id="schedule" class="date-time-control-group">
 <?php
 $getScheduleById = getScheduleById($_GET['eid']);
 ?>
@@ -432,15 +432,9 @@ $getScheduleById = getScheduleById($_GET['eid']);
 			?>	
 			<tr class="multistate">
 				<th scope="row"><label for="multi_state">State Name</label></th>
-				<td>
-					
-					
-					<div class="container">
-
+				<td class="state_name">														
 						<select class="demo" multiple="multiple" name="multi_state[]" id ="multi_state" style="width:25em;" class="regular-text">
-							<optgroup label="Please Select State Name">
-							
-							
+							<optgroup label="Please Select State Name">														
 								<?php 
 									global $wpdb;
 									$table_name = $wpdb->prefix . "state";				
@@ -456,10 +450,7 @@ $getScheduleById = getScheduleById($_GET['eid']);
 							   
 							</optgroup>
 							
-						</select>
-						
-						
-					</div>
+						</select>																	
 				</td>
 			</tr>
 			
@@ -473,12 +464,8 @@ $getScheduleById = getScheduleById($_GET['eid']);
 				
 			<tr class="multistate">
 				<th scope="row"><label for="multi_state">State Name </label></th>
-				<td>
-					
-					
-					<div class="container">
-
-						<select class="demo" multiple="multiple" name="multi_state[]" id ="multi_state" style="width:25em; class="required">
+				<td class="state_name">
+						<select class="demo" multiple="multiple" name="multi_state[]" id ="multi_state" style="width:25em;" class="required regular-text">
 							<optgroup label="Please Select State Name">
 							
 							
@@ -506,7 +493,7 @@ $getScheduleById = getScheduleById($_GET['eid']);
 						</select>
 						<!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
 						
-					</div>
+					
 				</td>
 			</tr>	
 				
@@ -563,11 +550,9 @@ $getScheduleById = getScheduleById($_GET['eid']);
 			<tr>			
 				<th scope="row"><label for="addmore">Date Time</label></th>			
 				<td>
-					<div class="input-group control-group">
+					<div class="input-group control-group date-time-control-group">
 					
-					  Date<input type="text" name="start_date[]" class="datepicker" value=""> 
-					  Start Time<select name="start_time[]" id="start_time" class="required"> <?php echo get_times('10.00 AM'); ?></select>	
-					  End Time<select name="end_time[]" id="end_time"><?php echo get_times('08.00 PM'); ?></select>	
+					  <span class="date">Date</span><input type="text" name="start_date[]" class="datepicker" value="">Start Time<select name="start_time[]" id="start_time" class="required"> <?php echo get_times('10.00 AM'); ?></select>End Time<select name="end_time[]" id="end_time"><?php echo get_times('08.00 PM'); ?></select>	
 					  <button class="btn btn-success add-more" type="button"><i class="glyphicon glyphicon-plus"></i></button>
 					</div>
 					<div class="after-add-more"></div>
@@ -600,12 +585,9 @@ $getScheduleById = getScheduleById($_GET['eid']);
 						  $counter=0;
 						  foreach( $appointment_date_time_rec as $rec){
 						  ?>  
-						  <div class="input-group control-group">
+						  <div class="input-group control-group date-time-control-group">
 												 
-						Date<input type="text" name="start_date[]" class="datepicker" value="<?php echo $rec->start_date; ?>">
-						
-					    Start Time<select name="start_time[]" id="start_time" class="required"> <?php echo get_times($rec->start_time); ?></select>	
-						End Time<select name="end_time[]" id="end_time"><?php echo get_times($rec->end_time); ?></select>
+						Date<input type="text" name="start_date[]" class="datepicker" value="<?php echo $rec->start_date; ?>">Start Time<select name="start_time[]" id="start_time" class="required"> <?php echo get_times($rec->start_time); ?></select>End Time<select name="end_time[]" id="end_time"><?php echo get_times($rec->end_time); ?></select>
 						
 							<?php
 							 if($counter==0){

@@ -36,7 +36,7 @@ $events = $req->fetchAll();
         <div class="">
 		<h2>Mkenny Event Calendar</h2>
 		<a href="javascript:;"  rel="" class="add_event">Schedule An Appointment<i class="fa fa-chevron-right"></i></a>
-        <div class="col-lg-12 text-center" style="background: #fff; padding: 40px;">
+        <div class="col-lg-12 calender_tabel text-center" style="background: #fff;">
             <div id="calendar" class="col-centered">
 			No Found Event Data
             </div>

@@ -126,3 +126,23 @@
 	
 	-webkit-transform: translate(-50%, -50%); -moz-transform: translate(-50%, -50%); transform: translate(-50%, -50%);
 }
+.state_name .fs-label {
+    padding: 0 8px;
+    line-height: 30px;
+    min-height: 30px;
+    overflow: visible;
+    color: #2c3338;
+}
+.state_name .fs-label-wrap {
+    border: 1px solid #8c8f94;
+    border-radius:4px;
+}
+.state_name .fs-wrap {
+    width: 29em;
+}
+.date-time-control-group select,.date-time-control-group input {
+    margin: 0 15px 0 5px;
+}
+.date-time-control-group {
+    margin-bottom: 15px;
+}

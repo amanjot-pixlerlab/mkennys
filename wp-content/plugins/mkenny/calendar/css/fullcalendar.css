@@ -2307,13 +2307,25 @@ be a descendant of the grid when it is being dragged.
 	font-size: 15px;
 
 }
-
+.calender_tabel {
+    padding: 40px;
+}
 
 @media screen and (max-width: 767px) {
 	.fc-view-container{
 		overflow: auto;
 	}
 	.fc-view.fc-month-view.fc-basic-view{
-		min-width: 640px;
+		min-width:100%;
+	}
+	.calender_tabel {
+		padding: 20px 15px;
+	}
+	.calender_tabel .fc-center h2 {
+		font-size: 25px;
+		margin: 16px 0 0;
+	}
+	.fc-view.fc-month-view.fc-basic-view table tr td {
+		padding: 5px;
 	}
 }
