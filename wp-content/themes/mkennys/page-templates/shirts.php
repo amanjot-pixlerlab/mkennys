@@ -100,21 +100,21 @@ get_header();
                                     <div id="cuff" class="shirtParts">
                                         <ul class="unstyled-list clearfix">
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS9" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/09.png"><span>Long Sleeve Cuff - LS9</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/09.png"><span>Single Button</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS8" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/08.png"><span>Long Sleeve Cuff - LS8</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/08.png"><span>Single Button Cutaway </span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS6" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/06.png"><span>Long Sleeve Cuff - LS6</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/06.png"><span>Two Button Cutaway Corner</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS5" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/05.png"><span>Long Sleeve Cuff - LS5</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/05.png"><span>Two Button Rounded</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS7" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/07.png"><span>Long Sleeve Cuff - LS7</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/07.png"><span>Square Two Button</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS4" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/04.png"><span>Long Sleeve Cuff - LS4</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/04.png"><span>French Cuff</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS3" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/03.png"><span>Long Sleeve Cuff - LS3</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/03.png"><span>French Cuff Rounded</span></a> </li>
                                             <li> <a class="common_image" data-name="Long Sleeve Cuff - LS2" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/02.png"><span>Long Sleeve Cuff - LS2</span></a></li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/cuffs/long-sleeve-cuffs/02.png"><span>Contoured French Cuff</span></a></li>
                                             
                                             
                                         </ul>
@@ -123,11 +123,11 @@ get_header();
                                     <div id="front" class="shirtParts">
                                         <ul class="unstyled-list clearfix">
                                             <li> <a class="common_image" data-name="Body Front Style - BFS2" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/02.png"><span>Body Front Style - BFS2</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/02.png"><span>Placket Front [Visible strip of raised fabric]</span></a> </li>
                                             <li> <a class="common_image" data-name="Body Front Style - BFS3" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/03.png"><span>Body Front Style - BFS3</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/03.png"><span>Plain Front </span></a> </li>
                                             <li> <a class="common_image active" data-name="Body Front Style - BFS1" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/01.png"><span>Body Front Style - BFS1</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/body-front/01.png"><span>Fly Front [Hidden Buttons]</span></a> </li>
                                         </ul>
                                     </div>
                                     
@@ -145,11 +145,13 @@ get_header();
                                     <div id="pockets" class="shirtParts">
                                         <ul class="unstyled-list clearfix">
                                             <li> <a class="common_image" data-name="Pocket Style - PS5" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/05.png"><span>Pocket Style - PS5</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/05.png"><span>Classic Pocket </span></a> </li>
                                             <li> <a class="common_image" data-name="Pocket Style - PS4" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/04.png"><span>Pocket Style - PS4</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/04.png"><span>Rounded Pocket</span></a> </li>
+                                                <li> <a class="common_image" data-name="Pocket Style - PS2" href="javascript:;">
+                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/02.png"><span>No Pocket INSERT BIG X</span></a> </li>
                                             <li> <a class="common_image" data-name="Pocket Style - PS2" href="javascript:;">
-                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/02.png"><span>Pocket Style - PS2</span></a> </li>
+                                                <img src="<?php echo get_template_directory_uri();?>/images/pocket-style/02.png"><span>Rounded Flap Pocket</span></a> </li>
                                         </ul>
                                     </div>
 
