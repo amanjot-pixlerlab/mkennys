@@ -11,6 +11,32 @@ if(isset($_GET['did'])){
 	}
 }
 
+//send mail
+if(isset($_POST['send_mail'])){
+	if(isset($_POST['email_to']) && isset($_POST['email_to']) !== "" && isset($_POST['message']) && isset($_POST['message']) !== ""){
+		$to = $_POST['email_to'];
+		$subject = "Mail from mKennys";				
+		$message = $_POST['message'];
+		$from = 'kamal@pixlerlab.com';
+		// $from = 'info@mkennys.com';
+		$headers = 'MIME-Version: 1.0' . "\r\n";
+		// $headers .= 'Bcc:info@mkennys.com' . "\r\n";
+		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+		$headers .= "From:  True Fitted by M Kennys <" .$from. "> \r\n" . "X-Mailer: PHP/" . phpversion();
+		if(mail($to,$subject,$message,$headers)){
+			echo '<script>
+				alert("Mail sent successfully!!");
+				window.location ="'.home_url().'/wp-admin/admin.php?page=mkenny-admin-mailing-list.php";
+				</script>';
+			}else{
+				echo '<script>
+					alert("Mail was not sent");
+					window.location ="'.home_url().'/wp-admin/admin.php?page=mkenny-admin-mailing-list.php";
+				</script>';
+		}
+	}
+}
+
 function getMailingId($id){	
   global $wpdb;
   $mailinglist = $wpdb->prefix . 'mailing_list';	
@@ -283,15 +309,15 @@ echo "</td></tr></table>";
 			<form method="POST">
 				<div class="form-type">
 					<label for="email_to">To</label>
-					<input type="text" name="email_to" disabled>
+					<input type="text" name="email_to" readonly="readonly">
 				</div>
 				<div class="form-type">
 					<label for="message">Message</label>
 					<textarea class="modal-mail-message" name="message"></textarea>
 				</div>
 				<div class="form-type">
-					<button class="cancel-btn" name="cancel_button">Cancel</button>
-					<button class="primary-btn" name="send_mail">Send Mail</button>
+					<button class="cancel-btn hide-modal" type="button">Cancel</button>
+					<button class="primary-btn hide-modal" name="send_mail">Send Mail</button>
 				</div>
 			</form>
             <div class="modal-action">
@@ -324,8 +350,13 @@ echo "</td></tr></table>";
 	jQuery(document).ready(function(){
 		jQuery('.send-mail').on('click',function(){
 			var email = jQuery(this).data('email');
-			jQuery()
-			jQuery('.modal-wrapper').fadeIn();
+			if(email){
+				jQuery('input[name="email_to"]').val(email);
+				jQuery('.modal-wrapper').fadeIn();
+			}
+		});
+		jQuery('.hide-modal').on('click',function(){
+			jQuery('.modal-wrapper').fadeOut();
 		});
 	});
 </script>
