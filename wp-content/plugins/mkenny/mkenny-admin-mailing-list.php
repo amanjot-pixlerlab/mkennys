@@ -34,7 +34,6 @@ if(isset($_POST['send_mail'])){
 					window.location ="'.home_url().'/wp-admin/admin.php?page=mkenny-admin-mailing-list.php";
 				</script>';
 		}
-		
 	}
 }
 
@@ -310,7 +309,7 @@ echo "</td></tr></table>";
 			<form method="POST">
 				<div class="form-type">
 					<label for="email_to">To</label>
-					<input type="text" name="email_to" disabled>
+					<input type="text" name="email_to" readonly="readonly">
 				</div>
 				<div class="form-type">
 					<label for="message">Message</label>
