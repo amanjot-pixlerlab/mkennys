@@ -42,7 +42,7 @@
 	height: auto;
 	margin: 100px auto;
 	max-width: 100%;
-	padding: 40px;
+	padding:20px 30px;
 	position: relative;
 	width: 1200px;
 	color: #4c4c4c;
@@ -51,6 +51,16 @@
 .appointment_popup h2 {
 	font-size: 27px;
 	color: #324983;
+	margin: 0;
+	font-weight: 700;
+}
+.schedule-appointment .form-control input, .schedule-appointment .form-control select,.schedule-appointment .form-control .multiOptions .fs-label-wrap {
+    height: 45px;
+    border: 1px solid #d9dde2;
+    padding: 8px;
+    width: 100%;
+    max-width: 100%;
+	border-radius: 4px;
 }
 .appointment_popup form {
 	margin: 20px 0 10px;
@@ -96,9 +106,12 @@
 	margin-right: 0px;
 }
 .appointment_popup form p.user_comments textarea {
-	/*width: 100%;*/
-
-	width: 97%;
+	height:120px;
+    border: 1px solid #d9dde2;
+    padding: 8px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px;
 	resize: none;
 }
 .appointment_popup form p.actions {
@@ -160,6 +173,7 @@
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
+	border-radius: 4px;
 }
 .customize_section li a {
 	display: block;
@@ -454,6 +468,12 @@ html, body, .wrapper, .scroller {
 	.appointment_popup { 
 		margin: 0px auto;
 	}
+	.appointment_popup p input[type="button"], .appointment_popup p input[type="submit"] {
+		width: 100%;
+		margin-bottom: 15px;
+	}
+
+
 }
 .ui-datepicker-current
 {

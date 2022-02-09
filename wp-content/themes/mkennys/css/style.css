@@ -1543,9 +1543,66 @@ div.wpcf7-response-output {
 .site-footer .women a {
     color: #E3C4C2;
 }
-
-
+.home-carousel .owl-controls.clickable {
+    margin: 0;
+}
+@media(max-width:1199px){
+	.customerService .CS_img img {
+		height: 400px;
+		width: 495px;
+	}
+	.designBox {
+		width: 230px;
+	}
+	.use_tapered {
+		margin-top: 80px;
+		font-size: 14px;
+	}
+	.designShirt .startBtn {
+		margin-top: 20px;
+	}
+}
+@media(max-width:991px){
+	.testimonalBox-inner .testimonalBox-card {
+		flex-direction: column;
+	}
+	.card-inner-box.card-left {
+		width: auto;
+	}
+	.card-left .card-box-image img {
+		height: auto;
+		width: 100%;
+	}
+}
 @media screen and (max-width:767px) {
+	.testimonalBox-card .card-inner-box {
+		margin: 0;
+	}
+	.card-box-body {
+		padding: 45px 20px 45px 35px;
+	}
+	.testimonialMain .testimonalBox-inner:nth-child(odd) .testimonalBox-card {
+		flex-direction: column-reverse;
+	}
+	.designShirt li:nth-child(6) {
+		background-position: left -171px;
+	}
+	.card-right .card-text {
+		font-size: 2rem;
+	}
+	#collars ul li a span {
+		padding: 6px 6px;
+		width: 90%;
+		font-size: 12px;
+	}
+	
+	.customerService .CS_img img {
+		height: auto;
+		width: 100%;
+	}
+	.FPR_box {
+		width:100%;
+	}
 	.PBContent{
 		padding: 30px 20px !important;
 	}
@@ -3230,17 +3287,8 @@ li:hover .unstyled-anchor {
 .ho_HIT_left h4 br {
 	display: none;
 }
-.CS_img {
-	height: 400px;
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-}
-.CS_img img {
-	position: absolute;
-	top: -20%;
-	width: 100%;
-}
+
+
 .CS_text {
 	padding: 50px 80px 60px;
 }
@@ -3507,12 +3555,12 @@ ul.social {
 	max-width: 100%;
 	padding: 0 20px;
 }
-.CS_img {
+/* .CS_img {
 	height: 430px;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-}
+} */
 .CS_img img {
 	width: 100%;
 }
@@ -4232,7 +4280,7 @@ ul.social {
 	max-width: 100%;
 	padding: 0 20px;
 }
-.CS_img {
+/* .CS_img {
 	height: 430px;
 	overflow: hidden;
 	position: relative;
@@ -4241,7 +4289,7 @@ ul.social {
 .CS_img img {
 	left: -50%;
 	position: absolute;
-}
+} */
 .CS_text {
 	padding: 30px 20px;
 }
@@ -5862,6 +5910,15 @@ svg#map .hide{
 }
 
 @media (max-width: 767px){
+	.ho_HIT_left {
+		width: 100%;
+	}
+	.use_tapered {
+		margin-top: 10px;
+	}
+	.designShirt .startBtn {
+		margin-top: 20px;
+	}
 	.appointment_popup_page .grid-6{
 		flex-grow: 1;
 		min-width: 100%;

@@ -41,11 +41,6 @@ get_header();
     </div>
     <img src="<?php echo get_template_directory_uri(); ?>/images/arrow.png" class="home_begning">
 </div>
-
-<div class="homeTagLine commonSection">
-    <!-- <p>A fully handmade custom garment designed and commissioned by you, and created specifically just for you. 
-    </p> -->
-</div>
 <div class="ho_pe_ex specialists-clothing">
     <div class="container">
         <h3>Specialists in handcrafted custom clothing</h3>

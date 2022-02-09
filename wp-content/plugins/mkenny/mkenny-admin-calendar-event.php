@@ -528,7 +528,7 @@ jQuery(document).ready(function(){
 
 <!--appointment_popup end here -->
 
-<div class="popup_overlay" style="display: none;">
+<div class="popup_overlay schedule-appointment" style="display: none;">
     <div class="appointment_popup">
         <div class="container-12">
             <div class="grid-12">
