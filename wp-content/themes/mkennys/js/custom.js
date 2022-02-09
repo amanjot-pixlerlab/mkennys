@@ -5,7 +5,7 @@ if (getUrl.pathname.split('/')[1] == 'dev') {
 else {
 	var path = getUrl.protocol + "//" + getUrl.host + "/";
 }
-var path='http://localhost/mkennys/';	
+// var path='http://localhost/mkennys/';	
 //var path = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/";
 //alert(path);
 //jQuery.noConflict();
@@ -597,6 +597,7 @@ jQuery(document).ready(function () {
 				jQuery("#show_date").show();
 			},
 			success: function (appointment_data) {
+				console.log(appointment_data);
 				// alert(appointment_data.stateID);						
 				jQuery('#state_zone').show();
 
