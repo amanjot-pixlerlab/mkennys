@@ -421,12 +421,9 @@ if(isset($_POST['footersubmit'])){
 		$table_name = $wpdb->prefix . 'refer';
 
 
+		$result = $wpdb->get_results("SELECT to_email FROM $table_name where to_email = '".$_POST['to_email']."' ",ARRAY_A);
 
-		 $result = $wpdb->get_results("SELECT to_email FROM $table_name where to_email = '".$_POST['to_email']."' ",ARRAY_A);
-
-
-
-		 if(count($result) > 0){
+		if(count($result) > 0){
 
 				?><script>
 

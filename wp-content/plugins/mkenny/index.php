@@ -341,13 +341,20 @@ function tour_scheduling($atts)
  where wp_schedule_events.status='1' and wp_schedule_events.is_delete='1'  and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'and wp_schedule_event_state.status='1' and wp_schedule_event_state.state_id !='" . $stsid . "' and  wp_state.status='1' GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by state_zone,mult_id,state_name";
 	}
 	if ($atts['stateid'] == 0 && $atts['allstate'] == 1) {
-		$sql = "select  wp_appointment_date_time.start_date, wp_schedule_events.id, wp_schedule_event_state.event_id, 
+// 		$sql = "select  wp_appointment_date_time.start_date, wp_schedule_events.id, wp_schedule_event_state.event_id, 
+// (select count(*) from wp_schedule_event_state s where s.event_id=wp_schedule_event_state.event_id) mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_schedule_events.suite,wp_statezone.state_zone, wp_schedule_events.location,wp_schedule_events.contact_name, wp_schedule_events.phone_no,wp_schedule_events.alternative_phone_no, wp_schedule_events.upcoming_event,wp_schedule_events.status
+// from wp_schedule_event_state LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id LEFT JOIN wp_state ON wp_state.id = wp_schedule_event_state.state_id
+// LEFT JOIN wp_appointment_date_time ON wp_schedule_event_state.event_id = wp_appointment_date_time.event_id
+// where wp_schedule_events.status='1'
+// and wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'and wp_schedule_event_state.status='1' and wp_state.status='1'
+// GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by state_zone,state_name,start_date";
+$sql = "select  wp_appointment_date_time.start_date, wp_schedule_events.id, wp_schedule_event_state.event_id, 
 (select count(*) from wp_schedule_event_state s where s.event_id=wp_schedule_event_state.event_id) mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_schedule_events.suite,wp_statezone.state_zone, wp_schedule_events.location,wp_schedule_events.contact_name, wp_schedule_events.phone_no,wp_schedule_events.alternative_phone_no, wp_schedule_events.upcoming_event,wp_schedule_events.status
 from wp_schedule_event_state LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id LEFT JOIN wp_state ON wp_state.id = wp_schedule_event_state.state_id
 LEFT JOIN wp_appointment_date_time ON wp_schedule_event_state.event_id = wp_appointment_date_time.event_id
 where wp_schedule_events.status='1'
-and wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'and wp_schedule_event_state.status='1' and wp_state.status='1'
-GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by state_zone,state_name,start_date";
+and wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'and wp_schedule_event_state.status='1' and wp_state.status='1' and CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2)) >= DATE_FORMAT(CURRENT_DATE,'%Y%m%d')
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by state_zone,state_name,CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2))";
 	}
 
 	if (isset($atts['statelist']) && $atts['statelist']) {

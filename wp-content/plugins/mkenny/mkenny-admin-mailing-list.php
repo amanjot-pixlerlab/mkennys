@@ -17,10 +17,9 @@ if(isset($_POST['send_mail'])){
 		$to = $_POST['email_to'];
 		$subject = "Mail from mKennys";				
 		$message = $_POST['message'];
-		$from = 'kamal@pixlerlab.com';
-		// $from = 'info@mkennys.com';
+		$from = 'info@mkennys.com';
 		$headers = 'MIME-Version: 1.0' . "\r\n";
-		// $headers .= 'Bcc:info@mkennys.com' . "\r\n";
+		$headers .= 'Bcc:info@mkennys.com' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 		$headers .= "From:  True Fitted by M Kennys <" .$from. "> \r\n" . "X-Mailer: PHP/" . phpversion();
 		if(mail($to,$subject,$message,$headers)){
@@ -304,35 +303,34 @@ echo "</td></tr></table>";
 <!-- Popup modal -->
 <div class="modal-wrapper send-email-modal">
 	<div class="overlay"></div>
-	<div class="modal-dialog">
-		<div class="modal-content">  
-			<div class="modal-header">
-				<h5 class="modal-title">Send Mail</h5>
-				<button type="button" class="close hide-modal" data-dismiss="modal" aria-label="Close">
-				<span aria-hidden="true">&times;</span>
-				</button>    
-			</div>  
-			<div class="modal-body">     
-				<form method="POST">
-					<div class="form-type">
-						<label for="email_to">To</label>
-						<input type="text" name="email_to" readonly="readonly">
-					</div>
-					<div class="form-type">
-						<label for="message">Message</label>
-						<textarea class="modal-mail-message" name="message"></textarea>
-					</div>
-					
-				</form>
-				<div class="modal-action">
-				</div>            
-			</div>  
-			<div class="modal-footer form-type">
-				<button class="cancel-btn hide-modal " type="button">Cancel</button>
-				<button class="primary-btn hide-modal " name="send_mail">Send Mail</button>
-			</div>  	    
+	<form method="POST">
+		<div class="modal-dialog">
+			<div class="modal-content">  
+				<div class="modal-header">
+					<h5 class="modal-title">Send Mail</h5>
+					<button type="button" class="close hide-modal" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>    
+				</div>  
+				<div class="modal-body">     				
+						<div class="form-type">
+							<label for="email_to">To</label>
+							<input type="text" name="email_to" readonly="readonly">
+						</div>
+						<div class="form-type">
+							<label for="message">Message</label>
+							<textarea class="modal-mail-message" name="message"></textarea>
+						</div>					
+					<div class="modal-action">
+					</div>            
+				</div>  
+				<div class="modal-footer form-type">
+					<button class="cancel-btn hide-modal " type="button">Cancel</button>
+					<button class="primary-btn hide-modal " name="send_mail">Send Mail</button>
+				</div>  	    
+			</div>
 		</div>
-	</div>
+	</form>
 </div>
 <!-- #Show State Name --->
 

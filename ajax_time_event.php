@@ -5,15 +5,23 @@ $appointment_timesData='';
 $appintment_date = $_POST['appointmentTime'];
 $eventId = $_POST['eventId'];
 $dataStartTime ='';
+$time_slot_value = '';
+$time_slot = 'apt_1h';
 
   //if(!empty($_POST['appId'])){
 				
-	$sqlTime="SELECT appointment_time, appointment_date FROM `wp_schedule_appointment` where id='".$_POST['appId']."'";
+	$sqlTime="SELECT time_slot, appointment_time, appointment_date FROM `wp_schedule_appointment` where id='".$_POST['appId']."'";
 	$dataStartTime = $wpdb->get_results($sqlTime);
 	//$appintment_date = $dataStartTime['0']->appointment_date;
 	
  // }
   
+//get time slot
+$time_slot_value = $dataStartTime[0]->time_slot;
+if($time_slot_value === '30 minute'){
+	$time_slot = 'apt_30m';
+}
+
 
 
   $table_appointment_date_time = $wpdb->prefix . 'appointment_date_time';
@@ -29,7 +37,7 @@ $dataStartTime ='';
    
    
    
-    $query = "select appointment_time from wp_schedule_appointment where state ='".$eventId."' and appointment_date='".$appintment_date ."' order by id asc"; 
+    $query = "select time_slot,appointment_time from wp_schedule_appointment where state ='".$eventId."' and appointment_date='".$appintment_date ."' order by id asc"; 
 	$appointment_times = $wpdb->get_results($query);	
 	$appointTimes=array();
 	foreach($appointment_times as $apptime){
@@ -69,7 +77,9 @@ $dataStartTime ='';
 			}		
     }
 
+// echo json_encode(array('appointment_timesData' => $appointment_timesData, 'time_slot' => $time_slot));
 echo $appointment_timesData;
+
 	
 	
 exit;

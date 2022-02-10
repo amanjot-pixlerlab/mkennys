@@ -5,7 +5,7 @@ if (getUrl.pathname.split('/')[1] == 'dev') {
 else {
 	var path = getUrl.protocol + "//" + getUrl.host + "/";
 }
-// var path='http://localhost/mkennys/';	
+var path='http://localhost/mkennys/';	
 //var path = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/";
 //alert(path);
 //jQuery.noConflict();
@@ -597,7 +597,6 @@ jQuery(document).ready(function () {
 				jQuery("#show_date").show();
 			},
 			success: function (appointment_data) {
-				console.log(appointment_data);
 				// alert(appointment_data.stateID);						
 				jQuery('#state_zone').show();
 
@@ -654,6 +653,15 @@ jQuery(document).ready(function () {
 							beforeSend: function () {
 								jQuery("#show_date").show();
 							},
+							/*
+							success: function (response) {
+								var data = JSON.parse(response);
+								console.log(data);
+								jQuery("#show_date").hide();
+								jQuery('#time').html(data.appointment_timesData);
+								jQuery('#time_slot option[id="'+time_slot+'"]').attr('selected','selected');
+							}
+							*/
 							success: function (html) {
 								jQuery("#show_date").hide();
 								jQuery('#time').html(html);
@@ -1357,7 +1365,6 @@ jQuery(document).ready(function () {
 
 
 jQuery(document).ready(function () {
-	var path='http://localhost/mkennys/';	
 	var hash = location.hash;
 	hash = hash.replace('#', '');
 	jQuery.post(path+"before_appointment_process.php", {

@@ -117,8 +117,8 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 ">
                         <ul class="head_topbar">
-                            <li class="active"><a href="https://mkennys.com/"> Men </a></li>
-                            <li><a href="https://mkennys.com/women"> Women </a></li>
+                            <li class="active"><a href="<?= home_url(); ?>"> Men </a></li>
+                            <li><a href="<?= home_url(); ?>/women"> Women </a></li>
                         </ul>
                     </div>
                 </div>
@@ -412,7 +412,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
                                                 <p><?php echo $given_by[0]; ?> <small><?php echo $designation[0]; ?></small></p>
 
-                                                <p><a href="<?php echo esc_url(home_url());?>/testimonial/" class="menuBtn">Read More <i class="fa fa-chevron-right"></i></a></p>
+                                                <p><a href="<?php echo esc_url(home_url());?>/clientreviews/" class="menuBtn">Read More <i class="fa fa-chevron-right"></i></a></p>
 
                                             </div>
 
@@ -510,7 +510,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
             <li class="contactBtn"><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>
 
-            <li class="getFittedBtn"><a style="cursor: pointer;">Get Fitted <i class="fa fa-chevron-right"></i></a></li>
+            <li class="getFittedBtn"><a href="<?= home_url() ?>/new-tour-schedule" style="cursor: pointer;">Get Fitted <i class="fa fa-chevron-right"></i></a></li>
 
         </ul>
 
@@ -540,7 +540,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
                 <ul>
 
-                    <li><a href="<?php echo esc_url(home_url());?>/tour-schedules">Get Fitted</a></li>
+                    <li><a href="<?php echo esc_url(home_url());?>/new-tour-schedules">Get Fitted</a></li>
 
                     <li><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>
 
@@ -659,8 +659,8 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
     });
 
-    jQuery('.getFittedBtn a').click(function(){
-        window.location = 'http://mkennys.com/tour-schedules/'
-    })
+    // jQuery('.getFittedBtn a').click(function(){
+    //     window.location = 'http://mkennys.com/tour-schedules/'
+    // })
 
 </script>

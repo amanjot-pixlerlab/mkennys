@@ -32,7 +32,7 @@ get_header();
                         <h1 class="text-uppercase"><?php echo the_cfc_field( 'main_slider','sub-title', false, $key );?></h1>
                         <h2 class="text-uppercase"><?php echo the_cfc_field( 'main_slider','title', false, $key );?></h2>
                         
-                        <a class="fittedBtn"><?php echo the_cfc_field( 'main_slider','button-text', false, $key );?></a>
+                        <a class="fittedBtn" href="<?= the_cfc_field( 'main_slider','button-link', false, $key ) ?>"><?php echo the_cfc_field( 'main_slider','button-text', false, $key );?></a>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ get_header();
                 </ul>
                 <p class="suit_price">Shirts from $95</p>
                
-                <p><a href="<?php echo esc_url(home_url());?>/tour-schedules/" class="startBtn">Start Now <i class="fa fa-chevron-right"></i></a></p>
+                <p><a href="<?php echo esc_url(home_url());?>/contact/" class="startBtn">Start Now <i class="fa fa-chevron-right"></i></a></p>
             </div>
         </div>
     </div>
@@ -85,14 +85,14 @@ get_header();
     <div class="ho_HIT_left">
         <h4>How it<br>
             works</h4>
-        <p>Meet with a traveling tailor in your city to be fitted for your next custom suit/shirt. Locate a tailor by viewing our <a href="<?php echo site_url();?>/tour-schedules">tour schedule.</a></p>
+        <p>Meet with a traveling tailor in your city to be fitted for your next custom suit/shirt. Locate a tailor by viewing our <a href="<?php echo site_url();?>/new-tour-schedule">tour schedule.</a></p>
     </div>
     <div class="ho_HIT_right">
         <ul class="unstyled-list">
             <li>
                 <figure><img src="<?php echo get_template_directory_uri();?>/images/icon-01.png"></figure>
                 <figcaption>Locate an MK Representative</figcaption>
-                <a class="unstyled-anchor" href="<?php echo site_url();?>/tour-schedules">Tell me more</a>
+                <a class="unstyled-anchor" href="<?php echo site_url();?>/contact">Tell me more</a>
             </li>
             <li>
                 <figure><img src="<?php echo get_template_directory_uri();?>/images/icon-02.png"></figure>
@@ -109,7 +109,7 @@ get_header();
             <li>
                 <figure><img src="<?php echo get_template_directory_uri();?>/images/icon-04.png"></figure>
                 <figcaption>5-7 Week Delivery</figcaption>
-                <a class="unstyled-anchor" href="<?php echo site_url();?>/faq/#faq_118">Tell me more</a>
+                <a class="unstyled-anchor" href="<?php echo site_url();?>/faqs/#faq_118">Tell me more</a>
 
             </li>
             <li>
@@ -125,7 +125,7 @@ get_header();
     <div class="HB_visit">
         <h3>Visit us in your city</h3>
         <?php echo do_shortcode( '[foobar]' ) ; ?>
-        <p><a href="<?php echo site_url();?>/tour-schedules/#cityMap" class="btnBig">Don't see your city above? See our FULL road tour <i class="fa fa-chevron-right"></i></a></p>
+        <p><a href="<?php echo site_url();?>/new-tour-schedule/#cityMap" class="btnBig">Don't see your city above? See our FULL road tour <i class="fa fa-chevron-right"></i></a></p>
     </div>
     <div class="HB_refer">
         <div class="HBR_content">
@@ -325,9 +325,9 @@ jQuery('.home-carousel').owlCarousel({
         navigationText:['<i class="fa fa-chevron-left" aria-hidden="true"></i>','<i class="fa fa-chevron-right" aria-hidden="true"></i>']
     });
     
-jQuery('.fittedBtn').click(function(){
-    window.location = 'http://mkennys.com/tour-schedules/'
-})
+// jQuery('.fittedBtn').click(function(){
+    // window.location = 'http://mkennys.com/tour-schedules/'
+// })
 
 jQuery(document).ready(function(){ 
 

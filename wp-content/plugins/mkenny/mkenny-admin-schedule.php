@@ -865,7 +865,7 @@ $page_name=get_option('siteurl')."/wp-admin/admin.php?page=mkenny-admin-schedule
 
 $nume=count($retrieve_data);
 
-$sql="select wp_schedule_events.id,wp_schedule_event_state.event_id,
+$sql="select wp_schedule_events.created_at,wp_schedule_events.id,wp_schedule_event_state.event_id,
 COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
 wp_appointment_date_time.end_time from wp_schedule_event_state
 LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id
@@ -874,7 +874,7 @@ LEFT JOIN wp_state ON wp_state.id = wp_schedule_event_state.state_id
 LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
 where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
 and wp_appointment_date_time.is_delete='1' 
-GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2)) desc limit $eu, $limit";
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_events.created_at desc, wp_state.state_name limit $eu, $limit";
 
 if($_REQUEST['sorting'] != '' && isset($_REQUEST['sorting'])){
 	
@@ -887,7 +887,18 @@ LEFT JOIN wp_state ON ".$_REQUEST['sorting']." = wp_schedule_event_state.state_i
 LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
 where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
 and wp_appointment_date_time.is_delete='1' 
-GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by CONCAT(SUBSTRING(wp_appointment_date_time.start_date, 7, 4),SUBSTRING(wp_appointment_date_time.start_date, 1, 2),SUBSTRING(wp_appointment_date_time.start_date, 4, 2)) desc limit $eu, $limit";	
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_events.created_at desc, wp_state.state_name limit $eu, $limit";	
+
+$all_state_data="select wp_schedule_events.id,wp_schedule_event_state.event_id,
+COUNT(wp_schedule_event_state.event_id) as mult_id,wp_state.state_name,wp_state.id as stateId, wp_state.state_short,wp_schedule_events.city_name,wp_statezone.state_zone,wp_schedule_events.location, wp_schedule_events.contact_name,wp_schedule_events.phone_no,wp_schedule_events.upcoming_event, wp_schedule_events.status,wp_appointment_date_time.start_date,wp_appointment_date_time.start_time,
+wp_appointment_date_time.end_time from wp_schedule_event_state
+LEFT JOIN wp_statezone ON wp_statezone.id = wp_schedule_event_state.statezone_id
+LEFT JOIN wp_schedule_events ON wp_schedule_events.id = wp_schedule_event_state.event_id
+LEFT JOIN wp_state ON ".$_REQUEST['sorting']." = wp_schedule_event_state.state_id
+LEFT JOIN wp_appointment_date_time ON wp_appointment_date_time.event_id = wp_schedule_events.id
+where wp_schedule_events.is_delete='1' and wp_schedule_event_state.is_delete='1' and wp_state.is_delete='1'
+and wp_appointment_date_time.is_delete='1' 
+GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_events.created_at desc, wp_state.state_name";	
 	
 }
 
@@ -948,9 +959,12 @@ GROUP BY wp_schedule_event_state.event_id having mult_id>0 order by wp_schedule_
 */
 	$tour_schedulings = $wpdb->get_results($sql);
 
+	$state_id = '';
+
 	if($_REQUEST['sorting'] != '' && isset($_REQUEST['sorting'])){
-		
-		$nume=count($tour_schedulings);
+		$all_state = $wpdb->get_results($all_state_data);
+		$nume=count($all_state);
+		$state_id = $_REQUEST['sorting'];
 	}
 
 
@@ -1039,7 +1053,7 @@ echo "<table align = 'center' width='50%'><tr><td  align='left' width='30%'>";
 
 
 if($back >=0) { 
-print "<a href='$page_name&start=$back'><font face='Verdana' size='2'>PREV</font></a>"; 
+print "<a href='$page_name".($state_id!==''?'&sorting='.$state_id:'')."&start=$back'><font face='Verdana' size='2'>PREV</font></a>"; 
 } 
 
 
@@ -1048,7 +1062,7 @@ $i=0;
 $l=1;
 for($i=0;$i < $nume;$i=$i+$limit){
 if($i <> $eu){
-echo " <a href='$page_name&start=$i'><font face='Verdana' size='2'>$l</font></a> ";
+echo " <a href='$page_name".($state_id!==''?'&sorting='.$state_id:'')."&start=$i'><font face='Verdana' size='2'>$l</font></a> ";
 }
 else { echo "<font face='Verdana' size='4' color=red>$l</font>";}        /// Current page is not displayed as link and given font color red
 $l=$l+1;
@@ -1058,7 +1072,7 @@ $l=$l+1;
 echo "</td><td  align='right' width='30%'>";
 ///////////// If we are not in the last page then Next link will be displayed. Here we check that /////
 if($this1 < $nume) { 
-print "<a href='$page_name&start=$next'><font face='Verdana' size='2'>NEXT</font></a>";} 
+print "<a href='$page_name".($state_id!==''?'&sorting='.$state_id:'')."&start=$next'><font face='Verdana' size='2'>NEXT</font></a>";} 
 echo "</td></tr></table>";
 
 }// end of if checking sufficient records are there to display bottom navigational link. 
