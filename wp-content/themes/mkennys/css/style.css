@@ -1579,11 +1579,18 @@ div.wpcf7-response-output {
 	}
 }
 @media screen and (max-width:767px) {
+
 	.testimonalBox-card .card-inner-box {
 		margin: 0;
 	}
+	.card-inner-box.card-left  .card-box-inner .card-text {
+		padding: 0;
+	}
+	.client-name, .source-name {
+		margin-top: 0;
+	}
 	.card-box-body {
-		padding: 45px 20px 45px 35px;
+		padding: 25px 20px 30px 35px;
 	}
 	.testimonialMain .testimonalBox-inner:nth-child(odd) .testimonalBox-card {
 		flex-direction: column-reverse;
