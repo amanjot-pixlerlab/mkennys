@@ -1549,6 +1549,7 @@ div.wpcf7-response-output {
 .faq_content .faq_content_main.active a {
     color: #323232 !important;
 }
+
 @media(max-width:1199px){
 	.customerService .CS_img img {
 		height: 400px;

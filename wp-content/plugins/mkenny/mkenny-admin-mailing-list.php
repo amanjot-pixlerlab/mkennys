@@ -331,7 +331,68 @@ echo "</td></tr></table>";
 			</div>
 		</div>
 	</form>
+
 </div>
+<style>
+.send-email-modal .modal-header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    color: #222;
+    font-size: 25px;
+    text-transform: capitalize;
+    border-bottom: 1px solid #e9ecef;
+    padding: 20px 30px;
+    margin: 0 0 20px;
+}
+.send-email-modal .modal-body {
+    padding: 0 30px;
+    margin: 0 0 20px;
+}
+.send-email-modal .modal-body  .form-type {
+    margin-bottom: 15px;
+}
+.send-email-modal .modal-body   label {
+    color: #5c5c5c;
+    font-size: 14px;
+    letter-spacing: .5px;
+    font-weight: 600;
+}
+.send-email-modal .modal-body  input, .send-email-modal .modal-body  textarea {
+    width: 100%;
+    background-color: transparent;
+    margin-top: 5px;
+    padding: 0;
+    min-height: 45px;
+    border: 1px solid #d9dde2;
+    padding: 8px;
+}
+.send-email-modal .modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 20px 30px;
+    text-align: center;
+}
+.send-email-modal .modal-footer .cancel-btn {
+    background-color: #C3C3C3;
+    color: #fff;
+    margin-right: 15px;
+}
+.send-email-modal .modal-footer button {
+    border: none;
+    background: #38688F;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 600;
+}
+
+	
+</style>
 <!-- #Show State Name --->
 
 

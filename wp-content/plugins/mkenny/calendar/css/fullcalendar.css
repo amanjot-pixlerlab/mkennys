@@ -2310,7 +2310,15 @@ be a descendant of the grid when it is being dragged.
 .calender_tabel {
     padding: 40px;
 }
+.send-email-modal .modal-header .modal-title {
 
+    margin: 0;
+
+    font-weight: 700;
+
+    color: #324983;
+
+}
 @media screen and (max-width: 767px) {
 	.fc-view-container{
 		overflow-y: auto;
