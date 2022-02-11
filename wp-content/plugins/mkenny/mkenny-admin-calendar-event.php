@@ -13,7 +13,9 @@ $events = $req->fetchAll();
 <link href="<?php echo site_url() ?>/wp-content/plugins/mkenny/calendar/css/bootstrap.min.css" rel="stylesheet">	
 <!-- FullCalendar -->
 <link href="<?php echo site_url() ?>/wp-content/plugins/mkenny/calendar/css/fullcalendar.css" rel="stylesheet"/>
-
+<!-- Select JS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- Select JS -->
 <style>
 .add_event {
     background: #2d3e50;
@@ -25,9 +27,7 @@ $events = $req->fetchAll();
     padding: 10px 20px;
     text-decoration: none !important;
 }
-.calenderContainer { 
-	
-}
+
 </style>
 
 <body>
@@ -591,7 +591,7 @@ jQuery(document).ready(function(){
                         <div class="form-control">
                         	<input type="text" name="datess" id="datess" value="Not Available">
                         </div>
-                        <div class="form-control">
+                        <div class="form-control times-Schedule">
                         	<select id="time" name="times" class="cv_required">
 							<option value="">Not Available</option>
 							</select>
@@ -694,4 +694,13 @@ jQuery(document).ready(function(){
 </div>
 <!--- #popup Add Google calendar and outlook ---->
 
+
+<!-- Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+	jQuery(document).ready(function() {
+    	jQuery('#time').select2();
+	});
+</script>
+<!-- Select JS -->
 </body>

@@ -5,7 +5,7 @@ if (getUrl.pathname.split('/')[1] == 'dev') {
 else {
 	var path = getUrl.protocol + "//" + getUrl.host + "/";
 }
-var path='http://localhost/mkennys/';	
+// var path='http://localhost/mkennys/';	
 //var path = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1]+"/";
 //alert(path);
 //jQuery.noConflict();
@@ -391,7 +391,7 @@ jQuery(document).ready(function () {
 				return this.value
 			}
 		}).get().join(", ");
-		console.log(e);
+		// console.log(e);
 		jQuery("#sinterested").val(e)
 	});
 
@@ -605,6 +605,7 @@ jQuery(document).ready(function () {
 				jQuery('.demo').fSelect('create');
 				jQuery('#state_zone').html('');
 				jQuery('#city_name').html('');
+				jQuery('#time').html('');
 				if (appointment_data.stateZone == "multiStateWithoutZone") {
 					jQuery('#state_zone').hide();
 				}
@@ -653,19 +654,30 @@ jQuery(document).ready(function () {
 							beforeSend: function () {
 								jQuery("#show_date").show();
 							},
-							/*
+							
 							success: function (response) {
+
+								var timeOptions = '';
+
 								var data = JSON.parse(response);
-								console.log(data);
 								jQuery("#show_date").hide();
-								jQuery('#time').html(data.appointment_timesData);
-								jQuery('#time_slot option[id="'+time_slot+'"]').attr('selected','selected');
+								if(data.time_slot){
+									jQuery('#time_slot option[id="'+data.time_slot+'"]').attr('selected','selected');
+								}
+								if(data.time_options){
+									data.time_options.forEach(option => {
+										timeOptions += "<option value='"+option.time+"' "+(option.disabled?'disabled':'')+" "+(option.selected?'selected':'')+">"+option.time+"</option>";
+									});
+								}
+								jQuery('#time').html(timeOptions);
 							}
-							*/
+							
+							/*
 							success: function (html) {
 								jQuery("#show_date").hide();
 								jQuery('#time').html(html);
 							}
+							*/
 						});
 					}
 				}).datepicker("setDate", enableDays['0']);
@@ -687,10 +699,28 @@ jQuery(document).ready(function () {
 						beforeSend: function () {
 							jQuery("#show_date").show();
 						},
+						success: function (response) {
+
+							var timeOptions = '';
+
+							var data = JSON.parse(response);
+							jQuery("#show_date").hide();
+							if(data.time_slot){
+								jQuery('#time_slot option[id="'+data.time_slot+'"]').attr('selected','selected');
+							}
+							if(data.time_options){
+								data.time_options.forEach(option => {
+									timeOptions += "<option value='"+option.time+"' "+(option.disabled?'disabled':'')+" "+(option.selected?'selected':'')+">"+option.time+"</option>";
+								});
+							}
+							jQuery('#time').html(timeOptions);
+						}
+						/*
 						success: function (html) {
 							jQuery("#show_date").hide();
 							jQuery('#time').html(html);
 						}
+						*/
 					});
 				}
 				//event_id = "";

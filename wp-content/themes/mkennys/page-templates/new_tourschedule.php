@@ -23,7 +23,9 @@ $min='';
 
 
 ?>
-
+<!-- Select JS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- Select JS -->
 <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
 
 
@@ -482,6 +484,10 @@ return $timeHtml;
 
 	font-style: normal;
 
+}
+.select2-container--open .select2-dropdown {
+    border: 1px solid #2e3f51;
+    background-color: #ebeff2;
 }
 
 </style>
@@ -5175,7 +5181,7 @@ return $timeHtml;
 
 	                        </div>
 
-	                        <div class="form-control fc-half">
+	                        <div class="form-control times-Schedule fc-half">
 
 	                        	<select id="time" name="times" class="cv_required"></select>
 
@@ -7358,6 +7364,14 @@ wp_reset_query();
 
 ?>
 
+<!-- Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+	jQuery(document).ready(function() {
+    	jQuery('#time').select2();
+	});
+</script>
+<!-- Select JS -->
 
 
 <script>
@@ -9298,7 +9312,6 @@ var map = document.getElementById("map");
 			}
 
 		</script>
-
 <?php
 
     get_footer();

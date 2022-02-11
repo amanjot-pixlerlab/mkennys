@@ -42,14 +42,20 @@ if($time_slot_value === '30 minute'){
 	$appointTimes=array();
 	foreach($appointment_times as $apptime){
 		$appointTimes[] = $apptime->appointment_time;
+
+		//add another 30 minutes if the time slot is one hour
+		if($apptime->time_slot !== "30 minute" && $dataStartTime['0']->appointment_time!== $apptime->appointment_time){
+			$time = $apptime->appointment_time;
+			$appointTimes[] = date('h.i A',(strtotime($time)+1800));
+		}
 		
 	}   
   
   $appointment_timesData='';
  
 
-
-   for($i=$start;$i<=$end;$i+=1800){ 
+/*
+   	for($i=$start;$i<=$end;$i+=1800){ 
         
 		$selected='';
 		if(in_array(date('h.i A', $i), $appointTimes)){
@@ -76,9 +82,25 @@ if($time_slot_value === '30 minute'){
 				$appointment_timesData .='<option value="'.date('h.i A', $i).'">'.date('h.i A', $i).'</option>';
 			}		
     }
+*/
 
-// echo json_encode(array('appointment_timesData' => $appointment_timesData, 'time_slot' => $time_slot));
-echo $appointment_timesData;
+	$time_options = [];
+
+	for($i=$start;$i<=$end;$i+=1800){ 
+		$selected='';
+		if(in_array(date('h.i A', $i), $appointTimes)){
+			if($dataStartTime['0']->appointment_time == date('h.i A', $i)){
+				$time_options[] = ['time'=>date('h.i A', $i), 'disabled'=>false, 'selected'=>true];
+			}else{					
+				$time_options[] = ['time'=>date('h.i A', $i), 'disabled'=>true, 'selected'=>false];
+			}		
+		}else{
+			$time_options[] = ['time'=>date('h.i A', $i), 'disabled'=>false, 'selected'=>false];
+		}		
+	}
+	
+	echo json_encode(array('time_options' => $time_options, 'time_slot' => $time_slot));
+// echo $appointment_timesData;
 
 	
 	

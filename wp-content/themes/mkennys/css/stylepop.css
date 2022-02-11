@@ -463,6 +463,42 @@ html, body, .wrapper, .scroller {
 	max-width: 100%;	
 	text-align: center;
 }
+ .select2-container--open {
+    z-index: 9999;
+}
+.times-Schedule .select2 {
+    width: 100% !important;
+}
+.times-Schedule .select2-container--default .select2-selection--single {
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    height: 45px;
+    border: 1px solid #d9dde2;
+    padding: 8px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px !important;
+}
+.times-Schedule .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 45px;
+}
+.select2-search--dropdown {
+    display: none !important;
+}
+.select2-container--open .select2-dropdown {
+    border: 1px solid #d9dde2;
+
+}
+.select2-container--open .select2-dropdown .select2-results__option--disabled {
+    text-decoration: line-through;
+}
+.appointment_popup_page .times-Schedule .select2 .select2-selection--single {
+    color: #2e3f51;
+    border-color: #ebeff2;
+    font-weight: 300;
+    font-size: 18px;
+    background-color: #ebeff2;
+}
 
 @media (max-width: 767px) { 
 	.appointment_popup { 
