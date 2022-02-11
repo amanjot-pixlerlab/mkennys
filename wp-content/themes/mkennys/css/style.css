@@ -1546,6 +1546,9 @@ div.wpcf7-response-output {
 .home-carousel .owl-controls.clickable {
     margin: 0;
 }
+.faq_content .faq_content_main.active a {
+    color: #323232 !important;
+}
 @media(max-width:1199px){
 	.customerService .CS_img img {
 		height: 400px;
@@ -5950,5 +5953,8 @@ svg#map .hide{
 	}
 	.notify-form input, .notify-form select{
 		width: 100%;
+	}
+	#collars ul li a span {
+		padding: 6px 2px;
 	}
 }
