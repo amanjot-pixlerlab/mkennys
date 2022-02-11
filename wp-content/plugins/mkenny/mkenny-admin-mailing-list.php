@@ -334,61 +334,208 @@ echo "</td></tr></table>";
 
 </div>
 <style>
-.send-email-modal .modal-header {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: space-between;
-    color: #222;
-    font-size: 25px;
-    text-transform: capitalize;
-    border-bottom: 1px solid #e9ecef;
-    padding: 20px 30px;
-    margin: 0 0 20px;
+.send-email-modal {
+
+position: fixed;
+
+left: 0;
+
+top: 0;
+
+bottom: 0;
+
+right: 0;
+
+display: none;
+
 }
-.send-email-modal .modal-body {
-    padding: 0 30px;
-    margin: 0 0 20px;
-}
-.send-email-modal .modal-body  .form-type {
-    margin-bottom: 15px;
-}
-.send-email-modal .modal-body   label {
-    color: #5c5c5c;
-    font-size: 14px;
-    letter-spacing: .5px;
-    font-weight: 600;
-}
-.send-email-modal .modal-body  input, .send-email-modal .modal-body  textarea {
+
+.send-email-modal .overlay {
+    background-color: rgb(0 0 0 / 40%);
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    content: " ";
     width: 100%;
-    background-color: transparent;
-    margin-top: 5px;
-    padding: 0;
-    min-height: 45px;
-    border: 1px solid #d9dde2;
-    padding: 8px;
 }
+
+.send-email-modal  .modal-dialog  {
+
+height: 100vh;
+
+display: flex;
+
+align-items: center;
+
+justify-content: center;
+
+}
+
+.send-email-modal  .modal-content {
+
+width:500px;
+
+background-color: #fff;
+
+z-index: 1;
+
+border-radius: 4px;
+
+}
+
+.send-email-modal .modal-header{
+
+display: flex;
+
+position: relative;
+
+align-items: center;
+
+justify-content: space-between;
+
+color: #222;
+
+font-size: 25px;
+
+text-transform: capitalize;
+
+border-bottom: 1px solid #e9ecef;
+
+padding:20px 30px;
+
+margin: 0 0 20px;
+
+}
+
 .send-email-modal .modal-footer {
-    border-top: 1px solid #e9ecef;
-    padding: 20px 30px;
-    text-align: center;
+
+border-top: 1px solid #e9ecef;
+
+padding:20px 30px;
+
+text-align: center;
+
 }
-.send-email-modal .modal-footer .cancel-btn {
-    background-color: #C3C3C3;
-    color: #fff;
-    margin-right: 15px;
+
+.send-email-modal .modal-header .modal-title {
+
+margin: 0;
+
+font-weight: 700;
+
+color: #324983;
+
 }
+
+.send-email-modal .modal-header .close {
+
+background-color: transparent;
+
+border: none;
+
+color: #000;
+
+font-weight: 600;
+
+display: flex;
+
+align-items: center;
+
+cursor: pointer;
+
+
+
+}
+
+.send-email-modal .modal-header .close span {
+
+line-height: 20px;
+
+}
+
+.send-email-modal .modal-body {
+
+padding: 0 30px;
+
+margin: 0 0 20px;
+
+}
+
+.send-email-modal .modal-body  input,.send-email-modal .modal-body  textarea {
+
+width: 100%;
+
+background-color: transparent;
+
+margin-top: 5px;
+
+padding: 0;
+
+min-height: 45px;
+
+border: 1px solid #d9dde2;
+
+padding: 8px;
+
+}
+
+.send-email-modal .modal-body  .form-type {
+
+margin-bottom: 15px;
+
+}
+
+.send-email-modal .modal-body  textarea{
+
+height: 150px;
+
+}
+
+.send-email-modal .modal-body   label {
+
+color: #5c5c5c;
+
+font-size: 14px;
+
+letter-spacing: .5px;
+
+font-weight:600;
+
+}
+
 .send-email-modal .modal-footer button {
-    border: none;
-    background: #38688F;
-    border-radius: 3px;
-    font-size: 18px;
-    color: #fff;
-    cursor: pointer;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    font-family: 'Roboto Condensed', sans-serif;
-    font-weight: 600;
+
+border: none;
+
+background:#38688F;
+
+border-radius: 3px;
+
+font-size: 18px;
+
+color: #fff;
+
+cursor: pointer;
+
+padding: 10px 20px;
+
+text-transform: uppercase;
+
+font-family: 'Roboto Condensed', sans-serif;
+
+font-weight: 600;
+
+}
+
+.send-email-modal .modal-footer .cancel-btn {
+
+background-color:#C3C3C3;
+
+color:#fff;
+
+margin-right: 15px;
+
 }
 
 	
