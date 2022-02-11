@@ -1583,7 +1583,7 @@ div.wpcf7-response-output {
 	.testimonalBox-card .card-inner-box {
 		margin: 0;
 	}
-	.card-inner-box.card-left  .card-box-inner .card-text {
+	html .card-inner-box.card-left  .card-box-inner .card-text {
 		padding: 0;
 	}
 	.client-name, .source-name {
