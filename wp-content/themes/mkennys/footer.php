@@ -543,8 +543,6 @@ if(isset($_POST['footersubmit'])){
 
     function footerMail($to_email,$from_email,$from_name,$to_name, $from_state, $to_state){
 
-
-
         $url = home_url();
 
         $to_message = "<html><head></head><body style='font-family:Arial, Helvetica, sans-serif;margin:0; padding:0;' >";
@@ -839,29 +837,11 @@ if(isset($_POST['footersubmit'])){
 
         $from_subject = "Thanks for your referral";
 
-
-
-
-
-       $from = 'info@mkennys.com';
-
-       //$from = 'amanjot@trsoftwaregroup.com';
-
-
-
-	    //$from = "karanjeettr@gmail.com";
-
-
+        $from = 'info@mkennys.com';
 
 		$headers = 'MIME-Version: 1.0' . "\r\n";
 
         $headers .= 'Bcc:info@mkennys.com' . "\r\n";
-
-       // $headers .= 'Bcc:krish@trsoftwaregroup.com' . "\r\n";
-
-
-
-        // $headers .= 'Bcc:singhkaranjeet92@gmail.com,karanjeettr@gmail.com' . "\r\n";
 
         $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
@@ -880,8 +860,6 @@ if(isset($_POST['footersubmit'])){
         $admin_headers = 'MIME-Version: 1.0' . "\r\n";
 
         $admin_headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
-
-		//$admin_headers .= 'Bcc:sanjeevtrgroup@outlook.com' . "\r\n";
 
         $admin_headers .= "From: True Fitted by M Kennys " .$from. "\r\n" .
 
