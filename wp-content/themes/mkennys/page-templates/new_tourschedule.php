@@ -8,194 +8,191 @@
 
 session_start();
 
-$tourId='';
+$tourId = '';
 
 $tourId = get_the_ID();
 
 get_header();
 
-$datess='';
+$datess = '';
 
-$hour='';
+$hour = '';
 
-$min='';
+$min = '';
 
 
 
 ?>
-
+<!-- Select JS -->
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<!-- Select JS -->
 <script src="//js.maxmind.com/js/apis/geoip2/v2.1/geoip2.js"></script>
 
 
 
 <script>
+	function getCookie(cname) {
 
-function getCookie(cname) {
+		var name = cname + "=";
 
-    var name = cname + "=";
+		var decodedCookie = decodeURIComponent(document.cookie);
 
-    var decodedCookie = decodeURIComponent(document.cookie);
+		var ca = decodedCookie.split(';');
 
-    var ca = decodedCookie.split(';');
+		for (var i = 0; i < ca.length; i++) {
 
-    for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
 
-        var c = ca[i];
+			while (c.charAt(0) == ' ') {
 
-        while (c.charAt(0) == ' ') {
+				c = c.substring(1);
 
-            c = c.substring(1);
+			}
 
-        }
+			if (c.indexOf(name) == 0) {
 
-        if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
 
-            return c.substring(name.length, c.length);
-
-        }
-
-    }
-
-    return "";
-
-}
-
-function setCookie(cname, cvalue, exdays) {
-
-    var d = new Date();
-
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-
-    var expires = "expires="+ d.toUTCString();
-
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-
-}
-
-var fillInPage = (function () {
-
-
-
-
-
-    var updateCityText = function (geoipResponse) {
-
-
-
-        var link = "/shelter?lat=" + geoipResponse.location.latitude;
-
-        link += "&lon=" +geoipResponse.location.longitude;
-
-
-
-        /* It's possible that we won't have any names for this city */
-
-        var cityName = geoipResponse.city.names.en || 'your city';
-
-
-
-
-
-
-
-        /*
-
-           most_specific_subdivision returns the smallest available
-
-           subdivision (region) as defined in ISO 3166-2.
-
-        */
-
-        var regionName = geoipResponse.most_specific_subdivision.names.en;
-
-
-
-		if( getCookie("mkRegion")=='')
-
-		{
-
-			cookieExist = false;
+			}
 
 		}
 
-		else{
+		return "";
 
-			cookieExist = true;
+	}
 
-		}
+	function setCookie(cname, cvalue, exdays) {
 
+		var d = new Date();
 
+		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
 
-		setCookie('mkRegion',regionName,7);
+		var expires = "expires=" + d.toUTCString();
 
+		document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 
+	}
 
-		if(cookieExist==false)
-
-		{
-
-			location.reload();
-
-		}
+	var fillInPage = (function() {
 
 
 
-        var cityHTML =
 
-            '<a href="' + link + '">Find a great companion near '
 
-            + cityName;
+		var updateCityText = function(geoipResponse) {
 
 
 
-        if (cityName && regionName ) {
+			var link = "/shelter?lat=" + geoipResponse.location.latitude;
 
-            cityHTML += ', ' + regionName;
-
-        }
-
-        cityHTML += '</a>.';
+			link += "&lon=" + geoipResponse.location.longitude;
 
 
 
-        $("#city").html(cityHTML);
+			/* It's possible that we won't have any names for this city */
 
-    };
-
-
-
-    var onSuccess = function (geoipResponse) {
-
-        updateCityText(geoipResponse);
-
-    };
+			var cityName = geoipResponse.city.names.en || 'your city';
 
 
 
-    /* If we get an error we will */
-
-    var onError = function (error) {
-
-        return;
-
-    };
 
 
 
-    return function () {
 
-        geoip2.city( onSuccess, onError );
+			/*
 
-    };
+			   most_specific_subdivision returns the smallest available
 
-}());
+			   subdivision (region) as defined in ISO 3166-2.
 
+			*/
 
-
-fillInPage();
-
+			var regionName = geoipResponse.most_specific_subdivision.names.en;
 
 
+
+			if (getCookie("mkRegion") == '')
+
+			{
+
+				cookieExist = false;
+
+			} else {
+
+				cookieExist = true;
+
+			}
+
+
+
+			setCookie('mkRegion', regionName, 7);
+
+
+
+			if (cookieExist == false)
+
+			{
+
+				location.reload();
+
+			}
+
+
+
+			var cityHTML =
+
+				'<a href="' + link + '">Find a great companion near '
+
+				+
+				cityName;
+
+
+
+			if (cityName && regionName) {
+
+				cityHTML += ', ' + regionName;
+
+			}
+
+			cityHTML += '</a>.';
+
+
+
+			$("#city").html(cityHTML);
+
+		};
+
+
+
+		var onSuccess = function(geoipResponse) {
+
+			updateCityText(geoipResponse);
+
+		};
+
+
+
+		/* If we get an error we will */
+
+		var onError = function(error) {
+
+			return;
+
+		};
+
+
+
+		return function() {
+
+			geoip2.city(onSuccess, onError);
+
+		};
+
+	}());
+
+
+
+	fillInPage();
 </script>
 
 <?php
@@ -206,7 +203,7 @@ fillInPage();
 
 //echo get_template_directory();exit;
 
-include(get_template_directory().'/phpcaptcha/phptextClass.php');
+include(get_template_directory() . '/phpcaptcha/phptextClass.php');
 
 
 
@@ -220,13 +217,13 @@ include(get_template_directory().'/phpcaptcha/phptextClass.php');
 
 $rootPath = ABSPATH;
 
-require_once($rootPath.'mkennys-googleCalender/settings.php');
+require_once($rootPath . 'mkennys-googleCalender/settings.php');
 
-require_once($rootPath.'mkennys-googleCalender/google-calendar-api.php');
+require_once($rootPath . 'mkennys-googleCalender/google-calendar-api.php');
 
 // Google passes a parameter 'code' in the Redirect Url
 
-if(isset($_GET['code'])) {
+if (isset($_GET['code'])) {
 
 
 
@@ -262,7 +259,7 @@ if(isset($_GET['code'])) {
 
 
 
-		
+
 
 
 
@@ -276,20 +273,16 @@ if(isset($_GET['code'])) {
 
 		// Create event on primary calendar
 
-		$event_id = $capi->CreateCalendarEvent('primary', $event['title'],$event['location'],$event['all_day'],$event['event_time'], $user_timezone, $access_token);
+		$event_id = $capi->CreateCalendarEvent('primary', $event['title'], $event['location'], $event['all_day'], $event['event_time'], $user_timezone, $access_token);
 
 		//echo 'Event has been created with ID ' . $event_id;
 
-	}
-
-	catch(Exception $e) {
+	} catch (Exception $e) {
 
 		echo $e->getMessage();
 
 		exit();
-
 	}
-
 }
 
 
@@ -318,11 +311,12 @@ $login_url = 'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode('htt
 
 
 
-function getState(){
+function getState()
+{
 
 	global $wpdb;
 
-	$stateHtml='';
+	$stateHtml = '';
 
 	// $arr = ['NY', 'NJ', 'GA', 'CA', 'MO', 'IL', 'IN', 'WI', 'MI', 'PA', 'MD', 'VA'];
 
@@ -330,25 +324,25 @@ function getState(){
 
 	$states = $wpdb->get_results($state_sql);
 
-		foreach($states as $state){
+	foreach ($states as $state) {
 
-			// if(in_array($state->state_short, $arr)){
+		// if(in_array($state->state_short, $arr)){
 
-				$stateHtml .='<option '.$selected.' value="'.$state->id.'" data-code="'.$state->state_short.'" data-name="'.$state->state_name.'">'.$state->state_name.'</option>';
+		$stateHtml .= '<option ' . $selected . ' value="' . $state->id . '" data-code="' . $state->state_short . '" data-name="' . $state->state_name . '">' . $state->state_name . '</option>';
 
-			// }
+		// }
 
-		}
+	}
 
 	return $stateHtml;
-
 }
 
-function getStateList(){
+function getStateList()
+{
 
 	global $wpdb;
 
-	$stateHtml='';
+	$stateHtml = '';
 
 	$arr = ['AL', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'DC', 'FL', 'GA', 'IN', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MS', 'MO', 'NV', 'NJ', 'NY', 'NC', 'OH', 'OK', 'PA', 'SC', 'TN', 'TX', 'VA', 'WA', 'WI'];
 
@@ -358,72 +352,63 @@ function getStateList(){
 
 	// print_r($states);
 
-		foreach($states as $state){
+	foreach ($states as $state) {
 
-			if(in_array($state->state_short, $arr)){
+		if (in_array($state->state_short, $arr)) {
 
-				$stateHtml .='<li class="active"><a data-id="'.$state->id.'" data-name="'.$state->state_short.'" href="#'.$state->state_name.'">'.$state->state_name.'</a></li>';
-
-			}
-
+			$stateHtml .= '<li class="active"><a data-id="' . $state->id . '" data-name="' . $state->state_short . '" href="#' . $state->state_name . '">' . $state->state_name . '</a></li>';
 		}
+	}
 
 	return $stateHtml;
-
 }
 
 
 
-function getDates(){
+function getDates()
+{
 
 
 
-global $wpdb;
+	global $wpdb;
 
-$dateHtml='';
+	$dateHtml = '';
 
-$dateEvent = "select id,start_date from wp_schedule_events ORDER BY id ASC";
+	$dateEvent = "select id,start_date from wp_schedule_events ORDER BY id ASC";
 
-$dates = $wpdb->get_results($dateEvent);
+	$dates = $wpdb->get_results($dateEvent);
 
-//print_r($dates);exit("here");
+	//print_r($dates);exit("here");
 
-	foreach($dates as $dt){
+	foreach ($dates as $dt) {
 
-	 $dateHtml .='<option value="'.$dt->start_date.'">'.$dt->start_date.'</option>';
-
+		$dateHtml .= '<option value="' . $dt->start_date . '">' . $dt->start_date . '</option>';
 	}
 
-return $dateHtml;
-
-
-
+	return $dateHtml;
 }
 
 
 
-function getTimes(){
+function getTimes()
+{
 
 
 
-global $wpdb;
+	global $wpdb;
 
-$timeHtml='';
+	$timeHtml = '';
 
-$timeEvent = "select id,start_time from wp_schedule_events ORDER BY id ASC";
+	$timeEvent = "select id,start_time from wp_schedule_events ORDER BY id ASC";
 
-$times = $wpdb->get_results($timeEvent);
+	$times = $wpdb->get_results($timeEvent);
 
-	foreach($times as $tm){
+	foreach ($times as $tm) {
 
-	 $timeHtml .='<option value="'.$tm->id.'">'.$tm->start_time.'</option>';
-
+		$timeHtml .= '<option value="' . $tm->id . '">' . $tm->start_time . '</option>';
 	}
 
-return $timeHtml;
-
-
-
+	return $timeHtml;
 }
 
 
@@ -469,21 +454,24 @@ return $timeHtml;
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
 <style>
+	@font-face {
 
-@font-face {
+		font-family: 'entyporegular';
 
-	font-family: 'entyporegular';
+		src: url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.eot');
 
-	src: url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.eot');
+		src: url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.eot?#iefix') format('embedded-opentype'), url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.woff') format('woff'), url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.ttf') format('truetype'), url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.svg#entyporegular') format('svg');
 
-	src: url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.eot?#iefix') format('embedded-opentype'),  url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.woff') format('woff'),  url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.ttf') format('truetype'),  url('<?php echo get_template_directory_uri(); ?>/fonts/Entypo-webfont.svg#entyporegular') format('svg');
+		font-weight: normal;
 
-	font-weight: normal;
+		font-style: normal;
 
-	font-style: normal;
+	}
 
-}
-
+	.select2-container--open .select2-dropdown {
+		border: 1px solid #2e3f51;
+		background-color: #ebeff2;
+	}
 </style>
 
 
@@ -494,129 +482,122 @@ return $timeHtml;
 
 <div class="ts_schedule">
 
-			<div class="ts_banner">
+	<div class="ts_banner">
 
-				<div class="ts_banner_background" style="background-image: url('<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>');"></div>
+		<div class="ts_banner_background" style="background-image: url('<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>');"></div>
 
-				<!-- /.ts_banner_overlay -->
+		<!-- /.ts_banner_overlay -->
 
-				<div class="ts_banner_overlay"></div>
+		<div class="ts_banner_overlay"></div>
 
-				<!-- /.ts_banner_overlay -->
+		<!-- /.ts_banner_overlay -->
 
-			    <div class="container">
+		<div class="container">
 
-			        <div class="mk-row mk-align-center">
+			<div class="mk-row mk-align-center">
 
-			            <div class="mk-col-4">
+				<div class="mk-col-4">
 
-			            	<div class="position-relative" id="mk-text-area">
+					<div class="position-relative" id="mk-text-area">
 
-				            	<div class="mk-banner-text" style="display: block">
+						<div class="mk-banner-text" style="display: block">
 
-					                <h2>Schedule a fitting with us</h2>
+							<h2>Schedule a fitting with us</h2>
 
-					                <p>Find out when our tailors are in your city, or e-mail us for future schedules.</p>
+							<p>Find out when our tailors are in your city, or e-mail us for future schedules.</p>
 
-				            	</div>
+						</div>
 
-				            	<!-- /.mk-banner-text -->
+						<!-- /.mk-banner-text -->
 
-				                <div class="mk-banner-text">
+						<div class="mk-banner-text">
 
-									<div class="ts_back">
+							<div class="ts_back">
 
-										<button id="back-btn" type="button"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.svg" alt="arrow left" /> Back to Listing</button>
+								<button id="back-btn" type="button"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.svg" alt="arrow left" /> Back to Listing</button>
 
-									</div>
+							</div>
 
-									<!-- /.ts_back -->
+							<!-- /.ts_back -->
 
-					                <h2>Schedule <br>for <span class="state_name">california</span></h2>
+							<h2>Schedule <br>for <span class="state_name">california</span></h2>
 
-				                </div>
+						</div>
 
-								<?php
+						<?php
 
-									$curl_handle=curl_init();
+						$curl_handle = curl_init();
 
-									curl_setopt($curl_handle,CURLOPT_URL,'ipinfo.io/'.$_SERVER['REMOTE_ADDR']);
+						curl_setopt($curl_handle, CURLOPT_URL, 'ipinfo.io/' . $_SERVER['REMOTE_ADDR']);
 
-									curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+						curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
 
-									curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+						curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 
-									$geoIp = curl_exec($curl_handle);
+						$geoIp = curl_exec($curl_handle);
 
-									curl_close($curl_handle);
+						curl_close($curl_handle);
 
-									if (empty($geoIp)){
+						if (empty($geoIp)) {
 
-										// print "Nothing returned from url.<p>";
+							// print "Nothing returned from url.<p>";
 
-									}else{				  
+						} else {
 
-										$geoIp = json_decode($geoIp);	
+							$geoIp = json_decode($geoIp);
+						}
 
-									}
+						$query_state = "select * from wp_state where state_name = '" . $geoIp->region . "'";
 
-									$query_state="select * from wp_state where state_name = '".$geoIp->region."'";
+						//$query_state="select * from wp_state where state_name = '".$test_event_by_state."'";
 
-									//$query_state="select * from wp_state where state_name = '".$test_event_by_state."'";
-
-									$stateIdByLoc = $wpdb->get_results($query_state);
-
-
-
-									// print_r($geoIp->region);
+						$stateIdByLoc = $wpdb->get_results($query_state);
 
 
 
-									if(count($stateIdByLoc)>0)
+						// print_r($geoIp->region);
 
-									{
 
-										$byLocation_stateId = $stateIdByLoc['0']->id;
 
-									}
+						if (count($stateIdByLoc) > 0) {
 
-									else{
+							$byLocation_stateId = $stateIdByLoc['0']->id;
+						} else {
 
-										$byLocation_stateId = 0;
+							$byLocation_stateId = 0;
+						}
 
-									}
+						?>
 
-								?>
+						<select id="states" data-role="<?php echo $byLocation_stateId; ?>">
 
-				                <select id="states" data-role="<?php echo $byLocation_stateId;?>">
+							<option value="">Select state</option>
 
-				                    <option value="">Select state</option>
+							<?php echo  getState(); ?>
 
-									<?php echo  getState(); ?>
+						</select>
 
-				                </select>
+					</div>
 
-			            	</div>
+					<!-- /.position-relative -->
 
-			            	<!-- /.position-relative -->
+				</div>
 
-			            </div>
+				<!-- /.mk-col-4 -->
 
-			            <!-- /.mk-col-4 -->
+				<div class="mk-col-8">
 
-			            <div class="mk-col-8">
+					<div class="ts_map">
 
-			                <div class="ts_map">
+						<span class="tip" id="tip"></span>
 
-			                	<span class="tip" id="tip"></span>
+						<div id="map_base">
 
-			                <div id="map_base"> 
+							<svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 540 360" xml:space="preserve">
 
-			                    <svg version="1.1" id="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 540 360" xml:space="preserve">
+								<g id="shadow">
 
-			                    <g id="shadow">
-
-			                        <path d="M505.9,49.7c-0.101,0.1-1.301,1.8-3.5,5c-2.301,3.199-3.301,4.899-3.301,5.1c-0.1,2.1-0.5,3.3-1,3.6
+									<path d="M505.9,49.7c-0.101,0.1-1.301,1.8-3.5,5c-2.301,3.199-3.301,4.899-3.301,5.1c-0.1,2.1-0.5,3.3-1,3.6
 
 
 
@@ -1218,55 +1199,55 @@ return $timeHtml;
 
 			C391.1,70.6,391.7,70.6,392.4,70.1z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M492.1,60.2c0-1.801-1-2.7-2.699-2.7H474.8c-1.8,0-2.7,0.899-2.7,2.7v7.199c0,1.801,0.9,2.7,2.7,2.7H489.4
+									<path d="M492.1,60.2c0-1.801-1-2.7-2.699-2.7H474.8c-1.8,0-2.7,0.899-2.7,2.7v7.199c0,1.801,0.9,2.7,2.7,2.7H489.4
 
 
 
 			c1.699,0,2.699-0.899,2.699-2.7V60.2z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M530.1,116.7V110c0-1.8-0.8-2.7-2.6-2.7h-14.7c-1.899,0-2.7,0.9-2.7,2.7v6.7c0,1.899,0.801,2.699,2.7,2.699h14.7
+									<path d="M530.1,116.7V110c0-1.8-0.8-2.7-2.6-2.7h-14.7c-1.899,0-2.7,0.9-2.7,2.7v6.7c0,1.899,0.801,2.699,2.7,2.699h14.7
 
 
 
 			C529.3,119.399,530.1,118.6,530.1,116.7z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M513.1,121.8c-1.8,0-2.699,0.9-2.699,2.8v6.7c0,0.7,0.1,1.3,0.399,1.7c0.4,0.7,1.101,1,2.3,1h10.8c1.001,0,1.801-0.3,2.2-1
+									<path d="M513.1,121.8c-1.8,0-2.699,0.9-2.699,2.8v6.7c0,0.7,0.1,1.3,0.399,1.7c0.4,0.7,1.101,1,2.3,1h10.8c1.001,0,1.801-0.3,2.2-1
 
 
 
 			c0.301-0.4,0.4-1,0.4-1.7v-6.7c0-1.899-0.9-2.8-2.601-2.8H513.1z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M500.9,136.3c-1.801,0-2.801,0.9-2.801,2.8v6.7c0,1.8,1,2.7,2.801,2.7h13c1.8,0,2.699-0.9,2.699-2.7v-6.7
+									<path d="M500.9,136.3c-1.801,0-2.801,0.9-2.801,2.8v6.7c0,1.8,1,2.7,2.801,2.7h13c1.8,0,2.699-0.9,2.699-2.7v-6.7
 
 
 
 			c0-1.899-0.899-2.8-2.699-2.8H500.9z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M501.6,151.6h-12.3c-1.8,0-2.7,0.801-2.7,2.601v6.8c0,1.8,0.9,2.7,2.7,2.7h12.3c1.801,0,2.7-0.9,2.7-2.7v-6.8
+									<path d="M501.6,151.6h-12.3c-1.8,0-2.7,0.801-2.7,2.601v6.8c0,1.8,0.9,2.7,2.7,2.7h12.3c1.801,0,2.7-0.9,2.7-2.7v-6.8
 
 
 
 			C504.3,152.4,503.4,151.6,501.6,151.6z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M499.7,169c0-1.8-0.9-2.7-2.7-2.7h-14.3c-1.8,0-2.7,0.9-2.7,2.7v6.7c0,1.899,0.9,2.7,2.7,2.7H497c1.8,0,2.7-0.801,2.7-2.7
+									<path d="M499.7,169c0-1.8-0.9-2.7-2.7-2.7h-14.3c-1.8,0-2.7,0.9-2.7,2.7v6.7c0,1.899,0.9,2.7,2.7,2.7H497c1.8,0,2.7-0.801,2.7-2.7
 
 
 
 			V169z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M497.9,190.8v-7.1c0-1.9-0.801-2.8-2.601-2.8h-14.6c-1.8,0-2.7,0.899-2.7,2.8v7.1c0,1.9,0.9,2.8,2.7,2.8h14.6
+									<path d="M497.9,190.8v-7.1c0-1.9-0.801-2.8-2.601-2.8h-14.6c-1.8,0-2.7,0.899-2.7,2.8v7.1c0,1.9,0.9,2.8,2.7,2.8h14.6
 
 
 
 			C497.1,193.6,497.9,192.7,497.9,190.8z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M469.6,72.2V65c0-1.8-0.8-2.601-2.6-2.7c-0.1,0-0.1,0-0.1,0h-14.5c-1.801,0-2.801,0.9-2.801,2.7v7.2
+									<path d="M469.6,72.2V65c0-1.8-0.8-2.601-2.6-2.7c-0.1,0-0.1,0-0.1,0h-14.5c-1.801,0-2.801,0.9-2.801,2.7v7.2
 
 
 
 			c0,1.8,1,2.699,2.801,2.699h14.5C468.7,74.899,469.6,74,469.6,72.2z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M371.2,343.6c1.2-0.399,2.6-0.899,4.399-1.5c1-0.399,1.601-1,1.7-1.5c0.101-0.5-0.399-1-1.2-1.5c-1-0.5-1.699-1.199-2-2
+									<path d="M371.2,343.6c1.2-0.399,2.6-0.899,4.399-1.5c1-0.399,1.601-1,1.7-1.5c0.101-0.5-0.399-1-1.2-1.5c-1-0.5-1.699-1.199-2-2
 
 
 
@@ -1280,7 +1261,7 @@ return $timeHtml;
 
 			C367.7,345.4,369.1,344.4,371.2,343.6z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M355.9,316.9c-1-0.7-1.801-0.9-2.4-0.601c-0.6,0.2-1.1,0.2-1.9-0.1c-0.6-0.2-1.1-0.2-1.3-0.101c-0.5,0.4-0.7,0.9-0.6,1.5
+									<path d="M355.9,316.9c-1-0.7-1.801-0.9-2.4-0.601c-0.6,0.2-1.1,0.2-1.9-0.1c-0.6-0.2-1.1-0.2-1.3-0.101c-0.5,0.4-0.7,0.9-0.6,1.5
 
 
 
@@ -1290,7 +1271,7 @@ return $timeHtml;
 
 			c2-1.2,2.399-2.101,1.199-2.801C357.6,318.1,356.6,317.4,355.9,316.9z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M333.1,308c-0.5-0.6-1.1-1.2-1.699-1.7c-0.801-0.7-1.5-0.899-2.301-0.8c-0.5,0-1,0.2-1.5,0.6c-0.6,0.601-0.899,1-0.899,1.2
+									<path d="M333.1,308c-0.5-0.6-1.1-1.2-1.699-1.7c-0.801-0.7-1.5-0.899-2.301-0.8c-0.5,0-1,0.2-1.5,0.6c-0.6,0.601-0.899,1-0.899,1.2
 
 
 
@@ -1300,13 +1281,13 @@ return $timeHtml;
 
 			c-0.2-0.6-0.7-1.1-1.399-1.6C334,308.9,333.6,308.5,333.1,308z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M336.3,339.1V331.9c0-1.801-0.899-2.7-2.7-2.7H322c-1.8,0-2.7,0.899-2.7,2.7v7.199c0,1.801,0.9,2.7,2.7,2.7h11.6
+									<path d="M336.3,339.1V331.9c0-1.801-0.899-2.7-2.7-2.7H322c-1.8,0-2.7,0.899-2.7,2.7v7.199c0,1.801,0.9,2.7,2.7,2.7h11.6
 
 
 
 			C335.4,341.8,336.3,340.9,336.3,339.1z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M114.2,262.5c-1.2,0.5-2,0.6-2.6,0.2c-0.8-0.5-1.8-0.7-3.1-0.5c-1.7,0.1-2.9-0.2-3.5-0.8c-0.6-0.601-2-0.5-4.3,0.1
+									<path d="M114.2,262.5c-1.2,0.5-2,0.6-2.6,0.2c-0.8-0.5-1.8-0.7-3.1-0.5c-1.7,0.1-2.9-0.2-3.5-0.8c-0.6-0.601-2-0.5-4.3,0.1
 
 
 
@@ -1512,13 +1493,13 @@ return $timeHtml;
 
 			c-0.6-1-1.3-1.399-2.2-1.1c-1.5,0.5-2.8,0.5-3.8,0.1l-2.7-50.699c-1.4,0.1-3-0.2-4.9-1C117.8,261.7,116.1,261.8,114.2,262.5z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M57.3,318c0.1-0.9-0.3-1.3-1.3-1c-0.5,0.1-0.9,0.3-1.2,0.5c-0.3,0.2-0.6,0.4-0.9,0.4c-0.6-0.101-1-0.2-1.3-0.2
+									<path d="M57.3,318c0.1-0.9-0.3-1.3-1.3-1c-0.5,0.1-0.9,0.3-1.2,0.5c-0.3,0.2-0.6,0.4-0.9,0.4c-0.6-0.101-1-0.2-1.3-0.2
 
 
 
 			c-0.2-0.101-0.2,0.2,0.1,0.5c0.5,0.6,1.1,1,1.6,1.3c1,0.2,1.7,0.2,2.2,0.1C57,319.4,57.3,318.9,57.3,318z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M46.4,351c-0.5-0.1-0.8,0-1,0.3c-0.8,1.2-1.5,1.7-2,1.7c-0.3,0-0.7,0.3-1,0.9c-0.8,1.6-0.1,1.399,2-0.4
+									<path d="M46.4,351c-0.5-0.1-0.8,0-1,0.3c-0.8,1.2-1.5,1.7-2,1.7c-0.3,0-0.7,0.3-1,0.9c-0.8,1.6-0.1,1.399,2-0.4
 
 
 
@@ -1532,7 +1513,7 @@ return $timeHtml;
 
 			C47.3,351,46.8,351.2,46.4,351z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M91.5,324.9c0,0.199-0.3,0.699-0.7,1.399c-0.1,0.101-0.8,0.9-2,2.3c-1,1-1.6,1.5-2.1,1.5c-0.7-0.1-0.9,0.7-0.7,2.301
+									<path d="M91.5,324.9c0,0.199-0.3,0.699-0.7,1.399c-0.1,0.101-0.8,0.9-2,2.3c-1,1-1.6,1.5-2.1,1.5c-0.7-0.1-0.9,0.7-0.7,2.301
 
 
 
@@ -1546,7 +1527,7 @@ return $timeHtml;
 
 			C92.5,323.9,92,324.1,91.5,324.9z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M305.7,298c-0.1,0-0.3,0-0.3,0.1c-0.6,0.301-1,0.4-1.4,0.7c-0.7,0.601-0.9,1.2-0.4,1.8c0.4,0.801,1.5,1.4,3,1.801
+									<path d="M305.7,298c-0.1,0-0.3,0-0.3,0.1c-0.6,0.301-1,0.4-1.4,0.7c-0.7,0.601-0.9,1.2-0.4,1.8c0.4,0.801,1.5,1.4,3,1.801
 
 
 
@@ -1556,31 +1537,31 @@ return $timeHtml;
 
 			C306.7,297.4,306.3,297.7,305.7,298z" style="fill-opacity: 0;"></path>
 
-			                        <path d="M492.9,198.65c0-1.8-1-2.699-2.7-2.699h-14.6c-1.8,0-2.7,0.899-2.7,2.699v7.2c0,1.8,0.9,2.7,2.7,2.7h14.6
+									<path d="M492.9,198.65c0-1.8-1-2.699-2.7-2.699h-14.6c-1.8,0-2.7,0.899-2.7,2.699v7.2c0,1.8,0.9,2.7,2.7,2.7h14.6
 
 
 
 			c1.7,0,2.7-0.9,2.7-2.7V198.65z" style="fill-opacity: 0;"></path>
 
-			                    </g>
+								</g>
 
 
 
-			                    <!-- regions -->
+								<!-- regions -->
 
 
 
-			                    <g id="states">
+								<g id="states">
 
-			                        <g>
-
-
-
-			                            <!-- AL -->
+									<g>
 
 
 
-			                            <path data-name="AL" data-id="1" id="map_1" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M336.6,199.5l-0.199,0.4l0.5,1.1l-3.301,32.399l0.9,17.5c1.6-0.399,2.4-0.699,2.4-1
+										<!-- AL -->
+
+
+
+										<path data-name="AL" data-id="1" id="map_1" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M336.6,199.5l-0.199,0.4l0.5,1.1l-3.301,32.399l0.9,17.5c1.6-0.399,2.4-0.699,2.4-1
 
 
 
@@ -1602,17 +1583,17 @@ return $timeHtml;
 
 			    c-0.5-0.899-0.8-1.7-0.9-2.2l-3.8-25.399H336.6z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- AK -->
+									<g>
 
 
 
-			                            <path data-name="AK" data-id="2" id="map_2" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M109.6,260.7c-0.8-0.5-1.8-0.7-3.1-0.5c-1.7,0.1-2.9-0.2-3.5-0.8c-0.6-0.601-2-0.5-4.3,0.1
+										<!-- AK -->
+
+
+
+										<path data-name="AK" data-id="2" id="map_2" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M109.6,260.7c-0.8-0.5-1.8-0.7-3.1-0.5c-1.7,0.1-2.9-0.2-3.5-0.8c-0.6-0.601-2-0.5-4.3,0.1
 
 
 
@@ -1878,17 +1859,17 @@ return $timeHtml;
 
 			    c0.5-0.899,0.8-1.6,0.9-1.7C90.9,326.7,90.8,326.2,90.2,326z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- AZ -->
+									<g>
 
 
 
-			                            <path data-name="AZ" data-id="4" id="map_3" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M102.8,198.9c0,0.3-0.1,0.5-0.2,0.699c-0.1,0.5-0.2,0.801-0.1,1.2c0,0.9,0.8,2,2.1,3.5
+										<!-- AZ -->
+
+
+
+										<path data-name="AZ" data-id="4" id="map_3" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M102.8,198.9c0,0.3-0.1,0.5-0.2,0.699c-0.1,0.5-0.2,0.801-0.1,1.2c0,0.9,0.8,2,2.1,3.5
 
 
 
@@ -1910,17 +1891,17 @@ return $timeHtml;
 
 			    c0.2,0.4,0.2,1.1,0.1,1.9c-0.1,0.899,0.1,1.899,0.6,2.899c0.4,1.101,0.6,2,0.6,2.9C103.3,197.6,103.2,198.2,102.8,198.9z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- AR -->
+									<g>
 
 
 
-			                            <path data-name="AR" data-id="5"  id="map_4" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M279.6,182.7l1,12.5v19.5c1.3,0.399,2.5,0.699,3.8,0.899v6.101h25.9c0-0.5,0.101-0.9,0.3-1.5
+										<!-- AR -->
+
+
+
+										<path data-name="AR" data-id="5" id="map_4" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M279.6,182.7l1,12.5v19.5c1.3,0.399,2.5,0.699,3.8,0.899v6.101h25.9c0-0.5,0.101-0.9,0.3-1.5
 
 
 
@@ -1942,17 +1923,17 @@ return $timeHtml;
 
 			    c0-0.8-0.301-1.3-0.7-1.3H279.6z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- CA -->
+									<g>
 
 
 
-			                            <path data-name="CA" data-id="6" id="map_5" fill="#38688F" stroke="#fff" stroke-width="2" d="M17.4,117.8c0.4,0.9,0.6,1.4,0.6,1.8c0.2,2.101,0.4,3.3,0.7,3.601c0.101,0.199,0.3,0.5,0.601,0.6
+										<!-- CA -->
+
+
+
+										<path data-name="CA" data-id="6" id="map_5" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M17.4,117.8c0.4,0.9,0.6,1.4,0.6,1.8c0.2,2.101,0.4,3.3,0.7,3.601c0.101,0.199,0.3,0.5,0.601,0.6
 
 
 
@@ -1996,31 +1977,31 @@ return $timeHtml;
 
 
 
-			    c-0.1-0.399,0-0.7,0.1-1.2l-47.1-45.5v-36.3H17.4z" cursor="pointer"></path>
+			    c-0.1-0.399,0-0.7,0.1-1.2l-47.1-45.5v-36.3H17.4z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- CO -->
+									<g>
 
 
 
-			                            <path data-name="CO" data-id="7" id="map_6" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,142.1V130h-17.7h-44.3v47.2h53h9V142.1z" cursor="pointer"></path>
-
-			                        </g>
-
-			                        <g>
+										<!-- CO -->
 
 
 
-			                            <!-- CT -->
+										<path data-name="CO" data-id="7" id="map_6" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,142.1V130h-17.7h-44.3v47.2h53h9V142.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
+
+									</g>
+
+									<g>
 
 
 
-			                            <path data-name="CT" data-id="8" id="map_7" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M480.4,126.1l0.6-2.899v-5.9l-14.7,0.3v0.101c0.101,0.199,0,1.1-0.3,2.6c-0.2,1.8-0.2,3.3-0.1,4.4
+										<!-- CT -->
+
+
+
+										<path data-name="CT" data-id="8" id="map_7" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M480.4,126.1l0.6-2.899v-5.9l-14.7,0.3v0.101c0.101,0.199,0,1.1-0.3,2.6c-0.2,1.8-0.2,3.3-0.1,4.4
 
 
 
@@ -2040,19 +2021,19 @@ return $timeHtml;
 
 
 
-			    c0-1.899-0.899-2.8-2.699-2.8H498.9z" cursor="pointer"></path>
+			    c0-1.899-0.899-2.8-2.699-2.8H498.9z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- DE -->
+									<g>
 
 
 
-			                            <path data-name="DE" data-id="9" id="map_8" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M447.9,145.7c0-0.2,0.3-0.5,0.699-1c0.2-0.101,0.4-0.4,0.5-0.5l-3.199,0.5v1l0.699,14.8h5.601
+										<!-- DE -->
+
+
+
+										<path data-name="DE" data-id="9" id="map_8" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M447.9,145.7c0-0.2,0.3-0.5,0.699-1c0.2-0.101,0.4-0.4,0.5-0.5l-3.199,0.5v1l0.699,14.8h5.601
 
 
 
@@ -2074,17 +2055,17 @@ return $timeHtml;
 
 			    c0,1.899,0.9,2.7,2.7,2.7H495z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- FL -->
+									<g>
 
 
 
-			                            <path data-name="FL" data-id="12" id="map_9" fill="#38688F" stroke="#fff" stroke-width="2" d="M407.3,295.1c0.5-1.199,0.8-2.1,0.8-2.5c0.301-1.1,0.301-2.399,0.101-3.899c-0.4-2-0.8-3.8-1.101-5.5
+										<!-- FL -->
+
+
+
+										<path data-name="FL" data-id="12" id="map_9" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M407.3,295.1c0.5-1.199,0.8-2.1,0.8-2.5c0.301-1.1,0.301-2.399,0.101-3.899c-0.4-2-0.8-3.8-1.101-5.5
 
 
 
@@ -2152,19 +2133,19 @@ return $timeHtml;
 
 
 
-			    c0.8-0.8,1.3-1.6,1.3-2.399l0.801-5.4C406.6,297.2,406.9,296.2,407.3,295.1z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c0.8-0.8,1.3-1.6,1.3-2.399l0.801-5.4C406.6,297.2,406.9,296.2,407.3,295.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- GA -->
+									<g>
 
 
 
-			                            <path data-name="GA" data-id="13" id="map_10" fill="#38688F" stroke="#fff" stroke-width="2" d="M379.8,201.2c1-0.4,2.101-1,3.101-1.7H370.3h-11l3.8,25.399c0.101,0.5,0.4,1.301,0.9,2.2
+										<!-- GA -->
+
+
+
+										<path data-name="GA" data-id="13" id="map_10" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M379.8,201.2c1-0.4,2.101-1,3.101-1.7H370.3h-11l3.8,25.399c0.101,0.5,0.4,1.301,0.9,2.2
 
 
 
@@ -2200,19 +2181,19 @@ return $timeHtml;
 
 
 
-			    S379,201.5,379.8,201.2z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    S379,201.5,379.8,201.2z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- HI -->
+									<g>
 
 
 
-			                            <path data-name="HI" data-id="15" id="map_11" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M372.1,335.1c-0.199-1.1-0.399-1.899-0.699-2.5c-0.801-2.399-4.101-4.5-9.801-6.5
+										<!-- HI -->
+
+
+
+										<path data-name="HI" data-id="15" id="map_11" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M372.1,335.1c-0.199-1.1-0.399-1.899-0.699-2.5c-0.801-2.399-4.101-4.5-9.801-6.5
 
 
 
@@ -2286,17 +2267,17 @@ return $timeHtml;
 
 			    c-1.6-0.8-2.7-0.7-3.3,0c-0.3,0.4-0.7,0.7-1.3,1C302.9,296.2,302.4,296.5,302,296.8z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- ID -->
+									<g>
 
 
 
-			                            <path data-name="ID" data-id="16" id="map_12" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M99.4,54.399C98.5,54.3,98,53.899,98,53c0.1-0.8-0.2-1.2-0.7-1.2c-0.8,0-1.3-0.4-1.5-1.4
+										<!-- ID -->
+
+
+
+										<path data-name="ID" data-id="16" id="map_12" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M99.4,54.399C98.5,54.3,98,53.899,98,53c0.1-0.8-0.2-1.2-0.7-1.2c-0.8,0-1.3-0.4-1.5-1.4
 
 
 
@@ -2346,17 +2327,17 @@ return $timeHtml;
 
 			    c-0.7,0.5-1.2,0.3-1.3-0.3c-0.2-0.7-0.6-1.2-1.4-1.1c-1,0-1.5-0.301-1.5-1.301C99.8,55,99.7,54.5,99.4,54.399z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- IL -->
+									<g>
 
 
 
-			                            <path data-name="IL" data-id="17" id="map_13" fill="#38688F" stroke="#fff" stroke-width="2" d="M342.1,121.1c0,0,0-0.2-0.1-0.2c-0.6-0.699-0.9-1.5-0.9-2.199c-0.1-0.601-0.399-1.5-1-2.601
+										<!-- IL -->
+
+
+
+										<path data-name="IL" data-id="17" id="map_13" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M342.1,121.1c0,0,0-0.2-0.1-0.2c-0.6-0.699-0.9-1.5-0.9-2.199c-0.1-0.601-0.399-1.5-1-2.601
 
 
 
@@ -2396,19 +2377,19 @@ return $timeHtml;
 
 
 
-			    c0.4-1.2,0.4-2.399,0.1-3.399V121.1z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c0.4-1.2,0.4-2.399,0.1-3.399V121.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- IN -->
+									<g>
 
 
 
-			                            <path data-name="IN" data-id="18" id="map_14" fill="#38688F" stroke="#fff" stroke-width="2" d="M365.8,121h-17.7c-1,0.899-2.1,1.3-3.3,1.399c-1,0-1.899-0.399-2.7-1.3V148.9
+										<!-- IN -->
+
+
+
+										<path data-name="IN" data-id="18" id="map_14" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M365.8,121h-17.7c-1,0.899-2.1,1.3-3.3,1.399c-1,0-1.899-0.399-2.7-1.3V148.9
 
 
 
@@ -2440,19 +2421,19 @@ return $timeHtml;
 
 
 
-			    c0-0.199,0.101-0.3,0.301-0.3l-0.101-30.1V121z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c0-0.199,0.101-0.3,0.301-0.3l-0.101-30.1V121z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- IA -->
+									<g>
 
 
 
-			                            <path data-name="IA" data-id="19" id="map_15" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M262,101.899c0.6,0.5,0.8,1.101,0.8,1.7c0.1,0.4,0,1-0.3,1.8c-0.3,1.101-0.5,2.2-0.4,3.301
+										<!-- IA -->
+
+
+
+										<path data-name="IA" data-id="19" id="map_15" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M262,101.899c0.6,0.5,0.8,1.101,0.8,1.7c0.1,0.4,0,1-0.3,1.8c-0.3,1.101-0.5,2.2-0.4,3.301
 
 
 
@@ -2486,17 +2467,17 @@ return $timeHtml;
 
 			    C261.6,101.1,261.7,101.5,262,101.899z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- KS -->
+									<g>
 
 
 
-			                            <path data-name="KS" data-id="20" id="map_16" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,142.1V177.2h65.9l0.2-21.601c0-1.6-0.2-2.5-0.6-2.699c-0.9-0.301-1.4-1-1.9-2.101
+										<!-- KS -->
+
+
+
+										<path data-name="KS" data-id="20" id="map_16" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,142.1V177.2h65.9l0.2-21.601c0-1.6-0.2-2.5-0.6-2.699c-0.9-0.301-1.4-1-1.9-2.101
 
 
 
@@ -2506,17 +2487,17 @@ return $timeHtml;
 
 			    c-0.2-0.2-0.4-0.4-0.6-0.601H213.8z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- KY -->
+									<g>
 
 
 
-			                            <path data-name="KY" data-id="21" id="map_17" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M369.1,153.1c-0.8,0-1.6-0.399-2.199-0.899c-0.5-0.4-0.801-0.5-1-0.4c-0.2,0-0.301,0.101-0.301,0.3
+										<!-- KY -->
+
+
+
+										<path data-name="KY" data-id="21" id="map_17" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M369.1,153.1c-0.8,0-1.6-0.399-2.199-0.899c-0.5-0.4-0.801-0.5-1-0.4c-0.2,0-0.301,0.101-0.301,0.3
 
 
 
@@ -2578,17 +2559,17 @@ return $timeHtml;
 
 			    C370.4,153.8,369.8,153.2,369.1,153.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- LA -->
+									<g>
 
 
 
-			                            <path data-name="LA" data-id="22" id="map_18" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M310.2,223.399c-0.101-0.5-0.101-1.1,0.1-1.699h-25.9v10.199c1.8,1.801,2.5,3.301,2.3,4.801
+										<!-- LA -->
+
+
+
+										<path data-name="LA" data-id="22" id="map_18" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M310.2,223.399c-0.101-0.5-0.101-1.1,0.1-1.699h-25.9v10.199c1.8,1.801,2.5,3.301,2.3,4.801
 
 
 
@@ -2630,17 +2611,17 @@ return $timeHtml;
 
 			    C311.1,230.399,311.2,227.5,310.2,223.399z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- ME -->
+									<g>
 
 
 
-			                            <path data-name="ME" data-id="23" id="map_19" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M503.9,47.7c-0.101,0.1-1.301,1.8-3.5,5c-2.301,3.199-3.301,4.899-3.301,5.1c-0.1,2.1-0.5,3.3-1,3.6
+										<!-- ME -->
+
+
+
+										<path data-name="ME" data-id="23" id="map_19" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M503.9,47.7c-0.101,0.1-1.301,1.8-3.5,5c-2.301,3.199-3.301,4.899-3.301,5.1c-0.1,2.1-0.5,3.3-1,3.6
 
 
 
@@ -2714,17 +2695,17 @@ return $timeHtml;
 
 			    C504.3,47.399,504,47.399,503.9,47.7z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MD -->
+									<g>
 
 
 
-			                            <path data-name="MD" data-id="25" id="map_20" fill="#38688F" stroke="#fff" stroke-width="2" d="M413.2,145.7L413.1,151.6l3.801-3.3c0.899,0.4,1.5,0.3,1.699-0.5c0.301-0.7,0.801-0.899,1.7-0.5
+										<!-- MD -->
+
+
+
+										<path data-name="MD" data-id="25" id="map_20" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M413.2,145.7L413.1,151.6l3.801-3.3c0.899,0.4,1.5,0.3,1.699-0.5c0.301-0.7,0.801-0.899,1.7-0.5
 
 
 
@@ -2776,19 +2757,19 @@ return $timeHtml;
 
 
 
-			    c1.8,0,2.601-0.899,2.601-2.8V181.7z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c1.8,0,2.601-0.899,2.601-2.8V181.7z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MA -->
+									<g>
 
 
 
-			                            <path data-name="MA" data-id="26" id="map_21" fill="#38688F" stroke="#fff" stroke-width="2" d="M489.8,108.399c-0.1-0.3-0.1-0.699,0-1.1c-2,0.1-3.7,0.8-5.2,1.9L475.4,109.1l-7.301-0.3
+										<!-- MA -->
+
+
+
+										<path data-name="MA" data-id="26" id="map_21" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M489.8,108.399c-0.1-0.3-0.1-0.699,0-1.1c-2,0.1-3.7,0.8-5.2,1.9L475.4,109.1l-7.301-0.3
 
 
 
@@ -2828,19 +2809,19 @@ return $timeHtml;
 
 
 
-			    H525.4c1.899,0,2.699-0.8,2.699-2.699V108z" cursor="pointer"></path>
+			    H525.4c1.899,0,2.699-0.8,2.699-2.699V108z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MI -->
+									<g>
 
 
 
-			                            <path data-name="MI" data-id="27" id="map_22" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M333.1,54.399c0-0.5,0.5-1.199,1.301-2c0.899-1,2.699-2.3,5.199-3.6c1.301-0.9,0.601-1.3-2.199-1.2
+										<!-- MI -->
+
+
+
+										<path data-name="MI" data-id="27" id="map_22" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M333.1,54.399c0-0.5,0.5-1.199,1.301-2c0.899-1,2.699-2.3,5.199-3.6c1.301-0.9,0.601-1.3-2.199-1.2
 
 
 
@@ -2966,17 +2947,17 @@ return $timeHtml;
 
 			    c-1.301-0.1-2.301-0.5-2.601-1.2c-0.399-0.8-0.899-1.3-1.5-1.3C366.4,69.899,365.6,70.1,364.9,70.6z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MN -->
+									<g>
 
 
 
-			                            <path data-name="MN" data-id="28" id="map_23" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M304.4,38.6c-1.2-1-2.3-1.8-3.2-2.399c-0.3-0.101-1-0.301-2.1-0.7c-1.2-0.4-2-0.7-2.6-1.101
+										<!-- MN -->
+
+
+
+										<path data-name="MN" data-id="28" id="map_23" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M304.4,38.6c-1.2-1-2.3-1.8-3.2-2.399c-0.3-0.101-1-0.301-2.1-0.7c-1.2-0.4-2-0.7-2.6-1.101
 
 
 
@@ -3026,17 +3007,17 @@ return $timeHtml;
 
 			    c-1.1,0.699-2,1.1-2.699,1C306.5,39.6,305.4,39.2,304.4,38.6z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MS -->
+									<g>
 
 
 
-			                            <path data-name="MS" data-id="29" id="map_24" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M336.9,201l-0.5-1.1l-18.801-0.4c-0.1,0.1-0.199,0.2-0.199,0.2c-1.601,2.1-2.301,3.7-2.101,4.899
+										<!-- MS -->
+
+
+
+										<path data-name="MS" data-id="29" id="map_24" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M336.9,201l-0.5-1.1l-18.801-0.4c-0.1,0.1-0.199,0.2-0.199,0.2c-1.601,2.1-2.301,3.7-2.101,4.899
 
 
 
@@ -3062,17 +3043,17 @@ return $timeHtml;
 
 			    c0.5,0.4,1.301,0.4,2.2-0.1c1-0.4,1.8-0.4,2.7,0.199l-0.9-17.5L336.9,201z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MO -->
+									<g>
 
 
 
-			                            <path data-name="MO" data-id="30" id="map_25" fill="#38688F" stroke="#fff" stroke-width="2" d="M326.4,182.2c0.5-0.5,0.699-0.9,0.399-1.4c-0.2-0.3-0.1-0.6,0.3-0.7c0.801-0.3,1.2-0.6,1.2-0.899
+										<!-- MO -->
+
+
+
+										<path data-name="MO" data-id="30" id="map_25" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M326.4,182.2c0.5-0.5,0.699-0.9,0.399-1.4c-0.2-0.3-0.1-0.6,0.3-0.7c0.801-0.3,1.2-0.6,1.2-0.899
 
 
 
@@ -3108,19 +3089,19 @@ return $timeHtml;
 
 
 
-			    c0.1,0.2,0.3,0.4,0.5,0.4c0.1,0,0.199,0,0.3,0C325.9,182.7,326.2,182.5,326.4,182.2z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c0.1,0.2,0.3,0.4,0.5,0.4c0.1,0,0.199,0,0.3,0C325.9,182.7,326.2,182.5,326.4,182.2z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- MT -->
+									<g>
 
 
 
-			                            <path data-name="MT" data-id="31" id="map_26" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M196.1,79.899v-11.5V26.8H89.9v13.8c2.1,2.3,3.3,4.4,3.4,6.3c0,0.301-0.1,0.801-0.3,1.5
+										<!-- MT -->
+
+
+
+										<path data-name="MT" data-id="31" id="map_26" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M196.1,79.899v-11.5V26.8H89.9v13.8c2.1,2.3,3.3,4.4,3.4,6.3c0,0.301-0.1,0.801-0.3,1.5
 
 
 
@@ -3158,17 +3139,17 @@ return $timeHtml;
 
 			    c0.6,0.101,1.4,1,2.4,2.7c0.2,0.3,0.4,0.601,0.5,0.8v-7H196.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NE -->
+									<g>
 
 
 
-			                            <path data-name="NE" data-id="32" id="map_27" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,130v12.1h59.3c-0.3-0.5-0.6-1.199-0.7-1.8c0-0.5-0.1-1-0.3-1.6c-0.3-1-1-1.7-1.9-2
+										<!-- NE -->
+
+
+
+										<path data-name="NE" data-id="32" id="map_27" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,130v12.1h59.3c-0.3-0.5-0.6-1.199-0.7-1.8c0-0.5-0.1-1-0.3-1.6c-0.3-1-1-1.7-1.9-2
 
 
 
@@ -3194,17 +3175,17 @@ return $timeHtml;
 
 			    c-0.1-0.6-0.6-1-1.5-1.1c-1-0.2-1.8-0.5-2.3-1h-49.4V130H213.8z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NV -->
+									<g>
 
 
 
-			                            <path data-name="NV" data-id="33" id="map_28" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M81.7,117.8H55.5v36.3l47.1,45.5c0.1-0.199,0.2-0.399,0.2-0.699c0.4-0.7,0.5-1.301,0.5-1.7
+										<!-- NV -->
+
+
+
+										<path data-name="NV" data-id="33" id="map_28" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M81.7,117.8H55.5v36.3l47.1,45.5c0.1-0.199,0.2-0.399,0.2-0.699c0.4-0.7,0.5-1.301,0.5-1.7
 
 
 
@@ -3214,17 +3195,17 @@ return $timeHtml;
 
 			    c0.4-0.399,1.4-0.1,2.8,0.8c1.1,0.601,1.7-0.3,2.1-2.8v-7.6v-59.4H81.7z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NH -->
+									<g>
 
 
 
-			                            <path data-name="NH" data-id="34" id="map_29" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M489.4,102.1c-0.5-0.399-0.9-1.2-1-2.399l-0.9-23.5c-0.4,0.5-0.6,0.8-0.7,0.699
+										<!-- NH -->
+
+
+
+										<path data-name="NH" data-id="34" id="map_29" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M489.4,102.1c-0.5-0.399-0.9-1.2-1-2.399l-0.9-23.5c-0.4,0.5-0.6,0.8-0.7,0.699
 
 
 
@@ -3262,17 +3243,17 @@ return $timeHtml;
 
 			    c0,1.801,0.9,2.7,2.7,2.7H487.4C489.1,68.1,490.1,67.2,490.1,65.399z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NJ -->
+									<g>
 
 
 
-			                            <path data-name="NJ" data-id="35" id="map_30" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M454.9,125.2c0,0.1-0.101,0.8-0.301,2c-0.399,1.3-1,2-1.8,2c-0.7,0-1,0.5-0.899,1.5
+										<!-- NJ -->
+
+
+
+										<path data-name="NJ" data-id="35" id="map_30" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M454.9,125.2c0,0.1-0.101,0.8-0.301,2c-0.399,1.3-1,2-1.8,2c-0.7,0-1,0.5-0.899,1.5
 
 
 
@@ -3318,29 +3299,29 @@ return $timeHtml;
 
 			    h12.3c1.801,0,2.7-0.9,2.7-2.7V152.2z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NM -->
+									<g>
 
 
 
-			                            <path data-name="NM" data-id="36" id="map_31" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M204.8,182.7v-5.5h-53v62.3h7.4v-4.7h15.5c-0.5-0.5-0.8-1.3-0.9-2.4h31V182.7z" cursor="pointer"></path>
-
-			                        </g>
-
-			                        <g>
+										<!-- NM -->
 
 
 
-			                            <!-- NY -->
+										<path data-name="NM" data-id="36" id="map_31" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M204.8,182.7v-5.5h-53v62.3h7.4v-4.7h15.5c-0.5-0.5-0.8-1.3-0.9-2.4h31V182.7z" cursor="pointer"></path>
+
+									</g>
+
+									<g>
 
 
 
-			                            <path data-name="NY" data-id="37" id="map_32" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M426.6,101.1c-2.3-0.3-4.1-0.399-5.3-0.3c-1.6,0.2-3,0.6-4.5,1.3c0.601,1.101,0.8,2.101,0.8,2.7
+										<!-- NY -->
+
+
+
+										<path data-name="NY" data-id="37" id="map_32" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M426.6,101.1c-2.3-0.3-4.1-0.399-5.3-0.3c-1.6,0.2-3,0.6-4.5,1.3c0.601,1.101,0.8,2.101,0.8,2.7
 
 
 
@@ -3408,19 +3389,19 @@ return $timeHtml;
 
 
 
-			    c-1,0.6-1.699,1-2,1.2c-0.6,0.199-1.699,0.1-3.5-0.5c-1.199-0.4-2.3-0.5-3.199-0.5C427.9,101.2,427.2,101.2,426.6,101.1z" cursor="pointer"></path>
+			    c-1,0.6-1.699,1-2,1.2c-0.6,0.199-1.699,0.1-3.5-0.5c-1.199-0.4-2.3-0.5-3.199-0.5C427.9,101.2,427.2,101.2,426.6,101.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- NC -->
+									<g>
 
 
 
-			                            <path data-name="NC" data-id="38" id="map_33" fill="#38688F" stroke="#fff" stroke-width="2" d="M385.1,188.2c-0.899-0.2-1.699,0.1-2.5,1c-1.199,1.399-2,2.2-2.3,2.399
+										<!-- NC -->
+
+
+
+										<path data-name="NC" data-id="38" id="map_33" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M385.1,188.2c-0.899-0.2-1.699,0.1-2.5,1c-1.199,1.399-2,2.2-2.3,2.399
 
 
 
@@ -3472,19 +3453,19 @@ return $timeHtml;
 
 
 
-			    c-0.801-0.2-1.301,0.1-1.5,0.8c-0.301,1-0.601,1.5-1.301,1.7c-0.1,0.1-0.699,0.5-1.8,1.3C386.9,188.5,386.1,188.5,385.1,188.2z" cursor="pointer"></path>
+			    c-0.801-0.2-1.301,0.1-1.5,0.8c-0.301,1-0.601,1.5-1.301,1.7c-0.1,0.1-0.699,0.5-1.8,1.3C386.9,188.5,386.1,188.5,385.1,188.2z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- ND -->
+									<g>
 
 
 
-			                            <path data-name="ND" data-id="39" id="map_34" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M260.1,54.1l-0.3-7.899c-0.1-1-0.4-2.101-1-3.301c-1-2-1.5-3.1-1.5-3.199c-0.4-1-0.5-1.801-0.5-2.601
+										<!-- ND -->
+
+
+
+										<path data-name="ND" data-id="39" id="map_34" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M260.1,54.1l-0.3-7.899c-0.1-1-0.4-2.101-1-3.301c-1-2-1.5-3.1-1.5-3.199c-0.4-1-0.5-1.801-0.5-2.601
 
 
 
@@ -3494,17 +3475,17 @@ return $timeHtml;
 
 			    c-0.1-0.699-0.4-1.5-1.2-2.5c-0.7-0.899-0.9-1.8-0.7-2.5c0.1-1,0.1-2,0-3L260.1,54.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- OH -->
+									<g>
 
 
 
-			                            <path data-name="OH" data-id="41" id="map_35" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M388.6,125.1c-0.3-0.2-0.6-0.3-0.699-0.2c-0.601,0.5-1.101,0.7-1.601,0.5
+										<!-- OH -->
+
+
+
+										<path data-name="OH" data-id="41" id="map_35" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M388.6,125.1c-0.3-0.2-0.6-0.3-0.699-0.2c-0.601,0.5-1.101,0.7-1.601,0.5
 
 
 
@@ -3546,17 +3527,17 @@ return $timeHtml;
 
 			    c-0.899,1-1.8,1.4-2.7,1.4c-1.1-0.101-1.8,0-2.3,0.5C389.3,125.1,388.9,125.2,388.6,125.1z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- OK -->
+									<g>
 
 
 
-			                            <path data-name="OK" data-id="42" id="map_36" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,177.2h-9v5.5h26.5v20.6c0.1,0.101,0.3,0.3,0.5,0.4c0.4,0.399,1,1,1.6,1.899
+										<!-- OK -->
+
+
+
+										<path data-name="OK" data-id="42" id="map_36" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M213.8,177.2h-9v5.5h26.5v20.6c0.1,0.101,0.3,0.3,0.5,0.4c0.4,0.399,1,1,1.6,1.899
 
 
 
@@ -3582,17 +3563,17 @@ return $timeHtml;
 
 			    H213.8z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- OR -->
+									<g>
 
 
 
-			                            <path data-name="OR" data-id="43" id="map_37" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M83.3,68.6c0-0.5,0-1-0.1-1.5H64.6c-0.2,0.101-0.6,0.3-0.9,0.5c-0.6,0.3-1.2,0.5-1.9,0.5
+										<!-- OR -->
+
+
+
+										<path data-name="OR" data-id="43" id="map_37" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M83.3,68.6c0-0.5,0-1-0.1-1.5H64.6c-0.2,0.101-0.6,0.3-0.9,0.5c-0.6,0.3-1.2,0.5-1.9,0.5
 
 
 
@@ -3630,17 +3611,17 @@ return $timeHtml;
 
 			    C83.9,69.8,83.3,69.3,83.3,68.6z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- PA -->
+									<g>
 
 
 
-			                            <path data-name="PA" data-id="45" id="map_38" fill="#38688F" stroke="#fff" stroke-width="2" d="M404.1,134.6V145.7h9.101h32.7v-1l3.199-0.5l1.2-0.4c0.8-0.399,1.601-0.899,2.2-1.6
+										<!-- PA -->
+
+
+
+										<path data-name="PA" data-id="45" id="map_38" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M404.1,134.6V145.7h9.101h32.7v-1l3.199-0.5l1.2-0.4c0.8-0.399,1.601-0.899,2.2-1.6
 
 
 
@@ -3656,19 +3637,19 @@ return $timeHtml;
 
 
 
-			    c-0.2-1.2-0.801-2.2-2-3l-39.301,0.1v-3.2c-1.699,1.2-3.899,2.4-6.5,3.5V134.6z" cursor="pointer"></path>
+			    c-0.2-1.2-0.801-2.2-2-3l-39.301,0.1v-3.2c-1.699,1.2-3.899,2.4-6.5,3.5V134.6z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- RI -->
+									<g>
 
 
 
-			                            <path data-name="RI" data-id="47" id="map_39" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M484.9,121.2c0.1-2.5-0.4-3.9-1.5-3.9H481v5.9l-0.6,2.899c1.5-0.3,2.5-0.5,3.199-0.899
+										<!-- RI -->
+
+
+
+										<path data-name="RI" data-id="47" id="map_39" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M484.9,121.2c0.1-2.5-0.4-3.9-1.5-3.9H481v5.9l-0.6,2.899c1.5-0.3,2.5-0.5,3.199-0.899
 
 
 
@@ -3686,17 +3667,17 @@ return $timeHtml;
 
 			    c0.4,0.7,1.101,1,2.3,1H521.9c1,0,1.8-0.3,2.199-1c0.301-0.4,0.5-1,0.5-1.7V122.6z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- SC -->
+									<g>
 
 
 
-			                            <path data-name="SC" data-id="48" id="map_40" fill="#38688F" stroke="#fff" stroke-width="2" d="M384.4,198.4c-0.5,0.399-1,0.8-1.5,1.1c-1,0.7-2.101,1.3-3.101,1.7c-0.8,0.3-1.2,0.7-1.2,1.3
+										<!-- SC -->
+
+
+
+										<path data-name="SC" data-id="48" id="map_40" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M384.4,198.4c-0.5,0.399-1,0.8-1.5,1.1c-1,0.7-2.101,1.3-3.101,1.7c-0.8,0.3-1.2,0.7-1.2,1.3
 
 
 
@@ -3724,19 +3705,19 @@ return $timeHtml;
 
 
 
-			    c-1.7-0.2-2.9-0.2-3.601-0.301C386.6,197.1,385.4,197.5,384.4,198.4z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c-1.7-0.2-2.9-0.2-3.601-0.301C386.6,197.1,385.4,197.5,384.4,198.4z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- SD -->
+									<g>
 
 
 
-			                            <path data-name="SD" data-id="49" id="map_41" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M263.2,79c0-1.3-0.1-2.101-0.3-2.5c-0.1-0.4-0.7-1.101-1.8-1.9c-0.8-0.8-1-1.7-0.5-2.8
+										<!-- SD -->
+
+
+
+										<path data-name="SD" data-id="49" id="map_41" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M263.2,79c0-1.3-0.1-2.101-0.3-2.5c-0.1-0.4-0.7-1.101-1.8-1.9c-0.8-0.8-1-1.7-0.5-2.8
 
 
 
@@ -3758,17 +3739,17 @@ return $timeHtml;
 
 			    c-0.3-0.399-0.4-0.8-0.2-1.199c0.4-0.5,0.4-1,0.2-1.5h1.2V79z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- TN -->
+									<g>
 
 
 
-			                            <path data-name="TN" data-id="50" id="map_42" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M339.9,181.7l-2.7-1l0.399,2.5l-11.899-0.5c-0.101,0-0.2,0-0.3,0c-0.2,0-0.4-0.2-0.5-0.4
+										<!-- TN -->
+
+
+
+										<path data-name="TN" data-id="50" id="map_42" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M339.9,181.7l-2.7-1l0.399,2.5l-11.899-0.5c-0.101,0-0.2,0-0.3,0c-0.2,0-0.4-0.2-0.5-0.4
 
 
 
@@ -3794,17 +3775,17 @@ return $timeHtml;
 
 			    c1,0.199,1.5,0.199,1.699-0.101c-0.1-0.399,0-1.3,0.2-2.6h-17.2H339.9z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- TX -->
+									<g>
 
 
 
-			                            <path data-name="TX" data-id="51" id="map_43" fill="#38688F" stroke="#fff" stroke-width="2" d="M231.3,203.3v-20.6h-26.5v49.699h-31c0.1,1.101,0.4,1.9,0.9,2.4c0.1,0.2,0.3,0.4,0.5,0.4
+										<!-- TX -->
+
+
+
+										<path data-name="TX" data-id="51" id="map_43" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M231.3,203.3v-20.6h-26.5v49.699h-31c0.1,1.101,0.4,1.9,0.9,2.4c0.1,0.2,0.3,0.4,0.5,0.4
 
 
 
@@ -3892,31 +3873,31 @@ return $timeHtml;
 
 
 
-			    c-0.6-0.899-1.2-1.5-1.6-1.899C231.6,203.6,231.4,203.4,231.3,203.3z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c-0.6-0.899-1.2-1.5-1.6-1.899C231.6,203.6,231.4,203.4,231.3,203.3z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- UT -->
+									<g>
 
 
 
-			                            <path data-name="UT" data-id="52" id="map_44" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M151.8,130h-17.5v-12.2h-26.6v59.4h44.1V130z" cursor="pointer"></path>
-
-			                        </g>
-
-			                        <g>
+										<!-- UT -->
 
 
 
-			                            <!-- VT -->
+										<path data-name="UT" data-id="52" id="map_44" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M151.8,130h-17.5v-12.2h-26.6v59.4h44.1V130z" cursor="pointer"></path>
+
+									</g>
+
+									<g>
 
 
 
-			                            <path data-name="VT" data-id="53" id="map_45" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M467.4,79.899c0.199,1.4,0.199,2.5-0.2,3.2c-0.3,0.5-0.3,1.5,0.1,2.601c0.3,0.699,0.5,1.399,0.8,1.899
+										<!-- VT -->
+
+
+
+										<path data-name="VT" data-id="53" id="map_45" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M467.4,79.899c0.199,1.4,0.199,2.5-0.2,3.2c-0.3,0.5-0.3,1.5,0.1,2.601c0.3,0.699,0.5,1.399,0.8,1.899
 
 
 
@@ -3954,17 +3935,17 @@ return $timeHtml;
 
 			    c1.8,0,2.699-0.899,2.699-2.699V63C467.6,61.2,466.8,60.399,465,60.3z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- VA -->
+									<g>
 
 
 
-			                            <path data-name="VA" data-id="55" id="map_46" fill="#38688F" stroke="#fff" stroke-width="2" d="M395.3,174.3c-0.7,0.601-1.399,0.8-2,0.4c-1-0.601-1.6-1.4-1.7-2.101c-0.1-0.8-0.399-1.3-0.8-1.6
+										<!-- VA -->
+
+
+
+										<path data-name="VA" data-id="55" id="map_46" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M395.3,174.3c-0.7,0.601-1.399,0.8-2,0.4c-1-0.601-1.6-1.4-1.7-2.101c-0.1-0.8-0.399-1.3-0.8-1.6
 
 
 
@@ -4032,19 +4013,19 @@ return $timeHtml;
 
 
 
-			    c0.399-0.5,1.399-2.399,3-5.899c-0.801-0.4-1.301-0.2-1.601,0.399C447.4,166.2,447.1,166.5,446.7,166.4z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c0.399-0.5,1.399-2.399,3-5.899c-0.801-0.4-1.301-0.2-1.601,0.399C447.4,166.2,447.1,166.5,446.7,166.4z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- WA -->
+									<g>
 
 
 
-			                            <path data-name="WA" data-id="56" id="map_47" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M30.6,26.8c0.1,1.6,0.6,2.6,1.5,2.9c0.4,0.199,0.4,0.5,0.2,1.199c-0.4,0.701-0.4,1.2-0.3,1.5
+										<!-- WA -->
+
+
+
+										<path data-name="WA" data-id="56" id="map_47" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M30.6,26.8c0.1,1.6,0.6,2.6,1.5,2.9c0.4,0.199,0.4,0.5,0.2,1.199c-0.4,0.701-0.4,1.2-0.3,1.5
 
 
 
@@ -4094,17 +4075,17 @@ return $timeHtml;
 
 			    h18.6c-0.4-1.5-1-3.2-2-5.2c-0.2-0.3-0.2-0.699,0-1.3c0.1-0.5,0.3-1,0.3-1.399l-0.2-32.4H30.6z" cursor="pointer"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- WV -->
+									<g>
 
 
 
-			                            <path data-name="WV" data-id="57" id="map_48" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M403.1,137.6c-0.3,0.5-0.5,1-0.6,1.4c-0.4,4.1-1.4,6.9-2.9,8.7c-1.699,2-2.8,2.6-3.5,1.899
+										<!-- WV -->
+
+
+
+										<path data-name="WV" data-id="57" id="map_48" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M403.1,137.6c-0.3,0.5-0.5,1-0.6,1.4c-0.4,4.1-1.4,6.9-2.9,8.7c-1.699,2-2.8,2.6-3.5,1.899
 
 
 
@@ -4158,17 +4139,17 @@ return $timeHtml;
 
 			    l0.101-5.899H404.1V134.6c-0.5-0.1-0.8,0.101-0.899,0.301c-0.101,0.3,0,0.6,0.2,1.1C403.4,136.7,403.4,137.2,403.1,137.6z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- WI -->
+									<g>
 
 
 
-			                            <path data-name="WI" data-id="58" id="map_49" fill="#38688F" stroke="#fff" stroke-width="2" d="M330.6,66.399c-0.8-0.5-1.5-0.8-2.199-0.8c-1.301,0-3.2-0.5-5.5-1.6c-2-1.101-3.101-1.601-3.301-1.601
+										<!-- WI -->
+
+
+
+										<path data-name="WI" data-id="58" id="map_49" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M330.6,66.399c-0.8-0.5-1.5-0.8-2.199-0.8c-1.301,0-3.2-0.5-5.5-1.6c-2-1.101-3.101-1.601-3.301-1.601
 
 
 
@@ -4204,37 +4185,37 @@ return $timeHtml;
 
 
 
-			    c-0.1-0.7-0.6-1.2-1.7-1.399c-1-0.2-1.8-0.801-2.3-1.801c-0.399-0.899-1.399-1.3-2.7-1.3C332.4,67.1,331.4,66.8,330.6,66.399z" cursor="pointer" style="fill: rgb(56, 104, 143);"></path>
+			    c-0.1-0.7-0.6-1.2-1.7-1.399c-1-0.2-1.8-0.801-2.3-1.801c-0.399-0.899-1.399-1.3-2.7-1.3C332.4,67.1,331.4,66.8,330.6,66.399z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                        <g>
-
-
-
-			                            <!-- WY -->
+									<g>
 
 
 
-			                            <path data-name="WY" data-id="59" id="map_50" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M196.1,130v-23.7v-26.4h-61.8v7v30.9V130h17.5H196.1z" cursor="pointer"></path>
-
-			                        </g>
-
-			                        <g id="capitalShadow">
-
-			                            <path d="M437.801,161.751v-5.7H432.2v5.7H437.801z"></path>
-
-			                        </g>
-
-			                        <g>
+										<!-- WY -->
 
 
 
-			                            <!-- DC -->
+										<path data-name="WY" data-id="59" id="map_50" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M196.1,130v-23.7v-26.4h-61.8v7v30.9V130h17.5H196.1z" cursor="pointer"></path>
+
+									</g>
+
+									<g id="capitalShadow">
+
+										<path d="M437.801,161.751v-5.7H432.2v5.7H437.801z"></path>
+
+									</g>
+
+									<g>
 
 
 
-			                            <path data-name="DC" data-id="10" id="map_51" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M490.9,196.65c0-1.8-1-2.699-2.7-2.699h-14.6c-1.8,0-2.7,0.899-2.7,2.699v7.2c0,1.8,0.9,2.7,2.7,2.7h14.6
+										<!-- DC -->
+
+
+
+										<path data-name="DC" data-id="10" id="map_51" fill="#dce3ea" stroke="#fff" stroke-width="2" d="M490.9,196.65c0-1.8-1-2.699-2.7-2.699h-14.6c-1.8,0-2.7,0.899-2.7,2.699v7.2c0,1.8,0.9,2.7,2.7,2.7h14.6
 
 
 
@@ -4244,19 +4225,19 @@ return $timeHtml;
 
 			M436.601,160.551v-5.7h-5.7v5.7H436.601z" cursor="pointer" style="fill: rgb(220, 227, 234);"></path>
 
-			                        </g>
+									</g>
 
-			                    </g>
-
-
-
-			                    <!-- Lakes -->
+								</g>
 
 
 
-			                    <g id="lakes">
+								<!-- Lakes -->
 
-			                        <path stroke="#FFFFFF" stroke-width="2" d="M407.5,87.3c0.9-0.2,1.4-1.2,1.2-2.9c0-0.199-0.4-0.699-1.3-1.5c-0.4-0.5,0.199-0.699,1.699-0.699
+
+
+								<g id="lakes">
+
+									<path stroke="#FFFFFF" stroke-width="2" d="M407.5,87.3c0.9-0.2,1.4-1.2,1.2-2.9c0-0.199-0.4-0.699-1.3-1.5c-0.4-0.5,0.199-0.699,1.699-0.699
 
 
 
@@ -4386,7 +4367,7 @@ return $timeHtml;
 
 			c1.2-0.399,2.301-0.199,3.301,0.7C405.3,87,406.6,87.6,407.5,87.3z" fill="#fff" style="stroke: rgb(255, 255, 255);"></path>
 
-			                        <path stroke="#FFFFFF" stroke-width="2" d="M416.9,95.899C415.8,96.7,414.8,97.1,414,97.2c-0.4,0-1.1,0.699-2.2,2.1c-1,1.4-1.399,2.1-1.2,2.4
+									<path stroke="#FFFFFF" stroke-width="2" d="M416.9,95.899C415.8,96.7,414.8,97.1,414,97.2c-0.4,0-1.1,0.699-2.2,2.1c-1,1.4-1.399,2.1-1.2,2.4
 
 
 
@@ -4420,7 +4401,7 @@ return $timeHtml;
 
 			c-1,0-2,0.101-2.899,0.5c-0.9,0.3-1.8,0.601-2.601,0.601C418.9,94.8,418,95.2,416.9,95.899z" fill="#fff" style="stroke: rgb(255, 255, 255);"></path>
 
-			                        <path stroke="#FFFFFF" stroke-width="2" d="M367.6,53.399c-0.5-0.899-0.699-2-0.5-3.1c0.2-0.9-0.199-1.7-1.199-2.6c-1-0.801-1.301-1.601-1.101-2.601
+									<path stroke="#FFFFFF" stroke-width="2" d="M367.6,53.399c-0.5-0.899-0.699-2-0.5-3.1c0.2-0.9-0.199-1.7-1.199-2.6c-1-0.801-1.301-1.601-1.101-2.601
 
 
 
@@ -4486,7 +4467,7 @@ return $timeHtml;
 
 			c0.199-0.5,0.399-1,0.5-1.3C368.6,55.399,368.3,54.6,367.6,53.399z" fill="#fff" style="stroke: rgb(255, 255, 255);"></path>
 
-			                        <path stroke="#FFFFFF" stroke-width="2" d="M405.1,110.1c-0.399,0.7-1.5,0.8-3.5,0.3c-2.3-0.699-4-0.699-5.199-0.1c-1.5,0.8-2.801,1.7-3.5,2.8
+									<path stroke="#FFFFFF" stroke-width="2" d="M405.1,110.1c-0.399,0.7-1.5,0.8-3.5,0.3c-2.3-0.699-4-0.699-5.199-0.1c-1.5,0.8-2.801,1.7-3.5,2.8
 
 
 
@@ -4520,535 +4501,521 @@ return $timeHtml;
 
 			c-0.6-0.101-1.7,0.199-3.399,1C406.2,109.1,405.3,109.7,405.1,110.1z" fill="#fff" style="stroke: rgb(255, 255, 255);"></path>
 
-			                        <path stroke="#FFFFFF" stroke-width="2" d="M387.4,112.8c0.199-0.2,0-0.6-0.4-0.9c-0.9-0.6-1.4-1-1.6-1.1c-0.7-0.6-1.301-0.5-2,0.5c-0.5,0.9-0.801,1.7-0.5,2.4
+									<path stroke="#FFFFFF" stroke-width="2" d="M387.4,112.8c0.199-0.2,0-0.6-0.4-0.9c-0.9-0.6-1.4-1-1.6-1.1c-0.7-0.6-1.301-0.5-2,0.5c-0.5,0.9-0.801,1.7-0.5,2.4
 
 			l0.6,0.3c0.6,0.2,1.2,0.2,2.1-0.101c0.301-0.1,0.5,0,0.9,0.2C386.8,114.1,387.1,113.7,387.4,112.8z" fill="#fff" style="stroke: rgb(255, 255, 255);"></path>
 
-			                    </g>
+								</g>
 
 
 
-			                    <!-- short names-->
+								<!-- short names-->
 
 
 
-			                    <g id="abbs">
+								<g id="abbs">
 
-			                        <text id="AL" transform="matrix(1 0 0 1 342 231)" style="background('url:Desert.jpg');" cursor="pointer">
+									<text id="AL" transform="matrix(1 0 0 1 342 231)" style="background('url:Desert.jpg');" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AL</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AL</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="AK" transform="matrix(1 0 0 1 87 294)" cursor="pointer">
+									<text id="AK" transform="matrix(1 0 0 1 87 294)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AK</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AK</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="AZ" transform="matrix(1 0 0 1 122 212)" cursor="pointer">
+									<text id="AZ" transform="matrix(1 0 0 1 122 212)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AZ</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AZ</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="AR" transform="matrix(1 0 0 1 290 206)" cursor="pointer">
+									<text id="AR" transform="matrix(1 0 0 1 290 206)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AR</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">AR</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="CA" transform="matrix(1 0 0 1 54 189)" cursor="pointer">
+									<text id="CA" transform="matrix(1 0 0 1 54 189)" cursor="pointer">
 
-			                            <tspan x="5" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">CA</tspan>
+										<tspan x="5" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">CA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="CO" transform="matrix(1 0 0 1 174 158)" cursor="pointer">
+									<text id="CO" transform="matrix(1 0 0 1 174 158)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">CO</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">CO</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="CT" transform="matrix(1 0 0 1 499 144)" cursor="pointer">
+									<text id="CT" transform="matrix(1 0 0 1 499 144)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">CT</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">CT</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="DE" transform="matrix(1 0 0 1 481 174)" cursor="pointer">
+									<text id="DE" transform="matrix(1 0 0 1 481 174)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">DE</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">DE</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="FL" transform="matrix(1 0 0 1 389 281)" cursor="pointer">
+									<text id="FL" transform="matrix(1 0 0 1 389 281)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">FL</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">FL</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="GA" transform="matrix(1 0 0 1 370 231)" cursor="pointer">
+									<text id="GA" transform="matrix(1 0 0 1 370 231)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">GA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">GA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="HI" transform="matrix(1 0 0 1 321 337.5)" cursor="pointer">
+									<text id="HI" transform="matrix(1 0 0 1 321 337.5)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">HI</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">HI</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="ID" transform="matrix(1 0 0 1 101 102)" cursor="pointer">
+									<text id="ID" transform="matrix(1 0 0 1 101 102)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ID</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ID</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="IL" transform="matrix(1 0 0 1 323 148)" cursor="pointer">
+									<text id="IL" transform="matrix(1 0 0 1 323 148)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">IL</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">IL</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="IN" transform="matrix(1 0 0 1 348 148)" cursor="pointer">
+									<text id="IN" transform="matrix(1 0 0 1 348 148)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">IN</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">IN</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="IA" transform="matrix(1 0 0 1 283 121)" cursor="pointer">
+									<text id="IA" transform="matrix(1 0 0 1 283 121)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">IA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">IA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="KS" transform="matrix(1 0 0 1 239 164)" cursor="pointer">
+									<text id="KS" transform="matrix(1 0 0 1 239 164)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">KS</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">KS</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="KY" transform="matrix(1 0 0 1 359 176)" cursor="pointer">
+									<text id="KY" transform="matrix(1 0 0 1 359 176)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">KY</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">KY</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="LA" transform="matrix(1 0 0 1 292 251)" cursor="pointer">
+									<text id="LA" transform="matrix(1 0 0 1 292 251)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">LA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">LA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="ME" transform="matrix(1 0 0 1 496 83)" cursor="pointer">
+									<text id="ME" transform="matrix(1 0 0 1 496 83)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ME</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ME</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MD" transform="matrix(1 0 0 1 478 189)" cursor="pointer">
+									<text id="MD" transform="matrix(1 0 0 1 478 189)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">MD</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MD</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MA" transform="matrix(1 0 0 1 511 115)" cursor="pointer">
+									<text id="MA" transform="matrix(1 0 0 1 511 115)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">MA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MI" transform="matrix(1 0 0 1 362 110)" cursor="pointer">
+									<text id="MI" transform="matrix(1 0 0 1 362 110)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MI</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MI</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MN" transform="matrix(1 0 0 1 271 72)" cursor="pointer">
+									<text id="MN" transform="matrix(1 0 0 1 271 72)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MN</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MN</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MS" transform="matrix(1 0 0 1 315 230)" cursor="pointer">
+									<text id="MS" transform="matrix(1 0 0 1 315 230)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MS</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MS</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MO" transform="matrix(1 0 0 1 291 166)" cursor="pointer">
+									<text id="MO" transform="matrix(1 0 0 1 291 166)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">MO</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MO</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="MT" transform="matrix(1 0 0 1 142 59)" cursor="pointer">
+									<text id="MT" transform="matrix(1 0 0 1 142 59)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MT</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">MT</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NE" transform="matrix(1 0 0 1 226 128)" cursor="pointer">
+									<text id="NE" transform="matrix(1 0 0 1 226 128)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NE</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NE</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NV" transform="matrix(1 0 0 1 76 154)" cursor="pointer">
+									<text id="NV" transform="matrix(1 0 0 1 76 154)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NV</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NV</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NH" transform="matrix(1 0 0 1 473 66)" cursor="pointer">
+									<text id="NH" transform="matrix(1 0 0 1 473 66)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NH</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NH</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NJ" transform="matrix(1 0 0 1 488 159)" cursor="pointer">
+									<text id="NJ" transform="matrix(1 0 0 1 488 159)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NJ</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NJ</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NM" transform="matrix(1 0 0 1 169 211)" cursor="pointer">
+									<text id="NM" transform="matrix(1 0 0 1 169 211)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NM</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NM</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NY" transform="matrix(1 0 0 1 441 110)" cursor="pointer">
+									<text id="NY" transform="matrix(1 0 0 1 441 110)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NY</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NY</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="NC" transform="matrix(1 0 0 1 410 197)" cursor="pointer">
+									<text id="NC" transform="matrix(1 0 0 1 410 197)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">NC</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">NC</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="ND" transform="matrix(1 0 0 1 220 53)" cursor="pointer">
+									<text id="ND" transform="matrix(1 0 0 1 220 53)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ND</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">ND</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="OH" transform="matrix(1 0 0 1 375 144)" cursor="pointer">
+									<text id="OH" transform="matrix(1 0 0 1 375 144)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OH</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OH</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="OK" transform="matrix(1 0 0 1 248 199)" cursor="pointer">
+									<text id="OK" transform="matrix(1 0 0 1 248 199)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OK</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OK</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="OR" transform="matrix(1 0 0 1 42 99)" cursor="pointer">
+									<text id="OR" transform="matrix(1 0 0 1 42 99)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OR</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">OR</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="PA" transform="matrix(1 0 0 1 423 136)" cursor="pointer">
+									<text id="PA" transform="matrix(1 0 0 1 423 136)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">PA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">PA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="RI" transform="matrix(1 0 0 1 511 130)" cursor="pointer">
+									<text id="RI" transform="matrix(1 0 0 1 511 130)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">RI</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">RI</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="SC" transform="matrix(1 0 0 1 395 218)" cursor="pointer">
+									<text id="SC" transform="matrix(1 0 0 1 395 218)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">SC</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">SC</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="SD" transform="matrix(1 0 0 1 223 92)" cursor="pointer">
+									<text id="SD" transform="matrix(1 0 0 1 223 92)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">SD</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">SD</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="TN" transform="matrix(1 0 0 1 345 195)" cursor="pointer">
+									<text id="TN" transform="matrix(1 0 0 1 345 195)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">TN</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">TN</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="TX" transform="matrix(1 0 0 1 235 247)" cursor="pointer">
+									<text id="TX" transform="matrix(1 0 0 1 235 247)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">TX</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">TX</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="UT" transform="matrix(1 0 0 1 123 156)" cursor="pointer">
+									<text id="UT" transform="matrix(1 0 0 1 123 156)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">UT</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">UT</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="VT" transform="matrix(1 0 0 1 451 71)" cursor="pointer">
+									<text id="VT" transform="matrix(1 0 0 1 451 71)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">VT</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">VT</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="VA" transform="matrix(1 0 0 1 415 176)" cursor="pointer">
+									<text id="VA" transform="matrix(1 0 0 1 415 176)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">VA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">VA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="WA" transform="matrix(1 0 0 1 42 54)" cursor="pointer">
+									<text id="WA" transform="matrix(1 0 0 1 42 54)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WA</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WA</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="WV" transform="matrix(1 0 0 1 391 166)" cursor="pointer">
+									<text id="WV" transform="matrix(1 0 0 1 391 166)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WV</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WV</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="WI" transform="matrix(1 0 0 1 314 92)" cursor="pointer">
+									<text id="WI" transform="matrix(1 0 0 1 314 92)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" style="fill: rgb(255, 255, 255);" fill="#425867">WI</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WI</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="WY" transform="matrix(1 0 0 1 157 110)" cursor="pointer">
+									<text id="WY" transform="matrix(1 0 0 1 157 110)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WY</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">WY</tspan>
 
-			                        </text>
+									</text>
 
-			                        <text id="DC" transform="matrix(1 0 0 1 474 204)" cursor="pointer">
+									<text id="DC" transform="matrix(1 0 0 1 474 204)" cursor="pointer">
 
-			                            <tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">DC</tspan>
+										<tspan x="0" y="0" font-family="'Roboto Condensed'" font-size="10" fill="#425867">DC</tspan>
 
-			                        </text>
+									</text>
 
-			                    </g>
+								</g>
 
-			                    </svg> </div>
-
-			                </div>
-
-			                <!-- /.ts_map -->
-
-			            </div>
-
-			            <!-- /.mk-col-8 -->
-
-			        </div>
-
-			        <!-- /.ts_row -->
-
-			    </div>
-
-		    <!-- /.container -->
-
-		</div>
-
-		<!-- /.ts_banner -->
-
-
-		<div class="ts_filter_data">
-			<div class="ts_stateList_area">
-				<div class="ts_geoip_state">
-					<div class="container">
-							
-							<?php
-
-								$curl_handle=curl_init();
-
-								curl_setopt($curl_handle,CURLOPT_URL,'ipinfo.io/'.$_SERVER['REMOTE_ADDR']);
-
-								curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
-
-								curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
-
-								$geoIp = curl_exec($curl_handle);
-
-								curl_close($curl_handle);
-
-								if (empty($geoIp)){
-
-									print "Nothing returned from url.<p>";
-
-								}else{				  
-
-									$geoIp = json_decode($geoIp);	
-
-								}
-
-								$query_state="select * from wp_state where state_name = '".$geoIp->region."'";
-								$stateIdByLoc = $wpdb->get_results($query_state);
-
-
-
-								// global $wpdb;
-
-								$state_sql = "select * from wp_state where is_delete='1' and status='1' ORDER BY id ASC";
-								$states = $wpdb->get_results($state_sql);
-
-								// print_r($states);
-
-								if(count($stateIdByLoc)>0)
-
-								{
-
-									$byLocation_stateId = $stateIdByLoc['0']->id;
-									
-									$stateHtml='';
-									$arr = [$byLocation_stateId];
-									
-									foreach($states as $state){
-
-										if(in_array($state->id, $arr)){
-
-											$stateHtml .='<div class="geo-strip">
-															<div class="geo-state">YOUR STATE <strong>'.$state->state_name.'</strong></div>
-															<div class="geo-text">View our schedule for your state and book an appointment with us.</div>
-															<div class="geo-button"><a data-id="'.$state->id.'" data-name="'.$state->state_short.'" href="#'.$state->state_name.'">View Schedule</a></div>
-														</div>';
-
-										}
-
-									}
-
-								print_r($stateHtml);
-
-								// return $stateHtml;
-
-								}
-
-								else{
-
-									$byLocation_stateId = 0;
-
-								}
-
-							?>
-							
-					</div>
-					<!-- /.container -->
-				</div>
-				<!-- /.ts_geoip_state -->
-
-				<div class="container">
-
-					<div class="ts_title">
-
-						<h3>Select state</h3>
+							</svg>
+						</div>
 
 					</div>
 
-					<!-- /.ts_title -->
-
-
-
-					<ul class="ts_stateList">
-
-						<?php echo getStateList()?>
-
-					</ul>
-
-
-
-					<!-- /.ts_stateList -->
+					<!-- /.ts_map -->
 
 				</div>
 
-				<!-- /.container -->
+				<!-- /.mk-col-8 -->
 
 			</div>
 
-			<!-- /.ts_stateList -->
+			<!-- /.ts_row -->
+
+		</div>
+
+		<!-- /.container -->
+
+	</div>
+
+	<!-- /.ts_banner -->
+
+
+	<div class="ts_filter_data">
+		<div class="ts_stateList_area">
+			<div class="ts_geoip_state">
+				<div class="container">
+
+					<?php
+
+					$curl_handle = curl_init();
+
+					curl_setopt($curl_handle, CURLOPT_URL, 'ipinfo.io/' . $_SERVER['REMOTE_ADDR']);
+
+					curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
+
+					curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
+
+					$geoIp = curl_exec($curl_handle);
+
+					curl_close($curl_handle);
+
+					if (empty($geoIp)) {
+
+						print "Nothing returned from url.<p>";
+					} else {
+
+						$geoIp = json_decode($geoIp);
+					}
+
+					$query_state = "select * from wp_state where state_name = '" . $geoIp->region . "'";
+					$stateIdByLoc = $wpdb->get_results($query_state);
 
 
 
-			
+					// global $wpdb;
 
-			<!-- <div class="ts_all_state_data" style="display: none;"> -->
+					$state_sql = "select * from wp_state where is_delete='1' and status='1' ORDER BY id ASC";
+					$states = $wpdb->get_results($state_sql);
 
-			<div class="ts_all_state_data" style="display: none;">
+					// print_r($states);
 
-				<div class="ts_state_data">
+					if (count($stateIdByLoc) > 0) {
 
-					<div class="container">
+						$byLocation_stateId = $stateIdByLoc['0']->id;
 
-						<div class="ts_data_list add-line">
+						$stateHtml = '';
+						$arr = [$byLocation_stateId];
+
+						foreach ($states as $state) {
+
+							if (in_array($state->id, $arr)) {
+
+								$stateHtml .= '<div class="geo-strip">
+															<div class="geo-state">YOUR STATE <strong>' . $state->state_name . '</strong></div>
+															<div class="geo-text">View our schedule for your state and book an appointment with us.</div>
+															<div class="geo-button"><a data-id="' . $state->id . '" data-name="' . $state->state_short . '" href="#' . $state->state_name . '">View Schedule</a></div>
+														</div>';
+							}
+						}
+
+						print_r($stateHtml);
+
+						// return $stateHtml;
+
+					} else {
+
+						$byLocation_stateId = 0;
+					}
+
+					?>
+
+				</div>
+				<!-- /.container -->
+			</div>
+			<!-- /.ts_geoip_state -->
+
+			<div class="container">
+
+				<div class="ts_title">
+
+					<h3>Select state</h3>
+
+				</div>
+
+				<!-- /.ts_title -->
+
+
+
+				<ul class="ts_stateList">
+
+					<?php echo getStateList() ?>
+
+				</ul>
+
+
+
+				<!-- /.ts_stateList -->
+
+			</div>
+
+			<!-- /.container -->
+
+		</div>
+
+		<!-- /.ts_stateList -->
+
+
+
+
+
+		<!-- <div class="ts_all_state_data" style="display: none;"> -->
+
+		<div class="ts_all_state_data" style="display: none;">
+
+			<div class="ts_state_data">
+
+				<div class="container">
+
+					<div class="ts_data_list add-line">
 
 
 
 						<?php
 
-							$curl_handle=curl_init();
+						$curl_handle = curl_init();
 
-							curl_setopt($curl_handle,CURLOPT_URL,'ipinfo.io/'.$_SERVER['REMOTE_ADDR']);
+						curl_setopt($curl_handle, CURLOPT_URL, 'ipinfo.io/' . $_SERVER['REMOTE_ADDR']);
 
-							curl_setopt($curl_handle,CURLOPT_CONNECTTIMEOUT,2);
+						curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 2);
 
-							curl_setopt($curl_handle,CURLOPT_RETURNTRANSFER,1);
+						curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
 
-							$geoIp = curl_exec($curl_handle);
+						$geoIp = curl_exec($curl_handle);
 
-							curl_close($curl_handle);
+						curl_close($curl_handle);
 
-							if (empty($geoIp)){
+						if (empty($geoIp)) {
 
-								print "Nothing returned from url.<p>";
+							print "Nothing returned from url.<p>";
+						} else {
 
-							}else{				  
+							$geoIp = json_decode($geoIp);
+						}
 
-								$geoIp = json_decode($geoIp);	
-
-							}
-
-							$query_state="select * from wp_state where state_name = '".$geoIp->region."'";
-
-							
-
-							$stateIdByLoc = $wpdb->get_results($query_state);
+						$query_state = "select * from wp_state where state_name = '" . $geoIp->region . "'";
 
 
 
-							// print_r($geoIp->region);
+						$stateIdByLoc = $wpdb->get_results($query_state);
 
 
 
-							if(count($stateIdByLoc)>0)
+						// print_r($geoIp->region);
 
-							{
 
-								$byLocation_stateId = $stateIdByLoc['0']->id;
 
-							}
+						if (count($stateIdByLoc) > 0) {
 
-							else{
+							$byLocation_stateId = $stateIdByLoc['0']->id;
+						} else {
 
-								$byLocation_stateId = 0;
-
-							}
+							$byLocation_stateId = 0;
+						}
 
 						?>
 
-						<?php if($byLocation_stateId!=0) { echo do_shortcode( '[tourSchedule stateId='.$byLocation_stateId.' allstate=0]' ) ; } ?>
+						<?php if ($byLocation_stateId != 0) {
+							echo do_shortcode('[tourSchedule stateId=' . $byLocation_stateId . ' allstate=0]');
+						} ?>
 
-						<?php echo do_shortcode('[tourSchedule stateId='.$byLocation_stateId.' allstate=1 statelist=1]' ) ; ?>
+						<?php echo do_shortcode('[tourSchedule stateId=' . $byLocation_stateId . ' allstate=1 statelist=1]'); ?>
 
 
 
@@ -5062,273 +5029,270 @@ return $timeHtml;
 
 
 
-						</div>
-
-						<!-- /.ts_data_list -->
-
 					</div>
 
-					<!-- /.container -->
+					<!-- /.ts_data_list -->
 
 				</div>
 
-				<!-- /.ts_state_data -->
+				<!-- /.container -->
 
 			</div>
 
-			<!-- /.ts_all_state_data -->
+			<!-- /.ts_state_data -->
 
 		</div>
 
-		<!-- /.ts_filter_data -->
+		<!-- /.ts_all_state_data -->
+
+	</div>
+
+	<!-- /.ts_filter_data -->
 
 
 
-		</div>
+</div>
 
-		<!-- /.ts_schedule -->
+<!-- /.ts_schedule -->
 
 
 
 <div class="appointment_popup appointment_popup_page" style="display: none;">
 
-        <div class="container-12">
+	<div class="container-12">
 
-			<div class="grid-6">
+		<div class="grid-6">
 
-				<div class="popup-left-image" style="background-image:url('<?php the_cfc_field('page_banner', 'banner_image'); ?>')">
+			<div class="popup-left-image" style="background-image:url('<?php the_cfc_field('page_banner', 'banner_image'); ?>')">
 
-					<h3><?php the_cfc_field('page_banner', 'banner_title'); ?></h3>
-
-				</div>
-
-				<!-- /.popup-left-image -->
+				<h3><?php the_cfc_field('page_banner', 'banner_title'); ?></h3>
 
 			</div>
 
-            <div class="grid-6">
-					<div class="appointment_popup_content">
-	                <!-- <h2 class="heading">Schedule An Appointment</h2> -->
+			<!-- /.popup-left-image -->
 
-	                <p class="appointment_back_btn"><button id="appointment-back-btn" type="button"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.svg" alt="arrow left" /> Back to Listing</button></p>
+		</div>
 
-	                <?php the_content();?>
+		<div class="grid-6">
+			<div class="appointment_popup_content">
+				<!-- <h2 class="heading">Schedule An Appointment</h2> -->
 
+				<p class="appointment_back_btn"><button id="appointment-back-btn" type="button"><img src="<?php echo get_template_directory_uri(); ?>/images/arrow-left.svg" alt="arrow left" /> Back to Listing</button></p>
 
-	                <form class="app_form_validation" id="app_form_validation">
-
-
-
+				<?php the_content(); ?>
 
 
-	                    <div class="input-group clearfix">
+				<form class="app_form_validation" id="app_form_validation">
 
-	                    	<div class="form-control fc-half">
 
-	                        	<input name="safirst_name" id="safirst_name" placeholder="First Name *" class="cv_required" type="text">
 
-	                        </div>
 
-	                        <div class="form-control fc-half">
 
-	                        	<input name="salast_name" id="salast_name" placeholder="Last Name *" class="cv_required" type="text">
+					<div class="input-group clearfix">
 
-	                        </div>
+						<div class="form-control fc-half">
 
-	                        <div class="form-control fc-full">
+							<input name="safirst_name" id="safirst_name" placeholder="First Name *" class="cv_required" type="text">
 
-	                        	<input onkeypress="return validate(event)" maxlength="12" name="saphone" id="saphone" placeholder="Phone *" class="cv_number" type="text">
+						</div>
 
-	                        </div>
+						<div class="form-control fc-half">
 
-	                    	<div class="form-control fc-full">
+							<input name="salast_name" id="salast_name" placeholder="Last Name *" class="cv_required" type="text">
 
-	                        	<input name="saemail" id="saemail" placeholder="Email *" class="cv_email" type="text">
+						</div>
 
-	                        </div>
+						<div class="form-control fc-full">
 
-	                        <div class="form-control fc-full">
+							<input onkeypress="return validate(event)" maxlength="12" name="saphone" id="saphone" placeholder="Phone *" class="cv_number" type="text">
 
-	                        	<div class="multiOptions">
+						</div>
 
-		                        	<select class="demo" multiple="multiple" name="sastate[]" id ="sastate" style="width:25em;"  class="validate[required]"></select>
+						<div class="form-control fc-full">
 
-	                            </div>
+							<input name="saemail" id="saemail" placeholder="Email *" class="cv_email" type="text">
 
-	                        </div>
+						</div>
 
-	                        <!-- <div class="form-control fc-full">
+						<div class="form-control fc-full">
+
+							<div class="multiOptions">
+
+								<select class="demo" multiple="multiple" name="sastate[]" id="sastate" style="width:25em;" class="validate[required]"></select>
+
+							</div>
+
+						</div>
+
+						<!-- <div class="form-control fc-full">
 
 	                        	<select id="state_zone" name="state_zone"></select>
 
 	                        </div> -->
 
-	                        <div class="form-control fc-full">
+						<div class="form-control fc-full">
 
-	                        	<select id="city_name" name="city_name" class="cv_required"></select>
+							<select id="city_name" name="city_name" class="cv_required"></select>
 
-	                        </div>
+						</div>
 
-	                        <div class="form-control  fc-half">
+						<div class="form-control  fc-half">
 
-	                        	<input type="text" name="datess" id="datess" value="">
+							<input type="text" name="datess" id="datess" value="">
 
-	                        </div>
+						</div>
 
-	                        <div class="form-control fc-half">
+						<div class="form-control times-Schedule fc-half">
 
-	                        	<select id="time" name="times" class="cv_required"></select>
+							<select id="time" name="times" class="cv_required"></select>
 
-	                        </div>
+						</div>
 
-							<div class="form-control fc-half">
+						<div class="form-control fc-half">
 
-								<select id="time_slot" name="time_slot" class="cv_required">
-									<option value="1 hour" selected>1 Hour Appointment </option>
-									<option value="30 minute">30 Minutes Appointment </option>
-								</select>
+							<select id="time_slot" name="time_slot" class="cv_required">
+								<option value="1 hour" selected>1 Hour Appointment </option>
+								<option value="30 minute">30 Minutes Appointment </option>
+							</select>
 
-							</div>
+						</div>
 
 
 
-	                    </div>
+					</div>
 
 
 
-	                    <span id="show_date"> </span>
+					<span id="show_date"> </span>
 
-	                    <!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+					<!-- <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
 
-	                    <link href="<?php echo site_url() ?>/wp-content/plugins/mkenny/css/fSelect.css" rel="stylesheet" type="text/css">
+					<link href="<?php echo site_url() ?>/wp-content/plugins/mkenny/css/fSelect.css" rel="stylesheet" type="text/css">
 
-	                    <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+					<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
 
-	                    <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+					<!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 
-	                    <script src="<?php echo site_url() ?>/wp-content/plugins/mkenny/js/fSelect.js"></script>
+					<script src="<?php echo site_url() ?>/wp-content/plugins/mkenny/js/fSelect.js"></script>
 
-	                    <script type="text/javascript">
+					<script type="text/javascript">
+						//$.noConflict();
 
-							//$.noConflict();
+						$(function() {
 
-							$(function(){
+							$('.demo').fSelect();
 
-								$('.demo').fSelect();
+							$('#saphone').keydown(function(e) {
+								var key = e.charCode || e.keyCode || 0;
+								$text = $(this);
+								if (key !== 8 && key !== 9) {
+									if ($text.val().length === 3) {
+										$text.val($text.val() + '-');
+									}
+									if ($text.val().length === 7) {
+										$text.val($text.val() + '-');
+									}
+								}
+								return (key == 8 || key == 9 || key == 46 || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));
+							})
 
-							    $('#saphone').keydown(function (e) {
-							       var key = e.charCode || e.keyCode || 0;
-							       $text = $(this); 
-							       if (key !== 8 && key !== 9) {
-							           if ($text.val().length === 3) {
-							               $text.val($text.val() + '-');
-							           }
-							           if ($text.val().length === 7) {
-							               $text.val($text.val() + '-');
-							           }
-							       }
-							       return (key == 8 || key == 9 || key == 46 || (key >= 48 && key <= 57) || (key >= 96 && key <= 105));
-							   })
+						});
+					</script>
 
-							});
+					<div style="float:left;width:100%; margin-bottom: 5px; color: #8C8C8C;" class="interestedInBox">
 
-						</script>
+						<label>Interested In: </label>
 
-	                    <div style="float:left;width:100%; margin-bottom: 5px; color: #8C8C8C;" class="interestedInBox">
+						<div class="interested">
 
-	                        <label>Interested In: </label>
+							<p><label><input class="check" name="interested_in[]" value="Suits" type="checkbox"> <span>Suits</span></label></p>
 
-							<div class="interested">
+							<p><label><input class="check" name="interested_in[]" value="Shirts" type="checkbox"> <span>Shirts</span></label></p>
 
-								<p><label><input class="check" name="interested_in[]" value="Suits" type="checkbox"> <span>Suits</span></label></p>
+							<p><label><input class="check" name="interested_in[]" value="Pants" type="checkbox"> <span>Pants</span></label></p>
 
-								<p><label><input class="check" name="interested_in[]" value="Shirts" type="checkbox"> <span>Shirts</span></label></p>
+							<p><label><input class="check" name="interested_in[]" value="Coats" type="checkbox"> <span>Coats</span></label></p>
 
-								<p><label><input class="check" name="interested_in[]" value="Pants" type="checkbox"> <span>Pants</span></label></p>
+							<p><label><input class="check" name="interested_in[]" value="Formal Wear" type="checkbox"> <span>Formal Wear</span></label></p>
 
-								<p><label><input class="check" name="interested_in[]" value="Coats" type="checkbox"> <span>Coats</span></label></p>
+							<p><label><input class="check" name="interested_in[]" value="Wardrobe Upgrade" type="checkbox"> <span>Wardrobe Upgrade</span></label></p>
 
-								<p><label><input class="check" name="interested_in[]" value="Formal Wear" type="checkbox"> <span>Formal Wear</span></label></p>
+						</div>
 
-								<p><label><input class="check" name="interested_in[]" value="Wardrobe Upgrade" type="checkbox"> <span>Wardrobe Upgrade</span></label></p>
+						<input name="sinterested" id="sinterested" value="" type="hidden">
 
-							</div>
+					</div>
 
-	                        <input name="sinterested" id="sinterested" value="" type="hidden">
+					<p class="user_comments">
 
-	                    </div>
+						<!-- <textarea placeholder="Message" name="samessage" id="samessage" style="width: 98%;"></textarea> -->
 
-	                    <p class="user_comments">
+					<div id="captcha"> captcha code:<?php echo $_SESSION['msg']; ?></div>
 
-	                        <!-- <textarea placeholder="Message" name="samessage" id="samessage" style="width: 98%;"></textarea> -->
+					<div>
 
-	                    <div id="captcha"> captcha code:<?php echo $_SESSION['msg']; ?></div>
 
-	                    <div> 
 
-						
+						<!-- <label for='message'>Captcha code:</label> -->
 
-	                        <!-- <label for='message'>Captcha code:</label> -->
+						<!-- <br> -->
 
-	                        <!-- <br> -->
+						<div class="recaptch_fill">
 
-							<div class="recaptch_fill">
+							<img src="<?php echo get_template_directory_uri(); ?>/mathcaptcha/captcha.php" id="captcha_image">
 
-								<img src="<?php echo get_template_directory_uri(); ?>/mathcaptcha/captcha.php" id="captcha_image">
+							<input id="captcha_code" name="check" type="text" placeholder="Enter answer" />
 
-	                        	<input id="captcha_code" name="check" type="text" placeholder="Enter answer" />
+							<a class="captchaHere" href='javascript: refreshCaptcha();'>&#x21bb;</a>
 
-								<a class="captchaHere" href='javascript: refreshCaptcha();'>&#x21bb;</a>
+						</div>
 
-							</div>
+						<!-- /.recaptch_fill -->
 
-							<!-- /.recaptch_fill -->
+						<!-- <br> -->
 
-	                        <!-- <br> -->
+						<!-- Robots don’t look good in suits! <span class="captchaClick">click</span> <a class="captchaHere" href='javascript: refreshCaptcha();'>here</a> to refresh.<br/> -->
 
-	                        <!-- Robots don’t look good in suits! <span class="captchaClick">click</span> <a class="captchaHere" href='javascript: refreshCaptcha();'>here</a> to refresh.<br/> -->
+					</div>
 
-	                    </div>
+					<script type='text/javascript'>
+						function refreshCaptcha() {
 
-	                    <script type='text/javascript'>
+							//var img = document.images['captchaimg'];
 
-							function refreshCaptcha(){							
+							//img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
 
-								//var img = document.images['captchaimg'];
 
-								//img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
 
-								
+							jQuery('#captcha_image').attr('src', jQuery('#captcha_image').attr('src') + '#');
 
-								jQuery('#captcha_image').attr('src', jQuery('#captcha_image').attr('src')+'#');
 
-							
 
-							}
+						}
+					</script>
 
-						</script>
+					<?php //echo unset($_SESSION['msg']); 
+					?>
 
-	                    <?php //echo unset($_SESSION['msg']); ?>
+					</p>
 
-	                    </p>
+					<p class="actions">
 
-	                    <p class="actions">
+						<input id="sa_submit" value="Schedule A Fitting" type="submit">
 
-	                        <input id="sa_submit" value="Schedule A Fitting" type="submit">
+						<input class="creset" value="RESET" type="button">
 
-	                        <input class="creset" value="RESET" type="button">
+					</p>
 
-	                    </p>
+				</form>
 
-	                </form>
+			</div>
+		</div>
+		<!-- /.appointment_popup_content -->
 
-	            </div>
-            </div>
-				<!-- /.appointment_popup_content -->
+	</div>
 
-        </div>
-
-    </div>
+</div>
 
 
 
@@ -5340,124 +5304,116 @@ return $timeHtml;
 <script src="<?php echo get_template_directory_uri(); ?>/js/map-interact.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-var	color="#dce3ea";
-
+	var color = "#dce3ea";
+	var allstates = [];
 </script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/map-config.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-var map = document.getElementById("map");
-
-
-
-<?php
-
-global $wpdb;
+	var map = document.getElementById("map");
 
 
 
-$sql="select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and STR_TO_DATE(adt.start_date,'%m/%d/%Y') >= CURRENT_DATE group by adt.event_id order by adt.start_date";
+	<?php
 
-// $sql="select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) >= DATE_FORMAT(CURRENT_DATE,'%Y%m%d') group by adt.event_id order by CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) desc";
-
-
-
-$retrievedatas=$wpdb->get_results($sql);
+	global $wpdb;
 
 
 
-foreach ($retrievedatas as $retrievedata){	
+	$sql = "select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and STR_TO_DATE(adt.start_date,'%m/%d/%Y') >= CURRENT_DATE group by adt.event_id order by adt.start_date";
+
+	// $sql="select adt.event_id,adt.start_date as start_date  from wp_schedule_events se,wp_appointment_date_time adt where adt.event_id=se.id and se.status='1' and se.is_delete='1' and CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) >= DATE_FORMAT(CURRENT_DATE,'%Y%m%d') group by adt.event_id order by CONCAT(SUBSTRING(adt.start_date, 7, 4),SUBSTRING(adt.start_date, 1, 2),SUBSTRING(adt.start_date, 4, 2)) desc";
 
 
 
-	$state_highlighted_query="select st.state_name,st.state_short,ses.statezone_id from wp_schedule_event_state ses ,wp_state st where ses.event_id='".$retrievedata->event_id."' and ses.state_id=st.id";
+	$retrievedatas = $wpdb->get_results($sql);
+
+	foreach ($retrievedatas as $retrievedata) {
 
 
 
-	$highlighted_states = $wpdb->get_results($state_highlighted_query);
-
-	
-
-	$total = count($highlighted_states)-1;
+		$state_highlighted_query = "select st.state_name,st.state_short,ses.statezone_id from wp_schedule_event_state ses ,wp_state st where ses.event_id='" . $retrievedata->event_id . "' and ses.state_id=st.id";
 
 
+		$highlighted_states = $wpdb->get_results($state_highlighted_query);
 
-	foreach($highlighted_states as $highlighted_state){
 
-		
 
-		if(count($highlighted_states)>1){
+		$total = count($highlighted_states) - 1;
 
-				
 
-		}else{
 
-			if(!empty($highlighted_state->statezone_id)){
+		foreach ($highlighted_states as $highlighted_state) {
 
-			}else{			
 
-	?>	
 
-	var state = '<?php echo $highlighted_state->state_short ?>';
+			if (count($highlighted_states) > 1) {
+			} else {
 
-	<?php	
+				if (!empty($highlighted_state->statezone_id)) {
+				} else {
 
-	      }
+	?>
 
-		}
+					var state = '<?php echo $highlighted_state->state_short ?>';
+					allstates.push(state);
 
-?>	
 
-	
+			<?php
 
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
+				}
 			}
 
-			
+			?>
+
+
+
+
+
+			state = state.toUpperCase();
+
+
+
+			$.each(map_config, function(index, val) {
+
+
+
+				var value = val.namesId;
+
+				if (value == state)
+
+				{
+
+					val.upcolor = "#38688F";
+
+					try {
+
+						//change text color
+						var selState = map.getElementById(state);
+						selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
+
+						//change fill color
+						$('*[data-name="'+state+'"]').attr('style','fill:#38688F');
+
+					} catch (e) {
+
+					}
+
+
+
+				}
+
+
+
+			});
+
+
+
+	<?php
 
 		}
-
-		
-
-	});
-
-	
-
-<?php		
-
-}
-
-
-
-}
+	}
 
 
 
@@ -5469,9 +5425,9 @@ foreach ($retrievedatas as $retrievedata){
 
 
 
-//echo count($highlighted_states);exit("Here");
+	//echo count($highlighted_states);exit("Here");
 
-/*
+	/*
 
 
 
@@ -5525,10 +5481,7 @@ state=state.toUpperCase();
 
 */
 
-?>
-
-
-
+	?>
 </script>
 
 
@@ -5536,111 +5489,58 @@ state=state.toUpperCase();
 <!--MapScript-->
 
 <script type="text/javascript">
-
-	$(function(){
-
+	$(function() {
 		addEvent('map_1');
-
 		addEvent('map_2');
-
 		addEvent('map_3');
-
 		addEvent('map_4');
-
 		addEvent('map_5');
-
 		addEvent('map_6');
-
 		addEvent('map_7');
-
 		addEvent('map_8');
-
 		addEvent('map_9');
-
 		addEvent('map_10');
-
 		addEvent('map_11');
-
 		addEvent('map_12');
-
 		addEvent('map_13');
-
 		addEvent('map_14');
-
 		addEvent('map_15');
-
 		addEvent('map_16');
-
 		addEvent('map_17');
-
 		addEvent('map_18');
-
 		addEvent('map_19');
-
 		addEvent('map_20');
-
 		addEvent('map_21');
-
 		addEvent('map_22');
-
 		addEvent('map_23');
-
 		addEvent('map_24');
-
 		addEvent('map_25');
-
 		addEvent('map_26');
-
 		addEvent('map_27');
-
 		addEvent('map_28');
-
 		addEvent('map_29');
-
 		addEvent('map_30');
-
 		addEvent('map_31');
-
 		addEvent('map_32');
-
 		addEvent('map_33');
-
 		addEvent('map_34');
-
 		addEvent('map_35');
-
 		addEvent('map_36');
-
 		addEvent('map_37');
-
 		addEvent('map_38');
-
 		addEvent('map_39');
-
 		addEvent('map_40');
-
 		addEvent('map_41');
-
 		addEvent('map_42');
-
 		addEvent('map_43');
-
 		addEvent('map_44');
-
 		addEvent('map_45');
-
 		addEvent('map_46');
-
 		addEvent('map_47');
-
 		addEvent('map_48');
-
 		addEvent('map_49');
-
 		addEvent('map_50');
-
 		addEvent('map_51');
-
 	});
 
 
@@ -5649,15 +5549,15 @@ state=state.toUpperCase();
 
 
 
-	function funcRef(){
+	function funcRef() {
 
 		var flagStateEqual = false;
 
-		var hash=location.hash;
+		var hash = location.hash;
 
-		var region=hash;
+		var region = hash;
 
-		region=region.replace("#","");
+		region = region.replace("#", "");
 
 		region = region.replace(/\_/g, ' ');
 
@@ -5665,33 +5565,33 @@ state=state.toUpperCase();
 
 		region = region.toLowerCase().replace(/\b[a-z]/g, function(letter) {
 
-					return letter.toUpperCase();
+			return letter.toUpperCase();
 
-				});
-
-
+		});
 
 
 
-		$(".tourList").each(function(){
 
-			var stateName=$(this).find("h2:first").text();
+
+		$(".tourList").each(function() {
+
+			var stateName = $(this).find("h2:first").text();
 
 
 
 			stateName = stateName.toLowerCase().replace(/\b[a-z]/g, function(letter) {
 
-					return letter.toUpperCase();
+				return letter.toUpperCase();
 
-				});
-
-
-
-				var container = $(this).find("h2:first");
+			});
 
 
 
-			if(stateName == region){
+			var container = $(this).find("h2:first");
+
+
+
+			if (stateName == region) {
 
 
 
@@ -5707,23 +5607,23 @@ state=state.toUpperCase();
 
 
 
-		if(!flagStateEqual)
+		if (!flagStateEqual)
 
 		{
 
 			$('.popup_overlay2 .map_state').val(region);
 
-				$('.popup_overlay2').fadeIn();
+			$('.popup_overlay2').fadeIn();
 
-				$('.close_btn a').click(function() {
+			$('.close_btn a').click(function() {
 
-					 $('.popup_overlay2').fadeOut();
+				$('.popup_overlay2').fadeOut();
 
-					 $('popup_overlay2 .map_state').val(' ');
+				$('popup_overlay2 .map_state').val(' ');
 
-					return (false);
+				return (false);
 
-				});
+			});
 
 		}
 
@@ -5737,7 +5637,7 @@ state=state.toUpperCase();
 
 
 
-	$(document).ready(function(e){
+	$(document).ready(function(e) {
 
 
 
@@ -5779,78 +5679,59 @@ state=state.toUpperCase();
 
 
 
-		setTimeout(function(){
+		setTimeout(function() {
+
+			var hash = window.location.hash;
+
+			if (hash != "") {
+
+				if ($(hash).position()) {
+					$(window).scrollTop($(hash).position().top - 120);
+				}
+
+			}
+
+		}, 100);
 
 
 
-		var hash = window.location.hash;
+		$(".sidebar li a").click(function(e) {
 
-		if(hash!=""){
-
-			$(window).scrollTop($(hash).position().top - 120);
-
-		}
-
-		},100);
-
-
-
-		$(".sidebar li a").click(function(e){
-
-		$(window).scrollTop($( $(this).attr("href") ).position().top - 120);
+			$(window).scrollTop($($(this).attr("href")).position().top - 120);
 
 		});
 
-		
 
-		
 
-		
 
-		jQuery("#joinMailList").click(function(){
+
+
+
+		jQuery("#joinMailList").click(function() {
 
 			jQuery('body').addClass('bodyFixed');
 
 			var stateNameRegion = jQuery("#state_id").find(':selected').attr('data-id');
 
-			
-
 			jQuery('.popup_overlay2 .map_state').val(stateNameRegion);
 
-				jQuery('.popup_overlay2').fadeIn();
+			jQuery('.popup_overlay2').fadeIn();
 
-				jQuery('.calenderOverlay').fadeOut();
+			jQuery('.calenderOverlay').fadeOut();
 
-				jQuery('.close_btn a').click(function() {
+			jQuery('.close_btn a').click(function() {
 
-					 jQuery('body').removeClass('bodyFixed');
+				jQuery('body').removeClass('bodyFixed');
 
-					 jQuery('.popup_overlay2').fadeOut();
+				jQuery('.popup_overlay2').fadeOut();
 
-					 jQuery('popup_overlay2 .map_state').val(' ');
+				jQuery('popup_overlay2 .map_state').val(' ');
 
-					return (false);
+				return (false);
 
 			});
-
-				
-
-			
-
-			
-
-			
-
 		});
-
-		
-
-		
-
-		
-
 	});
-
 </script>
 
 <!--#MapScript-->
@@ -5869,7 +5750,8 @@ state=state.toUpperCase();
 
             <div class="grid-12">
 
-                <p class="close_btn hideOnSent"><a href="#"><img src="<?php //echo get_template_directory_uri(); ?>/images/close.png"></a></p>
+                <p class="close_btn hideOnSent"><a href="#"><img src="<?php //echo get_template_directory_uri(); 
+																		?>/images/close.png"></a></p>
 
                 <div class="mailing_list" style="padding:25px 20px;">
 
@@ -5946,24 +5828,23 @@ state=state.toUpperCase();
 
 
 <script type="text/javascript">
+	jQuery(document).ready(function() {
 
-	 jQuery(document).ready(function() {
-
-        jQuery(".notifiedBtn").click(function () {
-
+		jQuery(".notifiedBtn").click(function() {
 
 
 
 
-			
+
+
 
 			var event_id = $(this).attr('id');
 
-			var city = jQuery("#ts_"+event_id+" .ts_location > strong").html();
+			var city = jQuery("#ts_" + event_id + " .ts_location > strong").html();
 
-			var state = jQuery("#ts_"+event_id+" .title > h3").html();
+			var state = jQuery("#ts_" + event_id + " .title > h3").html();
 
-			var location = jQuery("#ts_"+event_id+" .ts_location > p").text();
+			var location = jQuery("#ts_" + event_id + " .ts_location > p").text();
 
 			jQuery(".nf_state").val(state);
 
@@ -5971,137 +5852,140 @@ state=state.toUpperCase();
 
 			jQuery(".nf_location").val(location);
 
-			jQuery('#notify').css('display','block');
+			jQuery('#notify').css('display', 'block');
 
 			jQuery('body').addClass('bodyFixed');
 
-			
-
-
-
-        });
-
-
-
-        jQuery("#notify_btn").click(function () {
-
-        	 jQuery('#notify').fadeOut();
-
-        	 jQuery('body').removeClass('bodyFixed');
-
-        });
 
 
 
 
-
-			jQuery('.nf_submit').click(function(){
-
+		});
 
 
-					var name  =  jQuery(".nf_name").val();
 
-					var email =  jQuery(".nf_email").val();
+		jQuery("#notify_btn").click(function() {
 
-					var phone =  jQuery(".nf_phone").val();
+			jQuery('#notify').fadeOut();
 
-					var state = jQuery(".nf_state").val();
+			jQuery('body').removeClass('bodyFixed');
 
-					var city  = jQuery(".nf_city").val();
+		});
 
-					var location  = jQuery(".nf_location").val();
 
-					var getUrl = window.location;
 
-				var path = getUrl .protocol + "//" + getUrl.host + "/";
 
-					if( name == '' || email == '' )
 
-					{	
+		jQuery('.nf_submit').click(function() {
 
-						alert('Missing parameter name or email');
+
+
+			var name = jQuery(".nf_name").val();
+
+			var email = jQuery(".nf_email").val();
+
+			var phone = jQuery(".nf_phone").val();
+
+			var state = jQuery(".nf_state").val();
+
+			var city = jQuery(".nf_city").val();
+
+			var location = jQuery(".nf_location").val();
+
+			var getUrl = window.location;
+
+			var path = getUrl.protocol + "//" + getUrl.host + "/";
+
+			if (name == '' || email == '')
+
+			{
+
+				alert('Missing parameter name or email');
+
+			} else {
+
+
+
+				jQuery(".notify_overlay .mailing_list").slideUp("slow");
+
+				jQuery(".notify_overlay .message").slideDown("slow");
+
+				jQuery("#notify #show_time").show();
+
+				$.ajax({
+
+					type: "POST",
+
+					url: path + 'notify.php',
+
+					data: {
+						name: name,
+						email: email,
+						phone: phone,
+						state: state,
+						city: city,
+						location: location
+					},
+
+					dataType: 'json',
+
+					cache: false,
+
+					success: function(result) {
+
+
+
+						jQuery('#notify').hide();
+
+						jQuery(".notify_overlay .mailing_list").slideDown("slow");
+
+						jQuery(".notify_overlay .message").slideUp("slow");
+
+						jQuery(".notify-form input[type=text], textarea").val("");
+
+						if (result == 'done') {
+
+							jQuery("#no").css('display', 'inline-block');
+
+						} else
+
+						{
+
+							jQuery("#no_error").css('display', 'inline-block');
+
+						}
+
+
 
 					}
 
-					else{
+
+
+				});
+
+			}
 
 
 
-						jQuery(".notify_overlay .mailing_list").slideUp("slow");
-
-						jQuery(".notify_overlay .message").slideDown("slow");
-
-						jQuery("#notify #show_time").show();
-
-						$.ajax({
-
-			                    type:"POST",
-
-			                    url: path+'notify.php',
-
-			                    data: {name:name,email:email,phone:phone,state:state,city:city,location:location},
-
-			                    dataType: 'json', 
-
-			                    cache: false,
-
-			                    success : function(result){
-
-			                       
-
-			                        jQuery('#notify').hide();
-
-									jQuery(".notify_overlay .mailing_list").slideDown("slow");
-
-									jQuery(".notify_overlay .message").slideUp("slow");
-
-			                        jQuery(".notify-form input[type=text], textarea").val("");
-
-			                        if(result == 'done'){
-
-			                        	jQuery("#no").css('display','inline-block');	
-
-			                        }
-
-			                        else
-
-			                        {
-
-			                        	jQuery("#no_error").css('display','inline-block');		
-
-			                        }
-
-			                        
-
-			                    }
-
-			                   
-
-			                });
-
-					}
-
-                      
-
-              });
+		});
 
 
 
-			
 
 
 
-            jQuery('.no_ErrorClose').click(function(){
 
-                jQuery('.no_error').hide();
+		jQuery('.no_ErrorClose').click(function() {
 
-            });
+			jQuery('.no_error').hide();
 
-            jQuery('.noClose').click(function(){
+		});
 
-                jQuery('.no').hide();
+		jQuery('.noClose').click(function() {
 
-            });
+			jQuery('.no').hide();
+
+		});
 
 
 
@@ -6111,14 +5995,7 @@ state=state.toUpperCase();
 
 
 
-    });
-
-
-
-
-
-
-
+	});
 </script>
 
 
@@ -6129,19 +6006,19 @@ state=state.toUpperCase();
 
 <div id="no" class="calenderOverlay no" style="display:none;">
 
-<div class="calenderInner">
+	<div class="calenderInner">
 
-	<p>Thank you, we’ll be in touch with you during one of our
+		<p>Thank you, we’ll be in touch with you during one of our
 
-	upcoming visits. Please be sure to add our e-mail <a style="background: none;padding: 0;margin: 0;text-decoration: underline;" href='mailto:info@mkennys.com'>info@mkennys.com</a> to your safe sender list to
+			upcoming visits. Please be sure to add our e-mail <a style="background: none;padding: 0;margin: 0;text-decoration: underline;" href='mailto:info@mkennys.com'>info@mkennys.com</a> to your safe sender list to
 
-	receive future e-mail notifications. We don’t want you to miss on building a new
+			receive future e-mail notifications. We don’t want you to miss on building a new
 
-	custom wardrobe.</p>
+			custom wardrobe.</p>
 
-    <a href="javascript:;" class="noClose">Close</a>
+		<a href="javascript:;" class="noClose">Close</a>
 
-</div>
+	</div>
 
 </div>
 
@@ -6153,13 +6030,13 @@ state=state.toUpperCase();
 
 <div id="no_error" class="calenderOverlay no_error" style="display:none;">
 
-<div class="calenderInner">
+	<div class="calenderInner">
 
-    <p>Your email is already in the system.</p>
+		<p>Your email is already in the system.</p>
 
-    <a href="javascript:;" class="no_ErrorClose">Close</a>
+		<a href="javascript:;" class="no_ErrorClose">Close</a>
 
-</div>
+	</div>
 
 </div>
 
@@ -6173,97 +6050,97 @@ state=state.toUpperCase();
 
 <div id="notify" class="notify_overlay" style="display:none;">
 
-    <div class="appointment_popup">
+	<div class="appointment_popup">
 
-        <div class="container-12">
+		<div class="container-12">
 
 			<div class="message" style="display:none;">
 
 				<span id="show_time" style="" class="static"> </span>
 
-				<h2 class="title">Sending</h2>				             
+				<h2 class="title">Sending</h2>
 
 			</div>
 
-            <div class="grid-12">
+			<div class="grid-12">
 
-                <p  class="close_btn"><a href="#" id="notify_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/close.png"></a></p>
+				<p class="close_btn"><a href="#" id="notify_btn"><img src="<?php echo get_template_directory_uri(); ?>/images/close.png"></a></p>
 
-                <div class="mailing_list" style="padding:25px 20px;">
+				<div class="mailing_list" style="padding:25px 20px;">
 
-                    <h6>Get Notified</h6>
+					<h6>Get Notified</h6>
 
-                    <p style="position:relative;top:10px;margin-bottom: 14px;">Get notified when we’ll be in your city next for a personalized custom fitting.</p>
-
-					
-
-                    <form class="notify-form" action="" method="post">
-
-                       
-
-                        <p>
-
-                            <input name="name"  class="nf_name" placeholder="Name*" type="text">
-
-                        </p>
-
-                        <p>
-
-                            <input name="email"  class="nf_email" placeholder="Email Address*" type="text">
-
-                        </p>
-
-                        <p>
-
-                            <input name="phone"  maxlength="14" class="nf_phone" placeholder="Primary Contact Number" type="text">
-
-                        </p>
-
-                        <p class="select_state">
-
-							<input name="state"  class="nf_state" value="" disabled="disabled"  type="text">	
-
-                        </p>
+					<p style="position:relative;top:10px;margin-bottom: 14px;">Get notified when we’ll be in your city next for a personalized custom fitting.</p>
 
 
 
-                        <p class="select_state">
-
-							<input name="city"  class="nf_city" value="" disabled="disabled" type="text">	
-
-                        </p>
-
-                        <p class="select_state">
-
-							<input name="location"  class="nf_location" value="" disabled="disabled" type="text">	
-
-                        </p>
+					<form class="notify-form" action="" method="post">
 
 
 
-                        <p class="submit_form">
+						<p>
 
-                            <input class="nf_submit" name="nf_submit" value="SUBMIT" type="button">
+							<input name="name" class="nf_name" placeholder="Name*" type="text">
 
-                        </p>
+						</p>
 
-                    </form>
+						<p>
 
-                    
+							<input name="email" class="nf_email" placeholder="Email Address*" type="text">
 
-                </div>
+						</p>
 
-            </div>
+						<p>
 
-        </div>
+							<input name="phone" maxlength="14" class="nf_phone" placeholder="Primary Contact Number" type="text">
 
-    </div>
+						</p>
+
+						<p class="select_state">
+
+							<input name="state" class="nf_state" value="" disabled="disabled" type="text">
+
+						</p>
+
+
+
+						<p class="select_state">
+
+							<input name="city" class="nf_city" value="" disabled="disabled" type="text">
+
+						</p>
+
+						<p class="select_state">
+
+							<input name="location" class="nf_location" value="" disabled="disabled" type="text">
+
+						</p>
+
+
+
+						<p class="submit_form">
+
+							<input class="nf_submit" name="nf_submit" value="SUBMIT" type="button">
+
+						</p>
+
+					</form>
+
+
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </div>
 
 
 
-<?php 
+<?php
 
 /*global $wpdb;
 
@@ -6327,35 +6204,37 @@ if(isset($_POST['nf_submit'])){
 
 <div class="popup_overlay3" style="display: none;">
 
-    <div class="appointment_popup">
+	<div class="appointment_popup">
 
-        <div class="container-12">
+		<div class="container-12">
 
-		<?php // print_r($_SESSION['post']); ?>
-
-
-
-            <div class="grid-12">
+			<?php // print_r($_SESSION['post']); 
+			?>
 
 
 
-			<?php $_COOKIE["eventData"] ?>
+			<div class="grid-12">
 
-                <p>Your custom fitting session is scheduled. We look forward to meeting with you and helping build your wardrobe. </p>
 
-                <p class="close_btn"> <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/close.png"></a></p>
 
-                <p class="actions">
+				<?php $_COOKIE["eventData"] ?>
 
-                   <a id="create-event" href="<?php echo $login_url ?>" target="__blank">Add to Google Calendar</a>
+				<p>Your custom fitting session is scheduled. We look forward to meeting with you and helping build your wardrobe. </p>
 
-                    <a id="outlook-event" href="<?php echo site_url() ?>/tour-schedule/?odate=<?php echo date('Ymd'); ?>" target="__blank">Add to Outlook Calendar</a> </p>
+				<p class="close_btn"> <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/close.png"></a></p>
 
-            </div>
+				<p class="actions">
 
-        </div>
+					<a id="create-event" href="<?php echo $login_url ?>" target="__blank">Add to Google Calendar</a>
 
-    </div>
+					<a id="outlook-event" href="<?php echo site_url() ?>/tour-schedule/?odate=<?php echo date('Ymd'); ?>" target="__blank">Add to Outlook Calendar</a>
+				</p>
+
+			</div>
+
+		</div>
+
+	</div>
 
 </div>
 
@@ -6367,73 +6246,66 @@ if(isset($_POST['nf_submit'])){
 
 
 
-if($_GET['odate'] != 0){
+if ($_GET['odate'] != 0) {
 
 
 
 
 
-    function sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime,$startDate, $subject, $description, $location){
+	function sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $startDate, $subject, $description, $location)
+	{
 
-    $domain = 'mkenny.com';
-
-
-
-
-
-    $contact_number = "<a href='tel:".$_SESSION['phone_no']."' target='_blank'>".$_SESSION['phone_no']."<a>";
+		$domain = 'mkenny.com';
 
 
 
-    if(empty($contact_number ))
 
-    {
 
-    	$contact_number = "<a href='tel:".$_SESSION['alternative_phone_no']."' target='_blank'>".$_SESSION['alternative_phone_no']."</a>";
-
-    }
-
-    else
-
-    {
-
-    	$contact_number = $contact_number."<br><a href='tel:".$_SESSION['alternative_phone_no']."' target='_blank'>".$_SESSION['alternative_phone_no']."</a>";
-
-    }
+		$contact_number = "<a href='tel:" . $_SESSION['phone_no'] . "' target='_blank'>" . $_SESSION['phone_no'] . "<a>";
 
 
 
-    //Create Email Headers
+		if (empty($contact_number)) {
 
-    $mime_boundary = "----Mkenny Appointment----".MD5(TIME());
+			$contact_number = "<a href='tel:" . $_SESSION['alternative_phone_no'] . "' target='_blank'>" . $_SESSION['alternative_phone_no'] . "</a>";
+		} else {
 
-
-
-    $headers = "From: ".$from_name." <".$from_address.">\n";
-
-    $headers .= "Reply-To: ".$from_name." <".$from_address.">\n";
-
-    $headers .= "MIME-Version: 1.0\n";
-
-    $headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
-
-    $headers .= "Content-class: urn:content-classes:calendarmessage\n";
+			$contact_number = $contact_number . "<br><a href='tel:" . $_SESSION['alternative_phone_no'] . "' target='_blank'>" . $_SESSION['alternative_phone_no'] . "</a>";
+		}
 
 
 
-    //Create Email Body (HTML)
+		//Create Email Headers
 
-    $message = "--$mime_boundary\r\n";
+		$mime_boundary = "----Mkenny Appointment----" . MD5(TIME());
 
-    $message .= "Content-Type: text/html; charset=UTF-8\n";
 
-    $message .= "Content-Transfer-Encoding: 8bit\n\n";
 
-    $message .= "<html>\n";
+		$headers = "From: " . $from_name . " <" . $from_address . ">\n";
 
-    $message .= "<body>\n";
+		$headers .= "Reply-To: " . $from_name . " <" . $from_address . ">\n";
 
-	$message .=  "<table border='0' cellspacing='0' cellpadding='0' width='580' style='width:435.0pt'>
+		$headers .= "MIME-Version: 1.0\n";
+
+		$headers .= "Content-Type: multipart/alternative; boundary=\"$mime_boundary\"\n";
+
+		$headers .= "Content-class: urn:content-classes:calendarmessage\n";
+
+
+
+		//Create Email Body (HTML)
+
+		$message = "--$mime_boundary\r\n";
+
+		$message .= "Content-Type: text/html; charset=UTF-8\n";
+
+		$message .= "Content-Transfer-Encoding: 8bit\n\n";
+
+		$message .= "<html>\n";
+
+		$message .= "<body>\n";
+
+		$message .=  "<table border='0' cellspacing='0' cellpadding='0' width='580' style='width:435.0pt'>
 
 	<tbody>
 
@@ -6471,7 +6343,7 @@ if($_GET['odate'] != 0){
 
 											<td colspan='2' style='width:40.0%;border:none;background:#FFF;padding:15px 20px 10px;'>
 
-												<b>Dear ".$to_name.",</b>
+												<b>Dear " . $to_name . ",</b>
 
 											</td>
 
@@ -6493,13 +6365,13 @@ if($_GET['odate'] != 0){
 
 										
 
-										<tr><td width='40%' style='width:40.0%;border:none; border-top:solid #ddd6b5 1px; border-bottom:solid #ddd6b5 1px;background:#FFF;padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>Location :</span></b></p><td width='60%' style='width:60.0%;border:none;border-bottom:solid #ddd6b5 1px;border-top:solid #ddd6b5 1px; background:#FFF;padding:10px 20px'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>".$_SESSION['event_location']."</span></b></td></tr>
+										<tr><td width='40%' style='width:40.0%;border:none; border-top:solid #ddd6b5 1px; border-bottom:solid #ddd6b5 1px;background:#FFF;padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>Location :</span></b></p><td width='60%' style='width:60.0%;border:none;border-bottom:solid #ddd6b5 1px;border-top:solid #ddd6b5 1px; background:#FFF;padding:10px 20px'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>" . $_SESSION['event_location'] . "</span></b></td></tr>
 
 
 
 
 
-										<tr><td width='40%' style='width:40.0%;border:none;border-bottom:solid #ddd6b5 1px; background:#FFF; padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>Contact :</span></b></p></td><td width='60%' style='width:60.0%;border:none;border-bottom:solid #ddd6b5 1px;background:#FFF;padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>".$_SESSION['contact_name']."<br>".$contact_number."
+										<tr><td width='40%' style='width:40.0%;border:none;border-bottom:solid #ddd6b5 1px; background:#FFF; padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>Contact :</span></b></p></td><td width='60%' style='width:60.0%;border:none;border-bottom:solid #ddd6b5 1px;background:#FFF;padding:10px 20px'><p class='MsoNormal'><b><span style='font-size:9.0pt;font-family:Verdana,sans-serif;'>" . $_SESSION['contact_name'] . "<br>" . $contact_number . "
 
 
 
@@ -6539,221 +6411,198 @@ if($_GET['odate'] != 0){
 
 	</table>";
 
-	$message .="</body>\n";
+		$message .= "</body>\n";
 
-	$message .="</html>\n";
+		$message .= "</html>\n";
 
-    $message .= "--$mime_boundary\r\n";
-
-
-
-
-
-	
-
-
-
-	$today = date('m/d/Y');
-
-	$effectiveDate = date('m/d/Y', strtotime("+45 days", strtotime($today)));
-
-	$current_date=strtotime($effectiveDate);
-
-
-
-	$future_date=strtotime($startDate);
+		$message .= "--$mime_boundary\r\n";
 
 
 
 
 
-	if ($current_date < $future_date)
-
-	{
-
-		    $cus_strt_time = strtotime('+90 minutes', strtotime( $startTime ));
-
-    		$cus_end_time = strtotime('+90 minutes', strtotime( $endTime ));
-
-	}
-
-	else{
-
-		$cus_strt_time = strtotime('+150 minutes', strtotime( $startTime ));
-
-    	$cus_end_time = strtotime('+150 minutes', strtotime( $endTime ));
-
-	}
 
 
 
-	$cus_strt_time = strtotime( $startTime );
 
-    $cus_end_time = strtotime( $endTime );
+		$today = date('m/d/Y');
 
+		$effectiveDate = date('m/d/Y', strtotime("+45 days", strtotime($today)));
 
-
-   
-
+		$current_date = strtotime($effectiveDate);
 
 
-    echo $_SESSION['startTime_hour'];
 
-    echo "<br>";
+		$future_date = strtotime($startDate);
 
-    echo $_SESSION['startTime_min'];
 
-	if($_SESSION['g_timeFormat']=="PM")
 
-	{
 
-		if($_SESSION['startTime_hour'] == '12' && ($_SESSION['startTime_min'] == '00' || $_SESSION['startTime_min'] == '30'))
 
-		{
+		if ($current_date < $future_date) {
 
-			$cus_strt_time = strtotime( $startTime );
+			$cus_strt_time = strtotime('+90 minutes', strtotime($startTime));
 
-    		$cus_end_time =  strtotime( $endTime );
+			$cus_end_time = strtotime('+90 minutes', strtotime($endTime));
+		} else {
 
+			$cus_strt_time = strtotime('+150 minutes', strtotime($startTime));
+
+			$cus_end_time = strtotime('+150 minutes', strtotime($endTime));
 		}
 
-		else
 
-		{
 
-			$cus_strt_time = strtotime('+720 minutes', strtotime( $startTime ));
+		$cus_strt_time = strtotime($startTime);
 
-    		$cus_end_time = strtotime('+720 minutes', strtotime( $endTime ));
+		$cus_end_time = strtotime($endTime);
 
-    	}
+
+
+
+
+
+
+		echo $_SESSION['startTime_hour'];
+
+		echo "<br>";
+
+		echo $_SESSION['startTime_min'];
+
+		if ($_SESSION['g_timeFormat'] == "PM") {
+
+			if ($_SESSION['startTime_hour'] == '12' && ($_SESSION['startTime_min'] == '00' || $_SESSION['startTime_min'] == '30')) {
+
+				$cus_strt_time = strtotime($startTime);
+
+				$cus_end_time =  strtotime($endTime);
+			} else {
+
+				$cus_strt_time = strtotime('+720 minutes', strtotime($startTime));
+
+				$cus_end_time = strtotime('+720 minutes', strtotime($endTime));
+			}
+		} else {
+
+			$cus_strt_time = strtotime('+720 minutes', strtotime($startTime));
+
+			$cus_end_time = strtotime('+720 minutes', strtotime($endTime));
+		}
+
+
+
+
+
+
+
+
+
+		$ical = 'BEGIN:VCALENDAR' . "\r\n" .
+
+			'PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN' . "\r\n" .
+
+			'VERSION:2.0' . "\r\n" .
+
+			'METHOD:REQUEST' . "\r\n" .
+
+			'BEGIN:VTIMEZONE' . "\r\n" .
+
+			'TZID:Eastern Standard Time' . "\r\n" .
+
+			'BEGIN:STANDARD' . "\r\n" .
+
+			'DTSTART:20091101T020000' . "\r\n" .
+
+			'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=1SU;BYMONTH=11' . "\r\n" .
+
+			'TZOFFSETFROM:-0400' . "\r\n" .
+
+			'TZOFFSETTO:-0500' . "\r\n" .
+
+			'TZNAME:EST' . "\r\n" .
+
+			'END:STANDARD' . "\r\n" .
+
+			'BEGIN:DAYLIGHT' . "\r\n" .
+
+			'DTSTART:20090301T020000' . "\r\n" .
+
+			'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=2SU;BYMONTH=3' . "\r\n" .
+
+			'TZOFFSETFROM:-0500' . "\r\n" .
+
+			'TZOFFSETTO:-0400' . "\r\n" .
+
+			'TZNAME:EDST' . "\r\n" .
+
+			'END:DAYLIGHT' . "\r\n" .
+
+			'END:VTIMEZONE' . "\r\n" .
+
+			'BEGIN:VEVENT' . "\r\n" .
+
+			'ORGANIZER;CN="' . $from_name . '":MAILTO:' . $from_address . "\r\n" .
+
+			'ATTENDEE;CN="' . $to_name . '";ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:' . $to_address . "\r\n" .
+
+			'LAST-MODIFIED:' . date("Ymd\TGis") . "\r\n" .
+
+			'UID:' . date("Ymd\TGis", strtotime($startTime)) . rand() . "@" . $domain . "\r\n" .
+
+			'DTSTAMP:' . date("Ymd\TGis") . "\r\n" .
+
+			//'DTSTART;TZID="Eastern Time":'.date("Ymd\THis", strtotime($startTime)). "\r\n" .
+
+			//'DTEND;TZID="Eastern Time":'.date("Ymd\THis", strtotime($endTime)). "\r\n" .
+
+			'DTSTART;TZID="Eastern Standard Time":' . date("Ymd\THis", $cus_strt_time) . "\r\n" .
+
+			'DTEND;TZID="Eastern Standard Time":' . date("Ymd\THis", $cus_end_time) . "\r\n" .
+
+			'TRANSP:OPAQUE' . "\r\n" .
+
+			'SEQUENCE:1' . "\r\n" .
+
+			'SUMMARY:' . $subject . "\r\n" .
+
+			'LOCATION:' . $location . "\r\n" .
+
+			'CLASS:PUBLIC' . "\r\n" .
+
+			'PRIORITY:5' . "\r\n" .
+
+			'BEGIN:VALARM' . "\r\n" .
+
+			'TRIGGER:-PT15M' . "\r\n" .
+
+			'ACTION:DISPLAY' . "\r\n" .
+
+			'DESCRIPTION:Reminder' . "\r\n" .
+
+			'END:VALARM' . "\r\n" .
+
+			'END:VEVENT' . "\r\n" .
+
+			'END:VCALENDAR' . "\r\n";
+
+		$message .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST' . "\n";
+
+		$message .= "Content-Transfer-Encoding: 8bit\n\n";
+
+		$message .= $ical;
+
+		//print_r($message);die;
+
+		if (mail($to_address, $subject, $message, $headers)) {
+
+			$outlook = 'display:block';
+		}
+
+		//print_r($message);die;
+
+
 
 	}
-
-	else
-
-	{
-
-		$cus_strt_time = strtotime('+720 minutes', strtotime( $startTime ));
-
-    	$cus_end_time = strtotime('+720 minutes', strtotime( $endTime ));
-
-	}
-
-
-
-	
-
-    
-
-
-
-    $ical = 'BEGIN:VCALENDAR' . "\r\n" .
-
-    'PRODID:-//Microsoft Corporation//Outlook 10.0 MIMEDIR//EN' . "\r\n" .
-
-    'VERSION:2.0' . "\r\n" .
-
-    'METHOD:REQUEST' . "\r\n" .
-
-    'BEGIN:VTIMEZONE' . "\r\n" .
-
-    'TZID:Eastern Standard Time' . "\r\n" .
-
-    'BEGIN:STANDARD' . "\r\n" .
-
-    'DTSTART:20091101T020000' . "\r\n" .
-
-    'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=1SU;BYMONTH=11' . "\r\n" .
-
-    'TZOFFSETFROM:-0400' . "\r\n" .
-
-    'TZOFFSETTO:-0500' . "\r\n" .
-
-    'TZNAME:EST' . "\r\n" .
-
-    'END:STANDARD' . "\r\n" .
-
-    'BEGIN:DAYLIGHT' . "\r\n" .
-
-    'DTSTART:20090301T020000' . "\r\n" .
-
-    'RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=2SU;BYMONTH=3' . "\r\n" .
-
-    'TZOFFSETFROM:-0500' . "\r\n" .
-
-    'TZOFFSETTO:-0400' . "\r\n" .
-
-    'TZNAME:EDST' . "\r\n" .
-
-    'END:DAYLIGHT' . "\r\n" .
-
-    'END:VTIMEZONE' . "\r\n" .
-
-    'BEGIN:VEVENT' . "\r\n" .
-
-    'ORGANIZER;CN="'.$from_name.'":MAILTO:'.$from_address. "\r\n" .
-
-    'ATTENDEE;CN="'.$to_name.'";ROLE=REQ-PARTICIPANT;RSVP=TRUE:MAILTO:'.$to_address. "\r\n" .
-
-    'LAST-MODIFIED:' . date("Ymd\TGis") . "\r\n" .
-
-    'UID:'.date("Ymd\TGis", strtotime($startTime)).rand()."@".$domain."\r\n" .
-
-    'DTSTAMP:'.date("Ymd\TGis"). "\r\n" .
-
-    //'DTSTART;TZID="Eastern Time":'.date("Ymd\THis", strtotime($startTime)). "\r\n" .
-
-    //'DTEND;TZID="Eastern Time":'.date("Ymd\THis", strtotime($endTime)). "\r\n" .
-
-	'DTSTART;TZID="Eastern Standard Time":'.date("Ymd\THis", $cus_strt_time ). "\r\n" .
-
-    'DTEND;TZID="Eastern Standard Time":'.date("Ymd\THis", $cus_end_time ). "\r\n" .
-
-	'TRANSP:OPAQUE'. "\r\n" .
-
-    'SEQUENCE:1'. "\r\n" .
-
-    'SUMMARY:' . $subject . "\r\n" .
-
-    'LOCATION:' . $location . "\r\n" .
-
-    'CLASS:PUBLIC'. "\r\n" .
-
-    'PRIORITY:5'. "\r\n" .
-
-    'BEGIN:VALARM' . "\r\n" .
-
-    'TRIGGER:-PT15M' . "\r\n" .
-
-    'ACTION:DISPLAY' . "\r\n" .
-
-    'DESCRIPTION:Reminder' . "\r\n" .
-
-    'END:VALARM' . "\r\n" .
-
-    'END:VEVENT'. "\r\n" .
-
-    'END:VCALENDAR'. "\r\n";
-
-    $message .= 'Content-Type: text/calendar;name="meeting.ics";method=REQUEST'."\n";
-
-    $message .= "Content-Transfer-Encoding: 8bit\n\n";
-
-    $message .= $ical;
-
-	//print_r($message);die;
-
-	if(mail($to_address, $subject, $message, $headers)){
-
-		$outlook='display:block';
-
-	}
-
-	//print_r($message);die;
-
-
-
-}
 
 
 
@@ -6767,13 +6616,11 @@ if($_GET['odate'] != 0){
 
 
 
-	if($timeFormat=='AM')
+	if ($timeFormat == 'AM') {
 
-	{
+		$_SESSION['startTime_hour'] += 12;
 
-		$_SESSION['startTime_hour']+= 12;
-
-		$_SESSION['endTime_hour']+=12;
+		$_SESSION['endTime_hour'] += 12;
 
 
 
@@ -6792,7 +6639,6 @@ if($_GET['odate'] != 0){
 		$_SESSION['endTime'] = strtotime('-1 day', strtotime($_SESSION['endTime']));
 
 		$_SESSION['endTime'] =  date('m/d/Y', $_SESSION['endTime']);
-
 	}
 
 
@@ -6805,31 +6651,28 @@ if($_GET['odate'] != 0){
 
 
 
-    $from_name = "True Fitted by M Kennys";
+	$from_name = "True Fitted by M Kennys";
 
 	$from_address = "info@mkennys.com";
 
 	$to_name = $_SESSION['first_name'];
 
-	if(!empty($to_name))
+	if (!empty($to_name)) {
 
-	{
-
-		$to_name .= ' '.$_SESSION['last_name'];
-
+		$to_name .= ' ' . $_SESSION['last_name'];
 	}
 
 
 
 	$to_address = $_SESSION['email'];
 
-	$startTime = $_SESSION['startTime'].' '.$_SESSION['startTime_hour'].':'.$_SESSION['startTime_min'].':00';
+	$startTime = $_SESSION['startTime'] . ' ' . $_SESSION['startTime_hour'] . ':' . $_SESSION['startTime_min'] . ':00';
 
 	//"11/12/2017 18:00:00";
 
-	 $startDate = $_SESSION['startTime'];
+	$startDate = $_SESSION['startTime'];
 
-	 $endTime = $_SESSION['endTime'].' '.$_SESSION['endTime_hour'].':'.$_SESSION['endTime_min'].':00';
+	$endTime = $_SESSION['endTime'] . ' ' . $_SESSION['endTime_hour'] . ':' . $_SESSION['endTime_min'] . ':00';
 
 	//"11/12/2017 19:00:00";
 
@@ -6847,8 +6690,7 @@ if($_GET['odate'] != 0){
 
 
 
-	sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime,$startDate, $subject, $description, $location);
-
+	sendIcalEvent($from_name, $from_address, $to_name, $to_address, $startTime, $endTime, $startDate, $subject, $description, $location);
 }
 
 ?>
@@ -6858,10 +6700,7 @@ if($_GET['odate'] != 0){
 <!-- When selecting state from dropdown  -->
 
 <script type="text/javascript">
-
-
-
-//$.noConflict();
+	//$.noConflict();
 
 
 
@@ -6869,101 +6708,86 @@ if($_GET['odate'] != 0){
 
 
 
-$(document).ready(function(){
+	$(document).ready(function() {
 
 
-	var actionId='<?php echo $_GET['action'] ?>';
-
-
-
-	if(actionId !=0){
+		var actionId = '<?php echo $_GET['action'] ?>';
 
 
 
-		if(actionId =='container'){
-
-			var $mapbelow = $('.'+actionId).find('div.tourList:first');
-
-			// $('body,html').animate({ scrollTop: $mapbelow.position().top });
+		if (actionId != 0) {
 
 
 
-		}else{
+			if (actionId == 'container') {
+
+				var $mapbelow = $('.' + actionId).find('div.tourList:first');
+
+				// $('body,html').animate({ scrollTop: $mapbelow.position().top });
 
 
 
-			var $tList = $("#"+actionId).parents(".tourList:first");
+			} else {
 
-			var count = 0;
 
-			while($tList.find("h2").length <= 0){
 
-			  $tList = $tList.prev(".tourList");
+				var $tList = $("#" + actionId).parents(".tourList:first");
 
-			  if($tList.length <= 0 ){
+				var count = 0;
 
-				break;
+				while ($tList.find("h2").length <= 0) {
 
-			  }
+					$tList = $tList.prev(".tourList");
 
-			  if(++count>1000){ break; }
+					if ($tList.length <= 0) {
+
+						break;
+
+					}
+
+					if (++count > 1000) {
+						break;
+					}
+
+				}
+
+
+
+				// $('body,html').animate({ scrollTop: $tList.position().top });
+
+
 
 			}
-
-
-
-			// $('body,html').animate({ scrollTop: $tList.position().top });
-
-
 
 		}
 
-	}
 
 
+		$('#state_id').on('change', function() {
 
-	$('#state_id').on('change', function(){
+			var container = $('div#state_' + $(this).val());
 
-		var container = $('div#state_'+$(this).val());
+			if (container.length == 0) {
 
-		if(container.length==0){
+				$('.CityAvailability').show();
 
-			$('.CityAvailability').show();
+			} else {
 
-			}else{
-
-			// $('body,html').animate({ scrollTop: $(container).position().top });
+				// $('body,html').animate({ scrollTop: $(container).position().top });
 
 			}
 
+		});
+
+
+
+		$('.CityAvailabilityClose').click(function() {
+
+			$('.CityAvailability').hide();
+
+		});
+
 	});
-
-
-
-    $('.CityAvailabilityClose').click(function(){
-
-        $('.CityAvailability').hide();
-
-    });
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 
 <!--#When selecting state from dropdown-->
@@ -6973,127 +6797,114 @@ $(document).ready(function(){
 
 
 <script>
+	$("#outlook-event").on('click', function(e) {
 
 
 
-$("#outlook-event").on('click', function(e) {
+		$("#outlook-event").attr('href', $("#outlook-event").attr('href'));
 
+		setTimeout(function() {
 
+			$("#outlook-event").attr("href", "javascript:;");
 
-	$("#outlook-event").attr('href', $("#outlook-event").attr('href'));
+			$("#outlook-event").addClass('disabled');
 
-	setTimeout(function(){
+		}, 500);
 
-	$("#outlook-event").attr("href", "javascript:;");
 
-	$("#outlook-event").addClass('disabled');
 
-	},500);
+	});
 
 
 
-});
+	$("#create-event").on('click', function(e) {
 
 
 
-$("#create-event").on('click', function(e) {
+		if (ts_event_time_format == 'PM')
 
+		{
 
+			ts_start_hour = parseInt(ts_start_hour) + 12;
 
-	if(ts_event_time_format=='PM')
+			ts_end_hour = parseInt(ts_end_hour) + 12;
 
-	{
+		}
 
-		ts_start_hour=parseInt(ts_start_hour)+12;
 
-		ts_end_hour=parseInt(ts_end_hour)+12;
 
-	}
+		parameters = {
+			title: 'M.kenny Schedule Appointment',
 
+			location: ts_location,
 
 
-	parameters = { 	title: 'M.kenny Schedule Appointment',
 
-                    location: ts_location,
 
 
 
 
+			event_time: {
 
+				start_time: ts_start_date + 'T' + ts_start_hour + ':' + ts_start_min + ':00',
 
+				end_time: ts_end_date + 'T' + ts_end_hour + ':' + ts_end_min + ':00',
 
-					event_time: {
+				event_date: '',
 
-						start_time: ts_start_date+'T'+ts_start_hour+':'+ts_start_min+':00',
 
-						end_time: ts_end_date+'T'+ts_end_hour+':'+ts_end_min+':00',
 
-						event_date:'',
+			},
 
+			all_day: 0,
 
+		};
 
-					},
 
-					all_day: 0,
 
-				};
+		// To pass the "state" parameter, JSON encode and base64 encode the event details
 
+		state_parameter = btoa(JSON.stringify(parameters));
 
 
-	// To pass the "state" parameter, JSON encode and base64 encode the event details
 
-	state_parameter = btoa(JSON.stringify(parameters));
+		// Append the "state" parameter to the login url
 
+		$("#create-event").attr('href', $("#create-event").attr('href') + '&state=' + state_parameter);
 
 
-	// Append the "state" parameter to the login url
 
-	$("#create-event").attr('href', $("#create-event").attr('href') + '&state=' + state_parameter);
+		setTimeout(function() {
 
+			$("#create-event").attr("href", "javascript:;");
 
+			$("#create-event").addClass('disabled');
 
-	setTimeout(function(){
+		}, 500);
 
-		$("#create-event").attr("href", "javascript:;");
 
-		$("#create-event").addClass('disabled');
 
-	},500);
-
-
-
-});
-
-
-
-
-
-
-
+	});
 </script>
 
 
 
 <?php
 
-if($_GET['code']){
+if ($_GET['code']) {
 
-	$google_class='display:block;';
+	$google_class = 'display:block;';
+} else {
 
-}else{
-
-	$google_class='display:none;';
-
+	$google_class = 'display:none;';
 }
 
-if($_GET['odate']){
+if ($_GET['odate']) {
 
-  $outlook='display:block';
+	$outlook = 'display:block';
+} else {
 
-}else{
-
-	$outlook='display:none';
-
+	$outlook = 'display:none';
 }
 
 
@@ -7130,7 +6941,7 @@ if($_GET['odate']){
 
 		</p>
 
-		<a href="<?php echo home_url();?>/tour-schedule/">Close</a>
+		<a href="<?php echo home_url(); ?>/tour-schedule/">Close</a>
 
 	</div>
 
@@ -7152,7 +6963,7 @@ if($_GET['odate']){
 
 		</p>
 
-		<a href="<?php echo home_url();?>/tour-schedule/">Close</a>
+		<a href="<?php echo home_url(); ?>/tour-schedule/">Close</a>
 
 
 
@@ -7170,7 +6981,7 @@ if($_GET['odate']){
 
 
 
-$oneTime=false;
+$oneTime = false;
 
 
 
@@ -7180,37 +6991,37 @@ $fctime = '';
 
 $query = new WP_Query(array('post_type' => 'mkennypopup'));
 
-while ( $query->have_posts() ) :
+while ($query->have_posts()) :
 
-$query->the_post();
+	$query->the_post();
 
-$post_id=get_the_ID();
+	$post_id = get_the_ID();
 
-$pageId = get_post_meta($post_id,'page-id') ;
+	$pageId = get_post_meta($post_id, 'page-id');
 
 
 
-if($tourId==$pageId['0']){
+	if ($tourId == $pageId['0']) {
 
-	$title = get_post_meta($post_id,'popup-title');
+		$title = get_post_meta($post_id, 'popup-title');
 
-	$description = get_post_meta($post_id,'popup-description') ;
+		$description = get_post_meta($post_id, 'popup-description');
 
-	$status = get_post_meta($post_id,'popup-status') ;
+		$status = get_post_meta($post_id, 'popup-status');
 
-	$time = get_post_meta($post_id,'popup-time') ;
+		$time = get_post_meta($post_id, 'popup-time');
 
-	$home_img = get_post_meta( $post_id, 'popup-image',true);
+		$home_img = get_post_meta($post_id, 'popup-image', true);
 
-	$home_img = wp_get_attachment_image_src( $home_img, 'full' );
+		$home_img = wp_get_attachment_image_src($home_img, 'full');
 
-	$success_message = get_post_meta($post_id,'popup-message');
+		$success_message = get_post_meta($post_id, 'popup-message');
 
-	$fctime=$time['0'];
+		$fctime = $time['0'];
 
 
 
-	if($status['0']=='enable'){
+		if ($status['0'] == 'enable') {
 
 
 
@@ -7220,131 +7031,119 @@ if($tourId==$pageId['0']){
 
 
 
-		$page_title= get_the_title($homeId);
+			$page_title = get_the_title($homeId);
 
-		if(isset($page_title)){
+			if (isset($page_title)) {
 
-			$ip_address=get_user_ip();
+				$ip_address = get_user_ip();
 
-			$oneTime=checkIpAddress($page_title,$ip_address['ipAddress']);
+				$oneTime = checkIpAddress($page_title, $ip_address['ipAddress']);
+			}
 
-		}
 
 
 
 
+			if ($oneTime) {
 
-		if($oneTime){
 
 
+?>
 
-			?>
+				<script type="text/javascript">
+					jQuery(document).ready(function() {
 
-        <script type="text/javascript">
+						jQuery('body').addClass('bodyFixed');
 
-            jQuery(document).ready(function(){
 
-                jQuery('body').addClass('bodyFixed');
 
+						jQuery('.FCclosePopup').click(function() {
 
+							jQuery('body').removeClass('bodyFixed');
 
-                jQuery('.FCclosePopup').click(function(){
+						});
 
-                    jQuery('body').removeClass('bodyFixed');
 
-                });
 
+					});
+				</script>
 
 
-            });
 
-        </script>
 
-        
 
+<?php
 
 
-        <?php
 
-			
 
-			
 
 
 
-		echo '<div class="firstComePopup">';
+				echo '<div class="firstComePopup">';
 
-			echo '<div class="FCpopup_inner">';
+				echo '<div class="FCpopup_inner">';
 
-			echo '<div class="FCpopup_element">';
+				echo '<div class="FCpopup_element">';
 
-					echo '<div class="FCpopup_content FPR_box" style="background-image:url('.$home_img[0].')">';
+				echo '<div class="FCpopup_content FPR_box" style="background-image:url(' . $home_img[0] . ')">';
 
-						echo '<button class="FCclosePopup">+</button>';
+				echo '<button class="FCclosePopup">+</button>';
 
-						echo'<p><img src="'.get_template_directory_uri().'/images/logo-white.png"></p>';
+				echo '<p><img src="' . get_template_directory_uri() . '/images/logo-white.png"></p>';
 
-						echo '<h2 class="FCpopup_title">'.$title[0].'</h2>';
+				echo '<h2 class="FCpopup_title">' . $title[0] . '</h2>';
 
-						echo '<div class="FCpopup_description">'.$description[0].'</div>';
+				echo '<div class="FCpopup_description">' . $description[0] . '</div>';
 
-						
 
-						echo'<div class="popupOptions">';
 
-						echo'<button class="yesGreen" value="ok">Yes I want to dress better</button>'; 
+				echo '<div class="popupOptions">';
 
-						echo'<button class="nocolor" value="not">No I don’t care about my appearance </button>';
+				echo '<button class="yesGreen" value="ok">Yes I want to dress better</button>';
 
-						echo'</div>';
-
-
-
-
-
-
-
-						echo '<div class="FCpopup_message ">';
-
-							echo '<p>Please fill in the form and submit to subscribe</p>';
-
-							echo do_shortcode('[wysija_form id="4"]');
-
-						echo '</div>';
-
-					echo '</div>';
+				echo '<button class="nocolor" value="not">No I don’t care about my appearance </button>';
 
 				echo '</div>';
 
-			echo '</div>';
-
-		echo '</div>';
 
 
 
-		echo '<div class="customPopOverlay">';
 
-			echo '<div class="CPO_inner">';
 
-				echo '<p>'.$success_message['0'].'</p>';
+
+				echo '<div class="FCpopup_message ">';
+
+				echo '<p>Please fill in the form and submit to subscribe</p>';
+
+				echo do_shortcode('[wysija_form id="4"]');
+
+				echo '</div>';
+
+				echo '</div>';
+
+				echo '</div>';
+
+				echo '</div>';
+
+				echo '</div>';
+
+
+
+				echo '<div class="customPopOverlay">';
+
+				echo '<div class="CPO_inner">';
+
+				echo '<p>' . $success_message['0'] . '</p>';
 
 				echo '<button class="CPO_close">Okey</button>';
 
-			echo '</div>';
+				echo '</div>';
 
-	    echo '</div>';
-
-
-
-
-
-	 }
-
-
-
+				echo '</div>';
+			}
+		}
 	}
-
-}
 
 
 
@@ -7358,160 +7157,126 @@ wp_reset_query();
 
 ?>
 
+<!-- Select JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script>
+	jQuery(document).ready(function() {
+		jQuery('#time').select2();
+	});
+</script>
+<!-- Select JS -->
 
 
 <script>
+	jQuery(document).ready(function() {
 
 
 
-jQuery(document).ready(function(){
+		var fctime = '<?php echo $fctime ?>';
+
+		fctime = fctime * 1000;
 
 
 
-var fctime = '<?php echo $fctime ?>';
+		setTimeout(function() {
 
-fctime = fctime*1000;
+			jQuery('.firstComePopup').fadeIn();
 
-
-
-	setTimeout(function() {
-
-		jQuery('.firstComePopup').fadeIn();
-
-	},fctime)
+		}, fctime)
 
 
 
-	jQuery('.FCclosePopup').click(function() {
+		jQuery('.FCclosePopup').click(function() {
 
-		jQuery('.firstComePopup').fadeOut();
+			jQuery('.firstComePopup').fadeOut();
+
+		});
 
 	});
 
-});
 
 
 
 
+	jQuery('.popupOptions button').click(function() {
 
-jQuery('.popupOptions button').click(function(){
 
 
+		var myVal = jQuery(this).attr('value');
 
-  var myVal = jQuery(this).attr('value');
+		if (myVal === 'ok') {
 
-  if(myVal === 'ok'){
+			jQuery(this).parents('.popupOptions').hide();
 
-	jQuery(this).parents('.popupOptions').hide();
+			jQuery('.FCpopup_message').show();
 
-	jQuery('.FCpopup_message').show();
+		} else {
 
-  }
+			jQuery('.firstComePopup').hide();
 
-  else {
+		}
 
-	//console.log(myVal);
+	});
 
-	jQuery('.firstComePopup').hide();
 
-  }
 
-});
+	jQuery(document).ready(function() {
 
+		var someDistance = 20;
 
+		var elem = window.location.hash;
 
-jQuery(document).ready(function(){ 
+		if (elem) {
+			var scrollTop = 0;
+			if (jQuery(elem).offset()) {
+				scrollTop = jQuery(elem).offset().top - 20;
+			}
 
+			jQuery('html, body').animate({
 
+				scrollTop: scrollTop
 
-	// jQuery('.gall-trigger').click(function(){
+			}, 1000);
 
-	// 	jQuery('body').addClass('bodyFixed');
+		}
 
-	// });
+		myPos = 0
+		if (jQuery('.fixOnTop').offset())
+			myPos = jQuery('.fixOnTop').offset().top - someDistance;
 
 
 
-	// jQuery('.close_btn a').click(function(){
+		jQuery(window).scroll(function() {
 
-	// 	jQuery('body').removeClass('bodyFixed');
+			var scrolled = jQuery(window).scrollTop();
 
-	// });
+			if (scrolled >= myPos) {
 
+				jQuery('.fixOnTop').addClass('fixed')
 
+			} else {
 
+				jQuery('.fixOnTop').removeClass('fixed')
 
+			}
 
-  var someDistance = 20;
+		})
 
-
-
-
-
-  var elem = window.location.hash;
-
-
-
-    if(elem) {         
-
-    	  var scrollTop = jQuery(elem).offset().top-20;
-
-          jQuery('html, body').animate({
-
-	        scrollTop: scrollTop
-
-	    },1000);
-
-    }
-
-
-
-myPos = jQuery('.fixOnTop').offset().top - someDistance;
-
-
-
-jQuery(window).scroll(function() { 
-
-  var scrolled = jQuery(window).scrollTop();
-
-  if(scrolled >= myPos) { 
-
-    jQuery('.fixOnTop').addClass('fixed')
-
-  }
-
-  else { 
-
-    jQuery('.fixOnTop').removeClass('fixed')
-
-  }
-
-})
-
-})
-
-
-
+	})
 </script>
 
 <style>
+	.FCpopup_message {
 
+		display: none;
 
+	}
 
+	#map {
 
+		float: left;
 
-.FCpopup_message{
-
-	display: none;
-
-}
-
-#map { 
-
-	float: left;
-
-}	
-
+	}
 </style>
 
 
@@ -7537,1770 +7302,314 @@ jQuery(window).scroll(function() {
 <script src="<?php echo get_template_directory_uri(); ?>/js/map-interact.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-
-var	color="#dce3ea";
-
+	var color = "#dce3ea";
 </script>
 
 <script src="<?php echo get_template_directory_uri(); ?>/js/map-config.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+	var map = document.getElementById("map");
 
-var map = document.getElementById("map");
 
+	$.each(map_config, function(index, val) {
 
+		var states = allstates;
 
-	
+		states.forEach(state => {
+			state = state.toUpperCase();
 
-	var state = 'CA';
+			$.each(map_config, function(index, val) {
+				var value = val.namesId;
 
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'CA';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'FL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'MA';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'FL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'FL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'FL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'MO';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'IL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'IN';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'IL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'IL';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'WI';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'TX';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'NC';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'NC';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'PA';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'PA';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'SC';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'SC';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'SC';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'MD';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-	
-
-	var state = 'VA';
-
-		
-
-	
-
-	
-
-	state=state.toUpperCase();
-
-	
-
-	$.each(map_config, function(index, val){
-
-		
-
-		var value=val.namesId;
-
-		if(value==state)
-
-		{
-
-			val.upcolor="#38688F";	
-
-			try{
-
-				var selState = map.getElementById(state);
-
-				selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
-
-			} catch(e){
-
-			}
-
-			
-
-		}
-
-		
-
-	});
-
-	
-
-			var $GeoIP = $('#states').attr('data-role');
-
-			// var $backgrounds = ['/images/tour-banner_01.jpg', '/images/tour-banner_02.jpg', '/images/tour-banner_03.jpg', '/images/tour-banner_04.jpg', '/images/tour-banner_05.jpg'];
-
-
-
-			$(window).scroll(function(){
-
-				if($(this).scrollTop() > ($('.ts_banner').innerHeight() - $('.header').innerHeight() )){
-
-					$('#mk-text-area').addClass('data-sort-area');
-
-				}else{
-
-					$('#mk-text-area').removeClass('data-sort-area');
-
+				if (value == state) {
+					val.upcolor = "#38688F";
+					try {
+						var selState = map.getElementById(state);
+						selState.getElementsByTagName("tspan")[0].style.fill = "#fff";
+					} catch (e) {}
 				}
-
 			});
+		});
+	});
 
 
 
-			$('svg text').click(function(){
+	var $GeoIP = $('#states').attr('data-role');
 
-				var $val = $(this).attr('id');
+	$(window).scroll(function() {
 
-				$val = $('svg#map path[data-name='+$val+']').attr('data-id');
+		if ($(this).scrollTop() > ($('.ts_banner').innerHeight() - $('.header').innerHeight())) {
 
-				// $val = $('#abbs text[id='+$('svg#map path[data-id='+$val+']').attr('data-name')+']').removeClass('hide');
+			$('#mk-text-area').addClass('data-sort-area');
 
-				// alert($val);
+		} else {
 
-				if($val){
+			$('#mk-text-area').removeClass('data-sort-area');
 
-					$('#states').val($val).change();
+		}
 
-				}else{
+	});
 
-					$('#states').val('').change();
+	$('svg text').click(function() {
 
-				}
+		var $val = $(this).attr('id');
 
-			});
+		$val = $('svg#map path[data-name=' + $val + ']').attr('data-id');
 
-			$('svg path, .ts_stateList a, .geo-button a').click(function(){
+		if ($val) {
 
-				var $val = $(this).attr('data-id');
+			$('#states').val($val).change();
 
-				var $name = $(this).attr('data-name');
+		} else {
 
-				var $pos = $(this).parent().offset();
+			$('#states').val('').change();
 
-				var $mapW = $('svg#map').innerWidth();
+		}
 
-				var $mapH = $('svg#map').innerHeight();
+	});
 
-				// console.log($pos, $mapW, $mapH);
+	$('svg path, .ts_stateList a, .geo-button a').click(function() {
 
-				if($val){
+		var $val = $(this).attr('data-id');
 
+		var $name = $(this).attr('data-name');
 
+		var $pos = $(this).parent().offset();
 
-					// var $state = $('#states option').filter(function () { 
+		var $mapW = $('svg#map').innerWidth();
 
-					// 	return $(this).val() == $val; 
+		var $mapH = $('svg#map').innerHeight();
 
-					// }).text();
+		if ($val) {
 
+			$('#states').val($val).change();
 
+		} else {
 
-					$('#states').val($val).change();
+			$('#states').val('').change();
 
-					
+		}
 
+	});
 
+	$('.ts_stateList a, .geo-button a').click(function(e) {
+		e.preventDefault();
+	});
 
-					// $('svg#map path[data-id='+$val+']').parent().siblings().removeClass('highlight');
+	$('.gall-trigger').click(function() {
+		$('.ts_schedule').hide();
+		$('.appointment_popup_page').show();
+		window.scrollTo(0, 0);
+	});
 
-					// $('svg#map path[data-id='+$val+']').parent().addClass('highlight');
+	$('#appointment-back-btn').click(function() {
+		$('.appointment_popup_page').hide();
+		$('.ts_schedule').show();
+	});
 
+	$('.ts_data_list').find('.tourList').remove();
 
+	$('#states').on('change', function() {
 
-					// $('#abbs text[id='+$name+']').siblings().removeClass('highlight');
+		var $val = $(this).val();
 
-					// $('#abbs text[id='+$name+']').addClass('highlight');
+		if ($val) {
 
+			// filter show data
 
+			$('.ts_filter_data').children().first().slideUp();
 
-					// $('svg#map').addClass('zoomIn');
+			$('.ts_filter_data').children().last().slideDown();
 
+			// filter show data by state
 
+			if ($('.ts_data_list_item').hasClass('ts_state' + $val)) {
 
-					// $('svg#map path').parent().addClass('hide');
+				$('.ts_data_list_item').removeClass('active');
 
-					// $('svg#map path[data-id='+$val+']').parent().removeClass('hide');
+				$('.ts_state' + $val).addClass('active');
 
+				$('.ts_data_list').addClass('add-line');
 
+				$('.ts_data_list_item').slideUp();
 
+				$('.ts_state' + $val).slideDown();
 
+				$('.no-found').slideUp();
 
-					// $('#abbs text').addClass('hide');
+			} else {
 
-					// $('#abbs text[id='+$name+']').removeClass('hide');
+				$('.ts_data_list_item').removeClass('active');
 
-				}else{
+				$('.ts_data_list').removeClass('add-line');
 
-					$('#states').val('').change();
+				$('.ts_data_list_item').slideUp();
 
-				}
+				$('.ts_data_list_item.no-found').slideDown();
 
-			});
+			}
 
 
 
-			$('.ts_stateList a, .geo-button a').click(function(e){
-				e.preventDefault();
-			});
+			$('html, body').animate({
 
+				scrollTop: $('.ts_banner').innerHeight() + 10
 
-			$('.gall-trigger').click(function(){
-				$('.ts_schedule').hide();
-				$('.appointment_popup_page').show();
-				window.scrollTo(0, 0);
-			});
+			}, 500);
 
-			$('#appointment-back-btn').click(function(){
-				$('.appointment_popup_page').hide();
-				$('.ts_schedule').show();
-			});
 
 
-			$('.ts_data_list').find('.tourList').remove();
+			$('.ts_banner').css('height', $('.ts_banner').innerHeight());
 
+			$('svg#map path[data-id=' + $val + ']').parent().siblings().removeClass('highlight');
 
+			$('svg#map path[data-id=' + $val + ']').parent().addClass('highlight');
 
-			$('#states').on('change', function(){
+			$('#abbs text[id=' + $('svg#map path[data-id=' + $val + ']').attr('data-name') + ']').siblings().removeClass('highlight');
 
-				var $val = $(this).val();
+			$('#abbs text[id=' + $('svg#map path[data-id=' + $val + ']').attr('data-name') + ']').addClass('highlight');
 
-				if($val){	
+			$(this).parent().find('.mk-banner-text').eq(0).slideUp();
 
+			$(this).parent().find('.mk-banner-text').eq(1).slideDown();
 
+			$('.mk-banner-text').find('.state_name').text($(this).find("option:selected").text());
 
-					// var $state = $('#states option').filter(function () { 
+			$('.no-found h2').find('b').text($(this).find("option:selected").text());
 
-					// 	return $(this).val() == $val; 
+			window.location.href = '#' + $(this).find("option:selected").text();
 
-					// }).text();
+			$('.ts_banner_background').animate({
+				opacity: 1
+			}, 500, function() {
 
+				//finished animating, minifade out and fade new back in           
 
+				$('.ts_banner_background').animate({
+					opacity: 0.7
+				}, 100, function() {
 
-					// filter show data
+					if ($val) {
 
-					$('.ts_filter_data').children().first().slideUp();
+						$('.ts_banner_background').css("background-image", "url('<?php the_cfc_field('tourschedule_banner', 'state_banner'); ?>')");
 
-					$('.ts_filter_data').children().last().slideDown();
+					} else {
 
-
-
-					// filter show data by state
-
-					if($('.ts_data_list_item').hasClass('ts_state'+$val)){
-
-						$('.ts_data_list_item').removeClass('active');
-
-						$('.ts_state'+$val).addClass('active');
-
-						$('.ts_data_list').addClass('add-line');
-
-						// $('.no-found').removeClass('active');
-
-
-
-						$('.ts_data_list_item').slideUp();
-
-						$('.ts_state'+$val).slideDown();
-
-						$('.no-found').slideUp();
-
-					}else{						
-
-						$('.ts_data_list_item').removeClass('active');
-
-						$('.ts_data_list').removeClass('add-line');
-
-						// $('.no-found').addClass('active');
-
-
-
-						$('.ts_data_list_item').slideUp();
-
-						$('.ts_data_list_item.no-found').slideDown();					
+						$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")');
 
 					}
 
+					//animate fully back in
 
+					$('.ts_banner_background').animate({
+						opacity: 1
+					}, 400);
 
-					$('html, body').animate({
-
-						scrollTop: $('.ts_banner').innerHeight() + 10
-
-					}, 500);
-
-
-
-					$('.ts_banner').css('height', $('.ts_banner').innerHeight());
-
-
-
-					// svg
-
-					// $('svg#map').addClass('zoomIn');
-
-
-
-					// $('svg#map path').parent().addClass('hide');
-
-					// $('svg#map path[data-id='+$val+']').parent().removeClass('hide');
-
-
-
-					// $('#abbs text').addClass('hide');
-
-					// $('#abbs text[id='+$('svg#map path[data-id='+$val+']').attr('data-name')+']').removeClass('hide');
-
-
-
-
-
-					$('svg#map path[data-id='+$val+']').parent().siblings().removeClass('highlight');
-
-					$('svg#map path[data-id='+$val+']').parent().addClass('highlight');
-
-
-
-					$('#abbs text[id='+$('svg#map path[data-id='+$val+']').attr('data-name')+']').siblings().removeClass('highlight');
-
-					$('#abbs text[id='+$('svg#map path[data-id='+$val+']').attr('data-name')+']').addClass('highlight');
-
-
-
-
-
-
-
-					// $(this).parent().find('.mk-banner-text').eq(0).removeClass('selected');
-
-					// $(this).parent().find('.mk-banner-text').eq(1).addClass('selected');
-
-
-
-					$(this).parent().find('.mk-banner-text').eq(0).slideUp();
-
-					$(this).parent().find('.mk-banner-text').eq(1).slideDown();
-
-
-
-					$('.mk-banner-text').find('.state_name').text($(this).find("option:selected").text());
-
-					$('.no-found h2').find('b').text($(this).find("option:selected").text());
-
-
-
-					// $('.ts_banner').css('background-image', 'url(' + $backgrounds[$val - 1] + ')')
-
-
-
-					// window.history.pushState("","",'/'+$(this).find("option:selected").text().toLowerCase());
-
-					window.location.href = '#'+$(this).find("option:selected").text();
-
-
-
-					$('.ts_banner_background').animate({ opacity: 1 }, 500,function(){
-
-				        //finished animating, minifade out and fade new back in           
-
-				        $('.ts_banner_background').animate({ opacity: 0.7 }, 100,function(){
-
-				            if($val){
-
-								$('.ts_banner_background').css("background-image", "url('<?php the_cfc_field('tourschedule_banner', 'state_banner'); ?>')");
-
-							} else{
-
-								$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")');
-
-							}
-
-				            //animate fully back in
-
-				            $('.ts_banner_background').animate({ opacity: 1 }, 400);
-
-				        });
-
-				    });
-
-
-
-				} else{
-
-					// $('.ts_filter_data').children().slideToggle();
-
-					$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")');
-
-					$('.mk-banner-text').find('.state_name').text($(this).find("option:selected").text());
-
-
-
-					// filter show data
-
-					$('.ts_filter_data').children().first().slideDown();
-
-					$('.ts_filter_data').children().last().slideUp();
-
-
-
-					$('#states').val('');
-
-
-
-					// window.history.pushState("","",'/');
-
-					history.pushState("", document.title, window.location.pathname + window.location.search);
-
-
-
-					// $(this).parent().find('.mk-banner-text').eq(1).removeClass('selected');
-
-					// $(this).parent().find('.mk-banner-text').eq(0).addClass('selected');
-
-
-
-					$(this).parent().find('.mk-banner-text').eq(1).slideUp();
-
-					$(this).parent().find('.mk-banner-text').eq(0).slideDown();
-
-
-
-					$('svg#map path').parent().removeClass('highlight');
-
-					$('#abbs text').removeClass('highlight');
-
-				}
+				});
 
 			});
 
 
 
-			$('#back-btn').click(function(){
+		} else {
 
-				// filter show data
+			$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")');
 
-				$('.ts_filter_data').children().first().slideDown();
+			$('.mk-banner-text').find('.state_name').text($(this).find("option:selected").text());
 
-				$('.ts_filter_data').children().last().slideUp();
 
 
+			// filter show data
 
-				// State
+			$('.ts_filter_data').children().first().slideDown();
 
-				$('#states').val('');
+			$('.ts_filter_data').children().last().slideUp();
 
 
 
-				$('.mk-banner-text').find('.state_name').text('California');
+			$('#states').val('');
 
 
 
-				$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")')
+			history.pushState("", document.title, window.location.pathname + window.location.search);
 
-				// window.history.pushState("","",'/');
+			$(this).parent().find('.mk-banner-text').eq(1).slideUp();
 
-				history.pushState("", document.title, window.location.pathname + window.location.search);
+			$(this).parent().find('.mk-banner-text').eq(0).slideDown();
 
+			$('svg#map path').parent().removeClass('highlight');
 
+			$('#abbs text').removeClass('highlight');
 
-				// $(this).parents('.mk-banner-text').removeClass('selected');
+		}
 
-				// $(this).parents('.mk-banner-text').siblings().addClass('selected');
+	});
 
+	$('#back-btn').click(function() {
 
+		// filter show data
 
-				$(this).parents('.position-relative').find('.mk-banner-text').eq(1).slideUp();
+		$('.ts_filter_data').children().first().slideDown();
 
-				$(this).parents('.position-relative').find('.mk-banner-text').eq(0).slideDown();
+		$('.ts_filter_data').children().last().slideUp();
 
+		// State
 
+		$('#states').val('');
 
-				$('svg#map path').parent().removeClass('highlight');
+		$('.mk-banner-text').find('.state_name').text('California');
 
-				$('#abbs text').removeClass('highlight');
+		$('.ts_banner_background').css('background-image', 'url("<?php the_cfc_field('tourschedule_banner', 'default_banner'); ?>")')
 
+		// window.history.pushState("","",'/');
 
+		history.pushState("", document.title, window.location.pathname + window.location.search);
 
-				$('#mk-text-area').removeClass('data-sort-area');
+		$(this).parents('.position-relative').find('.mk-banner-text').eq(1).slideUp();
 
+		$(this).parents('.position-relative').find('.mk-banner-text').eq(0).slideDown();
 
+		$('svg#map path').parent().removeClass('highlight');
 
-				$('html, body').animate({
+		$('#abbs text').removeClass('highlight');
 
-					scrollTop: 0
+		$('#mk-text-area').removeClass('data-sort-area');
 
-				}, 500);
+		$('html, body').animate({
 
-			});
+			scrollTop: 0
 
+		}, 500);
 
+	});
 
-			// window hash state
+	// window hash state
 
-			hasthLoad();
+	hasthLoad();
 
+	function hasthLoad() {
 
+		var $hash = window.location.hash;
 
-			function hasthLoad(){
+		$hash = $hash.replace('#', '');
 
-				var $hash = window.location.hash;
+		var $val = $('#states option').filter(function() {
 
-				$hash = $hash.replace('#','');
+			return $(this).text() == $hash;
 
-				// alert($hash);
+		}).val();
 
+		if ($hash) {
 
+			$('#states').val($val).change();
 
-				var $val = $('#states option').filter(function () { 
+		}
 
-					return $(this).text() == $hash; 
+	}
 
-				}).val();
-
-
-
-				if($hash){
-
-					$('#states').val($val).change();
-
-				}else{
-
-					// setTimeout(() => {
-
-					// 	if($GeoIP > 0){
-
-					// 		$('#states').val($GeoIP).change();
-
-					// 	}else{
-
-					// 		$('#states').val('').change();
-
-					// 	}
-
-					// }, 500);
-
-				}
-
-
-
-			}
-
-		</script>
-
+</script>
 <?php
 
-    get_footer();
+get_footer();
 
 ?>

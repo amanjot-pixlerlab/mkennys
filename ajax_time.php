@@ -40,12 +40,17 @@ $counter=0;
    
    
    
-   $query = "select appointment_time from wp_schedule_appointment where state IN(".$eventId.") and appointment_date='".$appintment_date ."' order by id asc"; 
+   $query = "select appointment_time, time_slot from wp_schedule_appointment where state IN(".$eventId.") and appointment_date='".$appintment_date ."' order by id asc"; 
 	$appointment_times = $wpdb->get_results($query);	
 	$appointTimes=array();
 	foreach($appointment_times as $apptime){
 		$appointTimes[] = $apptime->appointment_time;
-		
+
+		//add another 30 minutes if the time slot is one hour
+		if($apptime->time_slot !== "30 minute"){
+			$time = $apptime->appointment_time;
+			$appointTimes[] = date('h.i A',(strtotime($time)+1800));
+		}
 	}   
   
  
@@ -61,7 +66,7 @@ $counter=0;
         
 		
 		if(in_array(date('h.i A', $i), $appointTimes)){
-				$appointment_timesData .='<option value="'.date('h.i A', $i).'" style="text-decoration:line-through" disabled>'.date('h.i A', $i).'</option>';
+				$appointment_timesData .='<option value="'.date('h.i A', $i).'" disabled>'.date('h.i A', $i).'</option>';
 			}else{
 				$appointment_timesData .='<option value="'.date('h.i A', $i).'">'.date('h.i A', $i).'</option>';
 			}		
