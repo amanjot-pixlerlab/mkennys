@@ -651,8 +651,11 @@ ul.head_topbar {
 	position: relative;
 	top: -1px;
 }
-.FP_right {
-	overflow: hidden;
+.footerPrefix .FP_right {
+	width: 50%;
+}
+.footerPrefix .container {
+    display: flex;
 }
 .FPR_box {
 	background: rgba(0, 0, 0, 0) linear-gradient(to left top, #718fae, #898aa9);
@@ -1541,13 +1544,238 @@ div.wpcf7-response-output {
     transition: all .25s;
 }
 .site-footer .women a {
-    color: #E3C4C2;
+    color: #E8B19D;
 }
 .home-carousel .owl-controls.clickable {
     margin: 0;
 }
 .faq_content .faq_content_main.active a {
     color: #323232 !important;
+}
+/*******funer**********/
+.wrapper-funeral .ho_HIT {
+    padding: 0 30px;
+	
+}
+.funerl-data,.funerl-img {
+    width: 50%;
+}
+.funerl-img img {
+    max-width: 100%;
+}
+.fittings-city .funerl-img {
+    width: 55%;
+}
+.fittings-city .funerl-data {
+    width: 45%;
+	padding-right: 71px;
+
+}
+.funerl-inner .heading-title,.make_count  {
+    font-weight: 300;
+    font-size: 63px;
+    line-height: 74px;
+    margin:0px;
+}
+.persional-brand .funerl-inner .heading-title{
+    margin: 73px 0px 0px;
+}
+.persional-brand .funerl-inner .funerl-data {
+    padding-left: 159px;
+}
+.funerl-inner {
+    display: inline-flex;
+
+}
+.funerl-inner p {
+    font-size: 31px;
+    line-height: 148%;
+	margin-top: 36px;
+}
+.client-wearing img {
+    margin-right: 9px;
+}
+.client-wearing {
+    font-size: 24px;
+    line-height: 28px;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 151px;
+}
+.persional-brand {
+    margin:0 0 128px;
+}
+
+
+.fittings-city .funerl-data .heading-title {
+    font-size: 58px;
+    width: auto;
+    margin-bottom: 43px;
+}
+.fittings-city .fitted_btn img {
+    margin-left: 18px;
+}
+.fittings-city .fitted_btn {
+    background: rgba(37, 60, 79, 0.1);
+    border-radius: 4px;
+    color: #253C4F;
+    line-height: 148%;
+    font-size: 31px;
+    font-weight: 400;
+    padding: 15px 25px;
+	display: inline-flex;
+	align-items: center;
+}
+.fittings-city .funerl-data .fitted_btn {
+    margin-top: 43px;
+}
+.fittings-city {
+    background-color: #DAE3EB;
+    padding: 143px 0;
+}
+.minnich .quot {
+    text-align: center;
+    margin: 28px;
+}
+.minnich .funerl-data {
+    padding-left: 91px;
+}
+.minnich .funerl-data > p {
+    color: rgb(0 0 0 / 70%);
+	margin: 0;
+}
+.owner-details {
+    margin-top: 46px;
+}
+.owner-details .details-info {
+    font-size: 25px;
+    line-height: 128%;
+    margin-top: 10px;
+}
+.minnich .fitted_btn {
+    margin-top: 43px;
+    background: rgba(34, 130, 209, 0.1);
+    border-radius: 4px;
+    color: #253C4F;
+    font-size: 25px;
+    line-height: 128%;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+.minnich .fitted_btn img {
+    margin-left: 11px;
+}
+.minnich .funerl-data {
+    padding-left: 91px;
+    margin-top: 73px;
+}
+.minnich .funerl-data .quote_icon {
+    position: absolute;
+    right:48px;
+}
+.minnich {
+    margin: 0 0 155px;
+}
+.support-professional {
+    background-color: #EFEAE8;
+    padding: 110px 0;
+}
+.support-inner .support_description {
+    font-size: 37px;
+    text-align: center;
+    line-height: 149%;
+    font-weight: 300;
+}
+.support-inner .sub-title {
+    font-size: 31px;
+    line-height: 148%;
+    text-align: center;
+    color: rgb(0 0 0 / 70%);
+    margin: 64px 0 44px;
+}
+.partner_logo {
+    align-items: center;
+    column-count: 3;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 -42px 46px;
+}
+.partner_logo li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 42px 48px;
+}
+.book_call  p {
+    font-size: 31px;
+    line-height: 148%;
+    color: rgb(0 0 0 / 70%);
+    margin-bottom: 41px;
+}
+.book_call .form_control {
+    width: 100%;
+    background: rgba(37, 60, 79, 0.1);
+    border-radius: 4px;
+    padding: 17px 25px;
+    border: none;
+    margin-bottom: 28px;
+    font-size: 31px;
+    line-height: 148%;
+	color: #A9A9A9;
+	outline: 0;
+}
+.book_call .form_control::placeholder{
+  color: #A9A9A9;;
+}
+.book_call .heading-title {
+    font-size: 63px;
+    line-height: 74px;
+    font-weight: 300;
+    margin-bottom: 62px;
+}
+section.book_call {
+    text-align: center;
+    margin: 119px 0 135px;
+}
+.call_btn .book_btn {
+    background: #253C4F;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 31px;
+    line-height: 148%;
+    border: none;
+    color: #fff;
+}
+.call_btn .book_btn .quote_icon {
+    margin-left: 21px;
+}
+.book_call_form{
+    width: 834px;
+    margin: 0 auto;
+}
+.book_call_form .form_box {
+    display: flex;
+    margin: 0 -14px;
+}
+.book_call_form .form_box .form_control {
+    margin: 0 14px 28px;
+}
+.state_select {
+    position: relative;
+}
+.state_select img {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-100%);
+}
+.state_select select {
+    -webkit-appearance: none;
 }
 
 @media(max-width:1199px){
@@ -1565,6 +1793,40 @@ div.wpcf7-response-output {
 	.designShirt .startBtn {
 		margin-top: 20px;
 	}
+	.persional-brand .funerl-inner .heading-title {
+		margin: 20px 0px 0px;
+	}
+	.funerl-inner .heading-title, .make_count {
+		font-size: 45px;
+		line-height: 55px;
+	}
+	.client-wearing {
+		font-size: 20px;
+		line-height: 25px;
+		margin-top: 91px;
+	}
+	.fittings-city .funerl-data .heading-title {
+		font-size: 45px;
+		margin-bottom: 43px;
+	}
+	.support-inner .support_description {
+		font-size: 33px;
+	}
+	.funerl-inner p {
+		font-size: 26px;
+	}
+	.minnich .funerl-data {
+		padding-left: 30px;
+		margin-top: 20px;
+	}
+	.persional-brand .funerl-inner .funerl-data {
+		padding-left: 30px;
+	}
+	.persional-brand {
+		margin:60px 0 128px;
+	}
+
+	
 }
 @media(max-width:991px){
 	.testimonalBox-inner .testimonalBox-card {
@@ -1576,6 +1838,41 @@ div.wpcf7-response-output {
 	.card-left .card-box-image img {
 		height: auto;
 		width: 100%;
+	}
+	/**funeral***/
+	.funerl-data, .funerl-img {
+		width: 100%;
+	}
+	.funerl-inner {
+		flex-direction: column;
+	}
+	.minnich .funerl-data {
+		padding-left: 0;
+	}
+	.fittings-city .funerl-data {
+		width:100%;
+		padding-right:0px;	
+	}
+	.persional-brand .funerl-inner .funerl-data {
+		padding-left: 0;
+	}
+	.book_call_form {
+		width: 100%;
+	}
+	.fittings-city .funerl-img {
+		width: 100%;
+	}
+	.funerl-img img {
+		width: 100%;
+	}
+	.persional-brand {
+		margin: 10px 0 128px;
+	}
+	.fittings-city .funerl-img {
+		margin-top: 55px;
+	}
+	.book_call .form_control {
+		font-size: 26px;
 	}
 }
 @media screen and (max-width:767px) {
@@ -1622,6 +1919,72 @@ div.wpcf7-response-output {
 	}
 	.PBContent h2 {
 		font-size: 19px;
+	}
+	.funerl-inner .heading-title, .make_count {
+		font-size: 36px;
+		line-height: 46px;
+	}
+	.funerl-inner p {
+		font-size: 20px;
+	}
+	.client-wearing {
+		font-size: 17px;
+	}
+	.client-wearing img {
+		width: 15px;
+	}
+	.wrapper-funeral .ho_HIT {
+		padding: 0 15px;
+	}
+	.fittings-city {
+		padding: 100px 0;
+	}
+	.persional-brand {
+		margin: 10px 0 100px;
+	}
+	.fittings-city .fitted_btn {	
+		font-size: 20px;
+	}
+	.minnich .funerl-data .quote_icon {
+		right: 20px;
+		width: 60px;
+	}
+	.minnich {
+		margin: 0 0 120px;
+	}
+	.support-inner .support_description {
+		font-size: 26px;
+	}
+	.support-inner .sub-title {
+		font-size: 26px;
+	}
+	.book_call .heading-title {
+		font-size: 36px;
+		line-height:46px;
+	}
+	.book_call  p {
+		font-size: 26px;
+	}
+	.book_call_form .form_box .form_control {
+		margin: 0 0px 28px;
+	}
+	.book_call_form .form_box {
+		margin: 0;
+		flex-direction: column;
+	}
+	.book_call .form_control {
+		font-size:18px;
+	}
+	.call_btn .book_btn {
+		font-size: 20px;
+	}
+	.fittings-city .funerl-data .heading-title {
+		font-size: 36px;
+		margin-bottom: 46px;
+	}
+	.partner_logo {
+		justify-content: center;
+		margin: 0 0px 46px;
 	}
 }
 .headingStyle {
@@ -3236,7 +3599,7 @@ li:hover .unstyled-anchor {
 
 
 /* Media Quaries */
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width:1220px) {
 .mainMenu, .headerRight, .getFittedBtn {
 	display: none;
 }
@@ -4061,6 +4424,13 @@ html, body, .wrapper, .scroller {
 }
 }
 @media (max-width: 767px) {
+	.footerPrefix .container {		
+		flex-direction: column;
+		justify-content: center;
+	}
+	.footerPrefix .FP_right {
+		width: 100%;
+	}
 
 .bodyFixed  {  
 	position: fixed;
@@ -4884,6 +5254,13 @@ html, body, .wrapper, .scroller {
 		line-height: 40px;
 		top: -20%;
 	}
+	.partner_logo li {
+		margin: 0 0px 48px;
+	}
+	.partner_logo .quote_icon {
+		/* max-width: 100%; */
+		width: 100%;
+	}
 }
 .owl-buttons .owl-prev:hover, .owl-buttons .owl-next:hover{
 	background: rgba(0, 0, 0, 0.8) !important;
@@ -5528,7 +5905,10 @@ svg#map .hide{
     border-radius: 4px;
     color: #fff;
 }
-
+@media(max-width:1600px){
+	.partner_logo li {margin: 0 30px 48px;}
+	.partner_logo {margin: 0 -30px 46px;}
+}
 @media screen and (max-width: 1280px) {
 	.ts_back button{
 		margin-left: 0;
@@ -5923,6 +6303,9 @@ svg#map .hide{
 @media (max-width: 767px){
 	.ho_HIT_left {
 		width: 100%;
+	}
+	.partner_logo {
+		margin: 0 0px 46px;
 	}
 	.use_tapered {
 		margin-top: 10px;
