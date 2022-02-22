@@ -97,11 +97,11 @@ ul.head_topbar {
 	display: inline-block;
 	padding-left: 40px;
 	vertical-align: middle;
-	margin: -12px 0;
+	margin:0px 0;
 }
 .mainMenu ul {
 	list-style: none;
-	margin-top: 10px;
+	margin-top:0px;
 }
 .mainMenu > ul > li {
 	display: inline-block;
@@ -109,7 +109,7 @@ ul.head_topbar {
 .mainMenu > ul > li > a {
 	color: #12263c;
 	font-size: 16px;
-	padding: 24px 20px;
+	padding: 24px 15px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
@@ -120,7 +120,7 @@ ul.head_topbar {
 .headerRight {
 	float: right;
 	padding-right: 160px;
-	padding-top: 25px !important;
+	padding-top:0px !important;
 }
 .headerRight li {
 	display: inline-block;
@@ -193,7 +193,7 @@ ul.head_topbar {
 	top: 0px;
 	right: 0px;
 	padding: 22px 20px;
-	background: #556e88;
+	background: rgba(37, 60, 79, 0.1);
 	color: #fff;
 	font-size: 15px;
 	font-weight: 300;
@@ -201,7 +201,7 @@ ul.head_topbar {
 	letter-spacing: 1px;
 }
 .getFittedBtn a{
-	font-weight: 600;
+	font-weight:400;
 }
 .getFittedBtn i {
 	font-size: 10px;
@@ -210,7 +210,7 @@ ul.head_topbar {
 	position: relative;
 }
 .getFittedBtn:hover {
-	background: #425c77;
+	background: #d8d9db;
 }
 .mainBanner {
 	background: url(../images/main-banner.jpg) no-repeat center bottom;
@@ -1553,8 +1553,11 @@ div.wpcf7-response-output {
     color: #323232 !important;
 }
 /*******funer**********/
-.wrapper-funeral .ho_HIT {
+.innerPage-container  {
     padding: 0 30px;
+	width: 1440px;
+    max-width: 100%;
+    margin: 0px auto;
 	
 }
 .funerl-data,.funerl-img {
@@ -1572,16 +1575,16 @@ div.wpcf7-response-output {
 
 }
 .funerl-inner .heading-title,.make_count  {
-    font-weight: 300;
     font-size: 63px;
     line-height: 74px;
     margin:0px;
+	font-weight: 300;
 }
 .persional-brand .funerl-inner .heading-title{
     margin: 73px 0px 0px;
 }
 .persional-brand .funerl-inner .funerl-data {
-    padding-left: 159px;
+    padding-left: 150px;
 }
 .funerl-inner {
     display: inline-flex;
@@ -1825,7 +1828,7 @@ section.book_call {
 	.persional-brand {
 		margin:60px 0 128px;
 	}
-
+	
 	
 }
 @media(max-width:991px){
@@ -1924,23 +1927,21 @@ section.book_call {
 		font-size: 36px;
 		line-height: 46px;
 	}
-	.funerl-inner p {
-		font-size: 20px;
-	}
+
 	.client-wearing {
 		font-size: 17px;
 	}
 	.client-wearing img {
 		width: 15px;
 	}
-	.wrapper-funeral .ho_HIT {
+	.innerPage-container {
 		padding: 0 15px;
 	}
 	.fittings-city {
-		padding: 100px 0;
+		padding: 106px 0;
 	}
 	.persional-brand {
-		margin: 10px 0 100px;
+		margin: 10px 0 106px;
 	}
 	.fittings-city .fitted_btn {	
 		font-size: 20px;
@@ -1950,20 +1951,21 @@ section.book_call {
 		width: 60px;
 	}
 	.minnich {
-		margin: 0 0 120px;
+		margin: 0 0 106px;
 	}
 	.support-inner .support_description {
-		font-size: 26px;
+		font-size:20px;
 	}
 	.support-inner .sub-title {
-		font-size: 26px;
+		font-size:20px;
 	}
 	.book_call .heading-title {
 		font-size: 36px;
 		line-height:46px;
+		margin-bottom: 30px;
 	}
 	.book_call  p {
-		font-size: 26px;
+		font-size:20px;
 	}
 	.book_call_form .form_box .form_control {
 		margin: 0 0px 28px;
@@ -1976,11 +1978,11 @@ section.book_call {
 		font-size:18px;
 	}
 	.call_btn .book_btn {
-		font-size: 20px;
+		font-size:18px;
 	}
 	.fittings-city .funerl-data .heading-title {
-		font-size: 36px;
-		margin-bottom: 46px;
+		font-size:32px;
+		margin-bottom:30px;
 	}
 	.partner_logo {
 		justify-content: center;
@@ -3618,7 +3620,7 @@ li:hover .unstyled-anchor {
 	display: table-cell;
 }
 .header {
-	height: 70px;
+	height:110px;
 }
 .logo {
 	padding: 7px 0 0 10px;
@@ -3694,9 +3696,12 @@ li:hover .unstyled-anchor {
 	padding: 180px 20px;
 }
 }
+
 @media (min-width: 768px) and (max-width: 991px) {
 
-
+	.header {
+		padding: 0;
+	}
 .mainMenu, .headerRight, .getFittedBtn {
 	display: none;
 }
@@ -5905,6 +5910,99 @@ svg#map .hide{
     border-radius: 4px;
     color: #fff;
 }
+/***fitting*************/
+.fitting-wrapper {
+    background: url("../images/fittingHero-banner.jpg") no-repeat center center;
+    padding: 153px 0 193px;
+}
+.fitting-wrapper .fitting-data {
+    width: 613px;
+    padding-right: 100px;
+}
+.fitting-wrapper .fitting-data .heading-title {
+    font-size: 85px;
+    line-height: 100px;
+}
+.order-hold {
+    display: flex;
+    align-items: center;
+}
+.order-hold {
+    display: flex;
+    border: 1px solid #A9A9A9;
+    border-radius: 10px;
+    margin: 36px 0px 0;
+    align-items: center;
+    font-size: 25px;
+    line-height: 128%;
+    color: #000000;
+    padding: 20px;
+}
+.order-hold .hand-icon {
+    margin-right: 15px;
+}
+.fitting-shart-pants {
+    margin: 78px 0 0;
+}
+.fitting-shart-pants .shart-pants .shart-pants-box {
+    padding: 45px 48px 45px 51px;
+    border: 1px solid #A9A9A9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 0 17px;
+	width: 65%;
+}
+.fitting-shart-pants .shart-pants {
+    display:flex;
+    margin: 0 -17px;
+}
+.fitting-shart-pants .shart-pants .shart-pants-box .heading-title {
+    margin-bottom: 30px;
+}
+ .heading-title {
+    font-size: 58px;
+    line-height: 68px;
+    font-weight: 300;
+}
+.fitting-shart-pants .shart-pants .shart-wrapper {
+    width:35%;
+}
+.paragraph-title {
+    font-size: 31px;
+    line-height: 148%;
+    color: rgba(0, 0, 0, 0.7);
+}
+.fitting-emailSend-inner {
+    display: inline-flex;
+}
+.email-img {
+    padding-left:100px;
+}
+.email-img img {
+    width: 100%;
+    max-width: 768px;
+    max-height: 100%;
+    height: 100%;
+}
+
+.fitting-emailSend {
+    margin: 153px 0  174px;
+}
+.funerl-data p {
+    color: #253C4F;
+}
+.email-descriptionBox {
+    border: 1px solid #A9A9A9;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 40px 20px 20px 30px;
+    margin: 68px 0 0;
+}
+
+.fitting-emailSend-inner .heading-title {
+    margin-bottom: 7px;
+	width: 526px;
+}
 @media(max-width:1600px){
 	.partner_logo li {margin: 0 30px 48px;}
 	.partner_logo {margin: 0 -30px 46px;}
@@ -5968,6 +6066,25 @@ svg#map .hide{
 	    -o-flex: 1 1 160px;
 	    flex: 1 1 160px;
 	}
+	.fitting-wrapper .fitting-data {
+		width: 463px;
+		padding-right: 100px;
+	}
+	.fitting-wrapper .fitting-data .heading-title {
+		font-size: 65px;
+		line-height: 80px;
+	}
+	.paragraph-title {
+		font-size: 26px;
+	}
+	.heading-title {
+		font-size: 45px;
+		line-height: 43px;
+		word-wrap: break-word;
+	}
+	.fitting-shart-pants .shart-pants .shart-pants-box {
+		padding: 30px;
+	}
 }
 
 @media screen and (max-width: 991px) {
@@ -5977,6 +6094,29 @@ svg#map .hide{
 	.ts_banner p {
 	    font-size: 18px;
 	    margin-bottom: 18px;
+	}
+	.fitting-shart-pants .shart-pants .shart-wrapper {
+		width: 50%;
+	}
+	.fitting-shart-pants .shart-pants .shart-pants-box {
+		width: 50%;
+	}
+	.fitting-emailSend-inner {
+		flex-direction: column;
+	}
+	.email-img {
+		padding-left: 0;
+		margin-top: 50px;
+	}
+	.fitting-emailSend-inner .funerl-data {
+		padding-right: 0;
+		width: 80%;
+	}
+	.fitting-wrapper {
+		background-position: 36%;
+	}
+	.email-descriptionBox {
+		padding: 35px;
 	}
 }
 
@@ -6093,6 +6233,18 @@ svg#map .hide{
 	.geo-text {
 		font-size: 18px;
 	}
+	.fitting-shart-pants .shart-pants {
+		margin: 0;
+		flex-direction: column;
+	}
+	.fitting-shart-pants .shart-pants .shart-pants-box {
+		width: 100%;
+		margin: 0 0 34px;
+	}
+	.fitting-emailSend-inner .funerl-data {
+		width: 100%;
+	}
+
 }
 
 
@@ -6329,6 +6481,47 @@ svg#map .hide{
 	}
 	.popup-left-image h3{
 		font-size: 44px;
+	}
+	.fitting-wrapper .fitting-data {
+		width: 100%;
+		padding-right: 0;
+	}
+	.fitting-wrapper .fitting-data .heading-title {
+		font-size: 36px;
+		line-height: 45px;
+	}
+	.fitting-wrapper {
+		padding: 53px 0 106px;
+    background-position:26% 99%;
+	}
+	.order-hold {
+		font-size:16px;
+	}
+	.heading-title {
+		font-size: 32px;
+	}
+	.paragraph-title,.funerl-inner p {
+		font-size:16px;
+	}
+	.order-hold .hand-icon {
+		width: 35px;
+	}
+	.email-descriptionBox {
+		margin: 30px 0 0;
+		padding: 20px;
+
+	}
+	.fitting-emailSend {
+		margin: 66px 0  106px;
+	}
+	.minnich .fitted_btn {	
+		font-size: 20px;
+	}
+	section.book_call {
+		margin: 106px 0 106px;
+	}
+	.fitting-emailSend-inner .heading-title {
+		width: 100%;
 	}
 }
 

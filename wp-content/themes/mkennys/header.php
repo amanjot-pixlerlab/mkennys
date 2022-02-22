@@ -123,9 +123,9 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
                     </div>
                 </div>
             </div>
-
+    <div class="header-inner">
     <div class="logo"> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> <img  src="<?php echo get_template_directory_uri(); ?>/images/mkennys-logo.svg" class="responsive" alt="Mkennys"> </a> </div>
-
+    <div class="menu-wrapper">
     <nav class="mainMenu">
 
         <!-- <?php wp_nav_menu( array(
@@ -492,7 +492,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
         <ul class="clearfix menuRight">
 
-            <li class="contactNumber">
+            <!--<li class="contactNumber">
 
             	<a href="javascript:;"><i class="fa fa-phone"></i></a>
 
@@ -508,79 +508,83 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
             <li><a href="mailto:info@mkennys.com"><i class="fa fa-envelope"></i></a></li>
 
-            <li class="contactBtn"><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>
+            <li class="contactBtn"><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>-->
+            
+            <li class="getFittedBtn"><a href="<?= home_url() ?>/new-tour-schedule" style="cursor: pointer;">Get Fitted  <img src="<?php echo get_template_directory_uri(); ?>/images/right-arrow-header.svg" alt=""></a></li>
 
-            <li class="getFittedBtn"><a href="<?= home_url() ?>/new-tour-schedule" style="cursor: pointer;">Get Fitted <i class="fa fa-chevron-right"></i></a></li>
+        </ul>
+
+    </div>
+                                    </div>
+                                    <div class="mobileMenu">
+
+<div class="mobileMenuOverlay"></div>
+
+    <div class="mobileMainMenu">
+
+        <?php wp_nav_menu( array(
+
+        'theme_location' => 'primary',
+
+        'menu_class'     => 'clearfix',
+
+        'container' => null,
+
+         ) ); 
+
+        ?>
+
+        <ul>
+
+            <li><a href="<?php echo esc_url(home_url());?>/new-tour-schedules">Get Fitted</a></li>
+
+            <li><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>
+
+            <li><a href="javascript:;"><i class="fa fa-phone"></i><b>US Toll Free</b> <p>800-220-8469</p></a></li>
+
+            <li><a href="javascript:;"><i class="fa fa-phone"></i><b>International</b> <p>+ 1 714 573 2199</p></a></li>
+
+            <li><a href="mailto:info@mkennys.com"><i class="fa fa-envelope"></i>info@mkennys.com</a></li>    
 
         </ul>
 
     </div>
 
+
+
+    
+<div class="mobileTopMenu">
+
+    <ul class="clearfix">
+
+        <li>
+
+            <a href="javascript:;" class="mobileMenuBtn">
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+</div>    
+                                    </div>
+
     
 
 		
 
-    <div class="mobileMenu">
-
-    	<div class="mobileMenuOverlay"></div>
-
-            <div class="mobileMainMenu">
-
-                <?php wp_nav_menu( array(
-
-                'theme_location' => 'primary',
-
-                'menu_class'     => 'clearfix',
-
-                'container' => null,
-
-                 ) ); 
-
-                ?>
-
-                <ul>
-
-                    <li><a href="<?php echo esc_url(home_url());?>/new-tour-schedules">Get Fitted</a></li>
-
-                    <li><a href="<?php echo esc_url(home_url());?>/contact">Contact Us</a></li>
-
-                    <li><a href="javascript:;"><i class="fa fa-phone"></i><b>US Toll Free</b> <p>800-220-8469</p></a></li>
-
-                    <li><a href="javascript:;"><i class="fa fa-phone"></i><b>International</b> <p>+ 1 714 573 2199</p></a></li>
-
-                	<li><a href="mailto:info@mkennys.com"><i class="fa fa-envelope"></i>info@mkennys.com</a></li>    
-
-                </ul>
-
-            </div>
-
-        
-
-        <div class="mobileTopMenu">
-
-        	<ul class="clearfix">
-
-                <li>
-
-                	<a href="javascript:;" class="mobileMenuBtn">
-
-                        <span></span>
-
-                        <span></span>
-
-                        <span></span>
-
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-        
-
-    </div>    
+   
 
         
 

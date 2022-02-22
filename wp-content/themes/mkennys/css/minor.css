@@ -8,11 +8,24 @@
 	z-index: 1000;
 	display: none;
 }
+
 .page-template-contact .wpcf7-response-output {
 	display: none !important;
 }
 .getFittedBtn a {
 	color: #fff;
+}
+.menu-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 15px 0 0;
+}
+.header-inner {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
 }
 .headerRight {
 	padding-right: 40px;
@@ -21,11 +34,13 @@
 	height: auto;
 	position: static;
 	padding: 0;
-	background: #556e88;
 	border-radius: 3px;
 }
+.getFittedBtn a img {
+  margin-left: 15px;
+}
 .getFittedBtn a {
-	color: #fff !important;
+	color:#253C4F!important;
 	font-size: 15px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
