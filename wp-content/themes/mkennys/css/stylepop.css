@@ -500,6 +500,7 @@ html, body, .wrapper, .scroller {
     background-color: #ebeff2;
 }
 
+
 @media (max-width: 767px) { 
 	.appointment_popup { 
 		margin: 0px auto;
