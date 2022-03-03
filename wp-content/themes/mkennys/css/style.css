@@ -6597,8 +6597,8 @@ svg#map .hide{
 	#collars ul li a span {
 		padding: 6px 2px;
 	}
-	.top_part .row {
-		flex-direction: column;
+	.top_part {
+		padding: 4px 15px;
 	}
 	.head_topbar {
 		padding-left: 0;
