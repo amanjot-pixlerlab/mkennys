@@ -24,6 +24,7 @@ get_header();
 </section>
 
 <section class="fitting-shart-pants">
+    
     <div class="innerPage-container  clearfix">
         <div class="shart-pants">            
             <div class="shart-wrapper shart-pants-box">

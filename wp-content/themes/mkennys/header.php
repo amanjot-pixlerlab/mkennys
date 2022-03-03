@@ -114,6 +114,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 <?php if(!is_page('323') && !is_page('325')){ ?>
 <header class="header clearfix">
 
+
             <div class="top_part">
                 <div class="row">
                     <div class="col-lg-4 col-md-3 col-sm-6 col-xs-5 ">

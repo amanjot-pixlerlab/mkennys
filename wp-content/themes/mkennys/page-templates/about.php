@@ -41,6 +41,7 @@ get_header();
         	<p><?php the_cfc_field('about', 'inimitable-selections'); ?></p>
         </div>
     </div>
+    
 </div>
 <div class="partnerSection">
 	<div class="split-section">
