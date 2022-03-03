@@ -6023,6 +6023,10 @@ svg#map .hide{
     margin-bottom: 7px;
 	width: 526px;
 }
+.top_part .head_topbar li a .fa {
+    margin-right: 5px;
+}
+
 @media(max-width:1600px){
 	.partner_logo li {margin: 0 30px 48px;}
 	.partner_logo {margin: 0 -30px 46px;}

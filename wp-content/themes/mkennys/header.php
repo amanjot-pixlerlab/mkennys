@@ -121,8 +121,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
                             <!-- <li class="active"><a href="<?= home_url(); ?>"> Men </a></li>
                             <li><a href="<?= home_url(); ?>/women"> Women </a></li> -->
                             <li><a href="javascript:void(0)"> <img  src="<?php echo get_template_directory_uri(); ?>/images/infinity-icon.svg" class="responsive" alt="Mkennys"> </a></li>
-                            <li class="active"><a target="_blank" href="http://www.linkedin.com/in/mkenny"><img  src="<?php echo get_template_directory_uri(); ?>/images/linkdin.svg" class="responsive" alt=""> </a></li>
-                            
+                            <li class="active"><a target="_blank" href="http://www.linkedin.com/in/mkenny"><img  src="<?php echo get_template_directory_uri(); ?>/images/linkdin.svg" class="responsive" alt=""> </a></li>                        
                         </ul>
                     </div>
                     <div class="col-lg-8 col-md-9 col-sm-6 col-xs-7 ">
