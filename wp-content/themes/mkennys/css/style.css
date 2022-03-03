@@ -44,8 +44,19 @@ a {
 	vertical-align: middle;
 }
 /******** top header*********/
-ul.head_topbar {
+.social-link-header {
+    position: relative;
+    top: 3px;
+}
+.head_topbar {
     padding-left: 30px;
+	display: inline-flex;
+    align-items: center;
+}
+.top_part .row {
+    display: flex;
+    justify-content: space-between;
+	align-items: center;
 }
 .top_part .head_topbar li {
 	display: inline-block;
@@ -1965,7 +1976,7 @@ section.book_call {
 		margin-bottom: 30px;
 	}
 	.book_call  p {
-		font-size:20px;
+		font-size:16px;
 	}
 	.book_call_form .form_box .form_control {
 		margin: 0 0px 28px;
@@ -1975,10 +1986,10 @@ section.book_call {
 		flex-direction: column;
 	}
 	.book_call .form_control {
-		font-size:18px;
+		font-size:16px;
 	}
 	.call_btn .book_btn {
-		font-size:18px;
+		font-size:16px;
 	}
 	.fittings-city .funerl-data .heading-title {
 		font-size:32px;
@@ -3995,10 +4006,19 @@ ul.social {
 	background-position: 80% 0;
 }
 .shirtBanner .PBContent {
-	left: 55%;
+	left:50%;
 }
 .PBContent li {
 	padding-right: 0px !important;
+}
+.PBContent {
+    width: 350px;
+}
+.PBContent h1 {
+    font-size: 40px;
+}
+.PBContent h2 {
+    font-size: 20px;
 }
 .suitSteps {
 	padding: 30px 0;
@@ -6078,7 +6098,7 @@ svg#map .hide{
 		font-size: 26px;
 	}
 	.heading-title {
-		font-size: 45px;
+		font-size: 40px;
 		line-height: 43px;
 		word-wrap: break-word;
 	}
@@ -6088,6 +6108,7 @@ svg#map .hide{
 }
 
 @media screen and (max-width: 991px) {
+
 	.ts_banner h2{
 		font-size: 42px;
 	}
@@ -6117,6 +6138,10 @@ svg#map .hide{
 	}
 	.email-descriptionBox {
 		padding: 35px;
+	}
+	.card-right .card-text {
+		font-size: 1.5rem;
+		line-height: 2.5rem;
 	}
 }
 
@@ -6245,6 +6270,26 @@ svg#map .hide{
 		width: 100%;
 	}
 
+	.card-right .card-text {
+		font-size: 1rem;
+		line-height: 1.7;
+		padding: 0;
+	}
+	.card-text svg {
+		display: none;
+	}
+	.card-box-inner {
+		border-left: none;
+	}
+	.card-box-body {
+		padding: 20px 15px;
+	}
+	.card-right .client-name {
+		font-size: 1rem;
+	}
+	.testimonialMain {
+		padding: 0px 15px 40px;
+	}
 }
 
 
@@ -6498,7 +6543,7 @@ svg#map .hide{
 		font-size:16px;
 	}
 	.heading-title {
-		font-size: 32px;
+		font-size: 30px;
 	}
 	.paragraph-title,.funerl-inner p {
 		font-size:16px;
@@ -6512,7 +6557,7 @@ svg#map .hide{
 
 	}
 	.fitting-emailSend {
-		margin: 66px 0  106px;
+		margin:40px 0  106px;
 	}
 	.minnich .fitted_btn {	
 		font-size: 20px;
@@ -6522,6 +6567,12 @@ svg#map .hide{
 	}
 	.fitting-emailSend-inner .heading-title {
 		width: 100%;
+	}
+	.fitting-shart-pants .shart-pants .shart-pants-box {
+		padding: 20px;
+	}
+	.fitting-shart-pants .shart-pants .shart-pants-box .heading-title {
+		margin-bottom: 15px;
 	}
 }
 
@@ -6540,5 +6591,30 @@ svg#map .hide{
 	}
 	#collars ul li a span {
 		padding: 6px 2px;
+	}
+	.top_part .row {
+		flex-direction: column;
+	}
+	.head_topbar {
+		padding-left: 0;
+	}
+	.top_part .head_topbar li:last-child {
+		margin: 0;
+	}
+	.top_part .head_topbar li img.responsive {
+		max-width: 20px;
+	}
+	.top_part .head_topbar li {
+		margin: 0 15px 0 0;
+	}
+	.partner_logo li {
+		margin: 0 30px 30px;
+		text-align: center;
+	}
+	.partner_logo .quote_icon {
+		width: 80%;
+	}
+	.state_select img {
+		width: 20px;
 	}
 }

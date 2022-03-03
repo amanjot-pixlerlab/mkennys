@@ -104,7 +104,7 @@
 
                 <li><a href="<?php echo esc_url(home_url());?>/faqs/#faq_118" class="">Shipping & Delivery</a></li>
 
-                <li><a href="<?php echo esc_url(home_url());?>/faqs/#faq_121" class="">Fit Assurance</a></li>
+                <li><a href="<?php echo esc_url(home_url());?>/faqs/#faq_118" class="">Fit Assurance</a></li>
                 
                 <li><a href="<?php echo esc_url(home_url());?>/faqs/#faq_117" class="">Alterations</a></li>
 
@@ -129,6 +129,8 @@
                 <li><a href="<?php echo esc_url(home_url());?>/faqs/#faq_141" class="">Gift Certificates</a></li>
 
                 <li><a href="<?php echo esc_url(home_url());?>/corporate-service" class="">Corporate Service</a></li>
+                <li><a href="<?php echo esc_url(home_url());?>/fitting" class="">Fitting</a></li>
+                <li><a href="<?php echo esc_url(home_url());?>/funeral" class="">Funeral</a></li>
 
             </ul>
 

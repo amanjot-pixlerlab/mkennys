@@ -113,17 +113,28 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 <div class="wrapper">
 <?php if(!is_page('323') && !is_page('325')){ ?>
 <header class="header clearfix">
+
             <div class="top_part">
                 <div class="row">
-                    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12 ">
-                        <ul class="head_topbar">
-                            <li class="active"><a href="<?= home_url(); ?>"> Men </a></li>
-                            <li><a href="<?= home_url(); ?>/women"> Women </a></li>
+                    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-5 ">
+                        <ul class="head_topbar social-link-header">
+                            <!-- <li class="active"><a href="<?= home_url(); ?>"> Men </a></li>
+                            <li><a href="<?= home_url(); ?>/women"> Women </a></li> -->
+                            <li><a href="javascript:void(0)"> <img  src="<?php echo get_template_directory_uri(); ?>/images/infinity-icon.svg" class="responsive" alt="Mkennys"> </a></li>
+                            <li class="active"><a target="_blank" href="http://www.linkedin.com/in/mkenny"><img  src="<?php echo get_template_directory_uri(); ?>/images/linkdin.svg" class="responsive" alt=""> </a></li>
+                            
+                        </ul>
+                    </div>
+                    <div class="col-lg-8 col-md-9 col-sm-6 col-xs-7 ">
+                        <ul class="head_topbar right-Topbar">
+                            <li class=""><a href="tel:800-220-8269>"> <i class="fa fa-phone" aria-hidden="true"></i> 800-220-8269</a></li>
+                            <li><a href="info@mkennys.com"> <i class="fa fa-envelope" aria-hidden="true"></i> info@mkennys.com </a></li>
                         </ul>
                     </div>
                 </div>
             </div>
-    <div class="header-inner">
+            <div class="container">
+    <div class="header-inner">        
     <div class="logo"> <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"> <img  src="<?php echo get_template_directory_uri(); ?>/images/mkennys-logo.svg" class="responsive" alt="Mkennys"> </a> </div>
     <div class="menu-wrapper">
     <nav class="mainMenu">
@@ -578,6 +589,7 @@ if($_SERVER['REQUEST_URI'] == '/mkennypopup/tour-schedule-popup/')
 
 
 </div>    
+</div>   
                                     </div>
 
     

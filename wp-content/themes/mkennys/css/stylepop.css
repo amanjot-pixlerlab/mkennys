@@ -508,7 +508,27 @@ html, body, .wrapper, .scroller {
 		width: 100%;
 		margin-bottom: 15px;
 	}
-
+	.input-group .form-control {
+		padding: 0 0 10px;
+		width: 100%;
+	}
+	.interested {
+		display: inline-flex;
+		flex-wrap: wrap;
+	}
+	.interested .check:not(:first-child) {
+		margin: 2px 0px 15px 10px;
+	}
+	.appointment_popup {
+		padding: 20px 10px;
+	}
+	.interested .check:first-child {
+		margin: 0;
+	}
+	.form-table td {
+		margin-bottom: 0;
+		padding: 4px 5px 6px 5px;
+	}
 
 }
 .ui-datepicker-current
