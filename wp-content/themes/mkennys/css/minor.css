@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin: 15px 0 0;
+  margin: 0 0;
 }
 .header-inner {
   display: inline-flex;
@@ -361,4 +361,7 @@ width: 100%;
   .imageTestimonialBox ul li img { 
     width: 100%;
   }
+  .imageTestimonialBox ul li h5 {
+    padding: 30px 20px;
+}
 }

@@ -89,14 +89,14 @@ a {
 }
 .header {
 	z-index: 50;
-	padding: 0px 0px 10px 0px;
+	padding: 0px 0px 0px 0px;
 	position: relative;
 }
 .logo {
 	display: inline-block;
 	padding: 0 0 0 30px;
 	vertical-align: middle;
-	margin-top: 15px;
+	margin: 15px 0;
 }
 /*.logo img {
 	height: 50px;
@@ -1941,6 +1941,7 @@ section.book_call {
 
 	.client-wearing {
 		font-size: 17px;
+		margin-top: 30px;
 	}
 	.client-wearing img {
 		width: 15px;
@@ -1949,26 +1950,30 @@ section.book_call {
 		padding: 0 15px;
 	}
 	.fittings-city {
-		padding: 106px 0;
+		padding:60px 0;
 	}
 	.persional-brand {
-		margin: 10px 0 106px;
+		margin: 10px 0 60px;
 	}
 	.fittings-city .fitted_btn {	
-		font-size: 20px;
+		font-size:16px;
 	}
 	.minnich .funerl-data .quote_icon {
 		right: 20px;
 		width: 60px;
 	}
 	.minnich {
-		margin: 0 0 106px;
+		margin: 0 0 60px;
+	}
+	.support-professional {
+		padding: 60px 0;
 	}
 	.support-inner .support_description {
 		font-size:20px;
 	}
 	.support-inner .sub-title {
 		font-size:20px;
+		margin: 30px 0;
 	}
 	.book_call .heading-title {
 		font-size: 36px;
@@ -3373,7 +3378,7 @@ section.book_call {
 	position: absolute;
 	width: 100%;
 	height: 0;
-	top: 100px;
+	top:125px;
 	overflow: hidden;
 	padding: 0 40px;
 	z-index: 1;
@@ -3630,11 +3635,9 @@ li:hover .unstyled-anchor {
 	vertical-align: middle;
 	display: table-cell;
 }
-.header {
-	height:110px;
-}
+
 .logo {
-	padding: 7px 0 0 10px;
+	padding:0px 0 0 10px;
 	width: 165px;
 }
 .logo img {
@@ -6148,6 +6151,12 @@ svg#map .hide{
 		font-size: 1.5rem;
 		line-height: 2.5rem;
 	}
+	.logo {
+		padding: 0px 0 0 10px;
+	}
+	.mobileTopMenu {
+		padding-right: 10px;
+	}
 }
 
 @media screen and (max-width: 767px) {
@@ -6289,10 +6298,13 @@ svg#map .hide{
 	.card-box-body {
 		padding: 20px 15px;
 	}
+	.testimonalBox-card .card-inner-box .card-box-image + .card-box-body {
+		padding: 5px 15px 15px;
+	}
 	.card-right .client-name {
 		font-size: 1rem;
 	}
-	.testimonialMain {
+	.testimonialPage .testimonialMain {
 		padding: 0px 15px 40px;
 	}
 }
@@ -6507,7 +6519,7 @@ svg#map .hide{
 		width: 100%;
 	}
 	.partner_logo {
-		margin: 0 0px 46px;
+		margin: 0 0px 10px;
 	}
 	.use_tapered {
 		margin-top: 10px;
@@ -6541,8 +6553,11 @@ svg#map .hide{
 		line-height: 45px;
 	}
 	.fitting-wrapper {
-		padding: 53px 0 106px;
+		padding: 15px 0 60px;
     background-position:26% 99%;
+	}
+	.fitting-shart-pants {
+		margin: 60px 0 0;
 	}
 	.order-hold {
 		font-size:16px;
@@ -6558,17 +6573,17 @@ svg#map .hide{
 	}
 	.email-descriptionBox {
 		margin: 30px 0 0;
-		padding: 20px;
+		padding:15px;
 
 	}
 	.fitting-emailSend {
-		margin:40px 0  106px;
+		margin:20px 0  60px;
 	}
 	.minnich .fitted_btn {	
 		font-size: 20px;
 	}
 	section.book_call {
-		margin: 106px 0 106px;
+		margin:60px 0;
 	}
 	.fitting-emailSend-inner .heading-title {
 		width: 100%;
@@ -6603,6 +6618,14 @@ svg#map .hide{
 	.head_topbar {
 		padding-left: 0;
 	}
+	.book_call_form .form_box .form_control {
+		margin: 0 0px 15px;
+	}
+	.book_call .form_control {
+		font-size: 14px;
+		padding: 12px 14px;
+		margin-bottom: 15px;
+	}
 	.top_part .head_topbar li:last-child {
 		margin: 0;
 	}
@@ -6620,6 +6643,6 @@ svg#map .hide{
 		width: 80%;
 	}
 	.state_select img {
-		width: 20px;
+		width:16px;
 	}
 }
